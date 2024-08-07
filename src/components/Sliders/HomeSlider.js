@@ -11,17 +11,17 @@ const HomeSlider = () => {
       };
     return (
         <Slider arrows={false} {...settings}>
-          <div className='w-full h-[200px] bg-green-500 flex justify-center items-center'>
-            <h3 className='text-white text-2xl'>1</h3>
+          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
+            <div className='w-full h-full bg-orange-400 rounded'></div>
           </div>
-          <div className='w-full h-[200px] bg-green-500 flex justify-center items-center'>
-            <h3 className='text-white text-2xl'>2</h3>
+          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
+            <div className='w-full h-full bg-purple-500 rounded'></div>
           </div>
-          <div className='w-full h-[200px] bg-green-500 flex justify-center items-center'>
-            <h3 className='text-white text-2xl'>3</h3>
+          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
+            <div className='w-full h-full bg-green-700 rounded'></div>
           </div>
-          <div className='w-full h-[200px] bg-green-500 flex justify-center items-center'>
-            <h3 className='text-white text-2xl'>4</h3>
+          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
+            <div className='w-full h-full bg-yellow-600 rounded'></div>
           </div>
         </Slider>
       );

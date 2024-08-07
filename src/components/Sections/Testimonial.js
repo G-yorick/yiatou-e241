@@ -4,8 +4,8 @@ import TestimonialSlider from '../Sliders/TestimonialSlider';
 
 const Testimonial = () => {
     return (
-        <div className='py-5 px-3 flex flex-col gap-4 bg-white'>
-            <h2 className='flex items-center gap-3 text-xl font-bold text-gray-500'>Témoignages clients <FaQuoteRight size={40}/></h2>
+        <div className='py-5 flex flex-col gap-4'>
+            <h2 className='flex items-center gap-3 text-xl font-bold text-gray-500 px-3'>Témoignages clients <FaQuoteRight size={40}/></h2>
             <TestimonialSlider/>
         </div>
     );

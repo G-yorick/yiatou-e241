@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 
-const NavItem = ({children,icon = "bi-shop"}) => {
+const NavItem = ({children,to ="/",icon = "bi-shop"}) => {
+
     return (
         <div>
-            <NavLink to="/" className="flex flex-col items-center">
-            <i className={`bi ${icon} text-2xl`}></i>
+            <NavLink to={to} className="flex [&.active]:text-red-600 font-medium text-[13px] flex-col items-center">
+            <i className={`fi ${icon} text-xl`}></i>
                 {children}
             </NavLink>
         </div>

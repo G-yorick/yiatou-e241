@@ -1,10 +1,11 @@
 import Layout from "./Layout";
+import TopBarLayout from "./TopBarLayout";
 
 const PageLayout = ({children,topBar = false,bottomBar = false}) => {
     return (
         <Layout>
             <div>
-                {topBar ? topBar : null}
+                {topBar ? <TopBarLayout>{topBar}</TopBarLayout> : null}
                 {children}
                 {bottomBar ? bottomBar : null}
             </div>
