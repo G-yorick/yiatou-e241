@@ -1,8 +1,8 @@
 const HomePubSection = () => {
     return (
-        <div className="py-6 px-3 bg-orange-200">
-            <h2 className="text-lg font-bold mb-3">Yiatou, c'est simple !</h2>
-            <ul>
+        <div className="py-6 px-3 bg-white">
+            <h2 className="text-lg font-bold mb-3 text-red-600">Yiatou, c'est simple !</h2>
+            <ul className="[&>*]:font-medium [&>*]:text-gray-700">
                 <ol className="flex gap-2 my-2"><span>1.</span>Cliques sur un article</ol>
                 <ol className="flex gap-2 my-2"><span>2.</span>Choisis des critères</ol>
                 <ol className="flex gap-2 my-2"><span>3.</span>Saisis tes coordonnées Whatsapp</ol>
