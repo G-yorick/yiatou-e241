@@ -37,7 +37,7 @@ function ModalImageContent({isProduct = true}) {
         {!isProduct ? 
         <p>Tu gagneras encore</p> : 
         <p className="text-center my-3">
-          Tu gagneras <strong>1,500 FCFA</strong> a chaque foid qu'un de tes amis acheteras cet article a travers ton lien
+          Tu gagneras <strong>1,500 FCFA</strong> à chaque fois qu'un de tes amis achetera cet article avec ton lien.
         </p>
         }
         
