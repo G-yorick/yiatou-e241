@@ -4,7 +4,9 @@ import SmsNotif from "../notifcation/SmsNotif";
 const TopBar = () => {
     return (
         <TopBarLayout>
-            <h1 className="font-black text-red-700 text-2xl">YIATOU</h1>
+            <div className="h-full flex items-center">
+                <img src="/img/logo/logo.png" alt="logo" className="h-[70%]"/>
+            </div>
             <SmsNotif/>
         </TopBarLayout>
     );

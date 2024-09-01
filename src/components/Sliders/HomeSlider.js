@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from "react-slick";
+import { sliders } from '../../utils/utils';
 
 const HomeSlider = () => {
     let settings = {
@@ -11,18 +12,13 @@ const HomeSlider = () => {
       };
     return (
         <Slider arrows={false} {...settings}>
-          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
-            <div className='w-full h-full bg-orange-400 rounded'></div>
-          </div>
-          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
-            <div className='w-full h-full bg-purple-500 rounded'></div>
-          </div>
-          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
-            <div className='w-full h-full bg-green-700 rounded'></div>
-          </div>
-          <div className='w-full h-[200px] p-2 flex justify-center items-center'>
-            <div className='w-full h-full bg-yellow-600 rounded'></div>
-          </div>
+          {sliders.map((img,i) =>{
+            return (
+              <div key={i} className='w-full h-[150px] p-2 flex justify-center items-center'>
+                <img src={img} alt={`slider-${i}`} className='w-full h-full rounded object-cover'/>
+              </div>
+            );
+          })}
         </Slider>
       );
     }

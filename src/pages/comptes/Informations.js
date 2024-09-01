@@ -87,7 +87,7 @@ const Section = ({children}) => {
             <div className="flex flex-col gap-3">
             {children}
             </div>
-            <div className="text-end">
+            <div className="flex justify-center items-end flex-col">
                 <button className="text-gray-600">
                 <i class="fi fi-rr-edit"></i>
                 </button>
