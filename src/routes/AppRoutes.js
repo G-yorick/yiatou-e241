@@ -17,6 +17,8 @@ import Services from "../pages/appPages/Services";
 import Restore from "../pages/auth/Restore";
 import Verify from "../pages/auth/Verify";
 import AddPassword from "../pages/auth/AddPassword";
+import Politique from "../pages/appPages/Politique";
+import Conditions from "../pages/appPages/Conditions";
 
 const AppRoutes = () => {
     return (
@@ -25,7 +27,7 @@ const AppRoutes = () => {
             <Route path="/" element={<Home/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
-            <Route path="/produit-details" element={<ProduitDetails/>}/>
+            <Route path="/produit-details/:id" element={<ProduitDetails/>}/>
             <Route path="/commandes" element={<Commandes/>}/>
             <Route path="/messages" element={<Messages/>}/>
             <Route path="/historique" element={<Historique/>} >
@@ -37,6 +39,8 @@ const AppRoutes = () => {
             <Route path="/informations" element={<Informations/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/services" element={<Services/>}/>
+            <Route path="/conditions" element={<Conditions/>}/>
+            <Route path="/politique" element={<Politique/>}/>
             <Route path="/restore" element={<Restore/>}/>
             <Route path="/verify" element={<Verify/>}/>
             <Route path="/password" element={<AddPassword/>}/>

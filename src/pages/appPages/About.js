@@ -27,8 +27,8 @@ export default function About() {
             <button className="border-2 w-full py-2 border-purple-500 rounded text-purple-500 font-medium">
                 Clique ici pour en savoir plus
             </button>
-            <MoreProduct/>
         </div>
+        <MoreProduct/>
     </PageLayout>
   )
 }

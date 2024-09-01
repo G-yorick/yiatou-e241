@@ -1,6 +1,6 @@
-const Layout = ({ children }) => {
+const Layout = ({ children,className = "" }) => {
   return (
-    <div className="bg-[#f5f5f5] min-h-screen">
+    <div className={`min-h-screen ${className}`}>
       <div className="w-full min-h-screen max-w-[650px] m-auto">
         {children}
       </div>

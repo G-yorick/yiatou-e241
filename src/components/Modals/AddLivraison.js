@@ -1,4 +1,5 @@
 import { LuPenSquare } from "react-icons/lu";
+import ButtonCta from "../Buttons/ButtonCta";
 
 const AddLivraison = ({onCreateLivraison}) => {
     const onCreate = () =>{
@@ -54,12 +55,12 @@ const AddLivraison = ({onCreateLivraison}) => {
         {/* end input */}
       </div>
       {/* fin input conteneur */}
-      <button onClick={onCreate} className="border-2 w-full py-2 rounded text-gray-600 font-medium">
+      <button onClick={onCreate} className="border-2 w-full py-2 rounded-full mb-3 mt-4 text-gray-600 font-medium">
         Ajouter une adresse de livraison
       </button>
-      <button className="w-full py-2 rounded text-white bg-blue-800 mt-20">
+      <ButtonCta>
         Continuer
-      </button>
+      </ButtonCta>
     </div>
   );
 };

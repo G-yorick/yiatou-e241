@@ -2,7 +2,7 @@ import { IoImage } from "react-icons/io5";
 
 export default function HistoriqueItem() {
   return (
-    <div className="bg-white px-3 py-4 my-2">
+    <div className="bg-white px-3 py-5 my-2 rounded">
       <p className="flex justify-between items-center">
         <span className="font-medium">Commande YT-251</span>
         <span className="font-medium text-[13px] text-gray-500">14:26</span>

@@ -4,7 +4,7 @@ import OverflowSliderModel from "../Sliders/OverflowSliderModel";
 const MoreProduct = () => {
     return (
         <div className="py-5 bg-white mt-1">
-            <p className="text-lg font-medium">D'autre articles interessants</p>
+            <p className="text-lg px-3 font-medium">D'autre articles interessants</p>
             <OverflowSliderModel>
             <MoreArticleItem/>
             <MoreArticleItem/>

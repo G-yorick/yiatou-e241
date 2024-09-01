@@ -8,7 +8,7 @@ const LivraisonInfo = ({onOpenLivraison}) => {
                 onOpenLivraison()
             }
         } catch (error) {
-            console.log("onClose n'est pas une fonction.");
+            console.log("onClose doit etre une fonction.");
         }
     }
     return (
@@ -20,12 +20,14 @@ const LivraisonInfo = ({onOpenLivraison}) => {
                     <p className="text-gray-500 font-medium">Beausejour - Libreville - 066612236</p>
                 </div>
                 <div className="flex justify-end items-center">
-                    <Link>
+                    <Link to="/informations">
                         <IoIosArrowForward size={22}/>
                     </Link>
                 </div>
             </div>
-            <button onClick={openModalLivraison} className="bg-gray-200 px-2 py-2 rounded font-medium">Changer l'adresse de livraison</button>
+            <button onClick={openModalLivraison} className="bg-gray-100 px-4 py-2 rounded-xl font-medium">
+                Changer l'adresse de livraison
+            </button>
         </div>
     );
 }

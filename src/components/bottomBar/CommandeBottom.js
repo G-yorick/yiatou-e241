@@ -1,15 +1,14 @@
 import React from 'react';
 import BottomBarLayout from '../../pages/layout/BottomBarLayout';
-import { FaWhatsapp } from 'react-icons/fa6';
+import ButtonWhatsapp from '../Buttons/ButtonWhatsapp';
 
 const CommandeBottom = () => {
     return (
         <BottomBarLayout>
-            <div className='px-3 w-full'>
-                <button className='flex font-medium gap-3 items-center justify-center w-full py-2 px-4 rounded text-white bg-blue-900'>
-                    <FaWhatsapp size={20}/>
-                    <span>Commander sur Whatsapps</span>
-                </button>
+            <div className='px-3 py-3 shadow-xl w-full'>
+                <ButtonWhatsapp>
+                Commander sur Whatsapps
+                </ButtonWhatsapp>
             </div>
         </BottomBarLayout>
     );

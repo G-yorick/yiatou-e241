@@ -18,9 +18,9 @@ const Commandes = () => {
     const onToggleModalCreateLivraison = () =>{
         setModalCreateLivraison(!modalCreateLivraison);
     }
-
+ 
     return (
-        <PageLayout bottomBar={<CommandeBottom/>} topBar={<TopBarWithButtonBack link='/' title="Commandes"/>}>
+        <PageLayout bottomBar={<CommandeBottom/>} topBar={<TopBarWithButtonBack link='/produit-details' title="Commandes"/>}>
             <ModalModel onClose={onToggleModalLivraison} active={modalLivraison} title='Ou doit-on livrer ?'>
                 <AddLivraison onCreateLivraison={onToggleModalCreateLivraison}/>
             </ModalModel>
