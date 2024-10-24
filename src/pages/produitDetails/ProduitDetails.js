@@ -1,8 +1,8 @@
-import { FaUserLock } from "react-icons/fa";
+import { FaUserLock, FaShoppingCart } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import ModalModel from "../../components/Modals/ModalModel";
-import DestinationCommande from "../../components/Sections/DestinationCommande";
+import CoutLivraison from "../../components/Sections/CoutLivraison";
 import DetailsProduct from "../../components/Sections/DetailsProduct";
 import MoreProduct from "../../components/Sections/MoreProduct";
 import SelectProductColor from "../../components/Sections/SelectProductColor";
@@ -11,25 +11,52 @@ import BottomBarLayout from "../layout/BottomBarLayout";
 import ButtonCta from "../../components/Buttons/ButtonCta";
 import { Products, produits } from "../../utils/utils";
 import SliderModel from "../../components/Sliders/SliderModel";
+import DeliveryInfo from "../../components/Sections/DeliveryInfo";
+import Echantillons from "../../components/Sections/Echantillons";
+import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 
 const ProduitDetails = () => {
   const {id} = useParams();
   
     const [modalUserInfo,setModalUserInfo] = useState(false);
+    const [isCityModalOpen, setIsCityModalOpen] = useState(false);
     const product = produits.find((p) => p.id === parseFloat(id));
  
     const toggleModal = () =>{
         setModalUserInfo(!modalUserInfo);
     }
+    const cities = [
+        { name: 'Libreville', price: 2000 },
+        { name: 'Akanda', price: 2500 },
+        { name: 'Owendo', price: 2500 },
+        // Ajoutez d'autres villes selon vos besoins
+    ];
+
     return (
-        <PageLayout bottomBar={<BottomButton toggleModal={toggleModal}/>}>
+        <PageLayout bottomBar={
+          !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
+        }>
             <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">
                 <PersonnalInfo/>
             </ModalModel>
             <HeaderProductDetails product={product}/>
             <DetailsProduct product={product}/>
             <SelectProductColor/>
-            <DestinationCommande/>
+            <DeliveryInfo
+                initialCity="Libreville"
+                initialPrice={2000}
+                currency="FCFA"
+                unit="Kg"
+                startDate={new Date()} // Utilisez la date actuelle ou une date spécifique
+                endDate={new Date(new Date().setDate(new Date().getDate() + 14))} // Date de fin initiale (14 jours après la date de début)
+                daysRange={14}
+                cities={cities}
+                onModalOpen={() => setIsCityModalOpen(true)}
+                onModalClose={() => setIsCityModalOpen(false)}
+            />
+            <Echantillons/>
+            <DeliveryPromises />
+            <CoutLivraison/>
             <MoreProduct/>
         </PageLayout>
     );
@@ -37,20 +64,37 @@ const ProduitDetails = () => {
 
 
 
-const BottomButton = ({toggleModal}) =>{
-  const toggle = () =>{
+const BottomButton = ({toggleModal}) => {
+  const handleOrder = () => {
     try {
       toggleModal();
     } catch (error) {
-      console.log('ToggleModal doit etre une fonction');
-      
+      console.log('ToggleModal doit être une fonction');
     }
   }
+
+  const handleAddToCart = () => {
+    // Implement add to cart functionality here
+    console.log('Produit ajouté au panier');
+  }
+
   return (
     <BottomBarLayout>
-      <div className="shadow-lg w-full mt-1 py-2 px-3">
-      <ButtonCta onClick={toggle} >Je valide</ButtonCta>
-    </div>
+      <div className="shadow-lg w-full mt-1 mb-4 py-2 px-3 flex justify-between gap-2">
+        <ButtonCta 
+          onClick={handleOrder}
+          variant="green"
+          className="flex-1 text-lg font-bold"
+        >
+          Commander
+        </ButtonCta>
+        <ButtonCta 
+          onClick={handleAddToCart}
+          className="flex-1 flex items-center justify-center text-lg font-bold"
+        >
+          Ajoute au panier
+        </ButtonCta>
+      </div>
     </BottomBarLayout>
   );
 }
@@ -77,8 +121,14 @@ const PersonnalInfo = () => {
         </div>
         <input
           type="text"
-          name="name"
-          placeholder="Prenoms"
+          name="lastname"
+          placeholder="Nom"
+          className="border px-2 py-2 rounded w-full"
+        />
+        <input
+          type="text"
+          name="firstname"
+          placeholder="Prenom"
           className="border px-2 py-2 rounded w-full"
         />
         <input

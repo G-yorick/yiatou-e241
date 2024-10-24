@@ -1,13 +1,33 @@
 import React from "react";
-import { FaImage } from "react-icons/fa6";
 
-const SelectVariante = () => {
+const SelectVariante = ({ unsplashId, alt }) => {
+  const handleClick = () => {
+    // Logique de clic à implémenter si nécessaire
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleClick();
+    }
+  };
+
+  // Construire l'URL Unsplash avec l'ID fourni et les paramètres d'optimisation
+  const imageUrl = `https://images.unsplash.com/photo-1688649593308-40dfbb552d00?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`;
+
   return (
-    <button className="w-[60px] rounded shrink-0 h-[60px] relative flex justify-center items-center bg-blue-200 focus:border-2 focus:border-blue-600">
-        <span className="absolute font-medium text-[13px] py-1 px-2 bg-red-200 z-20 rounded-full right-0 top-0 translate-x-[50%] translate-y-[-50%]">
-            x1
-        </span>
-      <FaImage/>
+    <button 
+      className="w-[100px] h-[100px] shrink-0 relative flex justify-center items-center bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 overflow-hidden"
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      aria-label={`Sélectionner la variante ${alt}`}
+      tabIndex="0"
+    >
+      <img 
+        src={imageUrl} 
+        alt={alt} 
+        className="w-full h-full object-cover"
+        loading="lazy"
+      />
     </button>
   );
 };

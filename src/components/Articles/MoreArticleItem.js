@@ -1,14 +1,24 @@
+import React from 'react';
 import { FaImage } from "react-icons/fa";
 
-const MoreArticleItem = () => {
+const MoreArticleItem = ({ imageUrl, price }) => {
     return (
-        <div className="w-[100px] shrink-0 shadow grid grid-rows-[100px_1fr] rounded-lg overflow-hidden">
-            <div className="relative bg-gray-400 flex justify-center items-center">
-                <FaImage className="text-gray-700" size={20}/>
-                <p className="absolute top-0 left-0 rounded-br-lg px-2 bg-red-600 text-white text-[11px] font-medium">-30%</p>
+        <div className=" mb-6 w-[120px] h-[140px] shrink-0 shadow overflow-hidden flex flex-col">
+            <div className="h-[120px] bg-gray-200 flex justify-center items-center">
+                {imageUrl ? (
+                    <img 
+                        src={imageUrl} 
+                        alt="Product" 
+                        className="w-full h-full object-cover"
+                    />
+                ) : (
+                    <FaImage className="text-gray-400" size={24}/>
+                )}
             </div>
-            <div className="px-2 py-1">
-                <p className="text-[13px] font-medium">2,500 cfa</p>
+            <div className="h-[20px] px-2 py-1 bg-white flex items-center justify-center">
+                <p className="text-[14px] font-medium text-start">
+                    {price ? `${price} FCFA` : 'Prix non disponible'}
+                </p>
             </div>
         </div>
     );
