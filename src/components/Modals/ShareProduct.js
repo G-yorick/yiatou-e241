@@ -4,31 +4,36 @@ import React, { useState } from 'react'
 import ModalModel from "./ModalModel";
 import ButtonCta from "../Buttons/ButtonCta";
 
-export default function ShareProduct({toggleActiveShare,activeShare,product = null,isProduct = true}) {
-  console.log('depuis produit');
-  console.log(product);
-  console.log('depuis produit');
-  
-    const toggleModal = () =>{
-        try {
-            toggleActiveShare();
-        } catch (error) {
-            console.log("toggleActiveShare doit etre une fonction");
-        }
+export default function ShareProduct({toggleActiveShare, activeShare, product = null, isProduct = true}) {
+  const toggleModal = () => {
+    try {
+      toggleActiveShare();
+    } catch (error) {
+      console.log("toggleActiveShare doit être une fonction");
     }
+  }
+
   return (
-    <ModalModel onClose={toggleModal} topContent={isProduct ? <ProductImage image={product?.image[0]}/> : null} icon={<IconMoney/>} title="Partage et gagne" active={activeShare}>
-        <ModalImageContent isProduct={isProduct}/>
+    <ModalModel 
+      onClose={toggleModal} 
+      topContent={isProduct ? <ProductImage image={product?.image[0]}/> : null} 
+      icon={<IconMoney/>} 
+      title="Partage et gagne" 
+      active={activeShare}
+    >
+      <ModalImageContent isProduct={isProduct}/>
     </ModalModel>
   )
 }
 
 function ProductImage({image = ""}) {
-    return (
-      <div className="w-[130px] mb-4 h-[130px] bg-white rounded overflow-hidden flex justify-center items-center">
+  return (
+    <div className="w-full h-[50em] bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="w-[150px] h-[150px] bg-white rounded-lg overflow-hidden flex justify-center items-center mt-96">
         <img src={image} alt="product share" className="w-full h-full object-cover"/>
       </div>
-    );
+    </div>
+  );
 }
 
 function ModalImageContent({isProduct = true}) {
