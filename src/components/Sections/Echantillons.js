@@ -20,14 +20,14 @@ const Echantillons = ({ sampleText, samplePrice, sampleCommission, onOrder }) =>
 
   return (
     <div className="bg-white p-4 border border-t-4 border-gray-300">
-      <h3 className="font-medium text-lg">
-        Échantillons <span className="text-sm font-normal text-gray-400">
+      <h3 className="font-medium text-md">
+        Échantillons <span className="text-xs font-normal text-gray-400">
           (Livraison en -2h sur LBV) 
           <FaChevronRight className="inline-block ml-20 text-xl" />
           {sampleText && `, ${sampleText}`}
         </span>
       </h3>
-      <p className="text-md mb-0">
+      <p className="text-sm mb-0">
         <span className="font-medium text-gray-400">
           {typeof samplePrice === 'number' ? samplePrice.toLocaleString() : samplePrice}11.300 FCFA 
           <span className='text-gray-400 text-sm'>  / pièce</span>

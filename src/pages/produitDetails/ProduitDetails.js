@@ -80,7 +80,7 @@ const BottomButton = ({toggleModal}) => {
 
   return (
     <BottomBarLayout>
-      <div className="shadow-lg w-full mt-1 mb-4 py-2 px-3 flex justify-between gap-2">
+      <div className="shadow-lg w-full mt-1 py-2 px-3 flex justify-between gap-2">
         <ButtonCta 
           onClick={handleOrder}
           variant="green"

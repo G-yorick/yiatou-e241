@@ -12,24 +12,27 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
     ];
 
     return (
-        <div className="py-5 px-3 bg-white border border-b-4 border-gray-200">
-            {/* Lance ton Business section */}
+        <div className="py-2 px-4 bg-white border border-b-4 border-gray-200">
             <div className="mt-0">
-                <h2 className="text-xl font-bold mb-4">Lance ton Business</h2>
-                <div className="space-y-3">
-                    {businessItems.map((item, index) => (
-                        <div key={index} className={`flex items-center ${index === businessItems.length - 1 ? 'font-bold' : ''}`}>
-                            <div className="w-5 h-5 mr-3 text-gray-600 flex-shrink-0">
-                                <item.icon className="w-full h-full" />
-                                {item.label === "Prix de vente" && (
-                                    <FiTrendingUp className="w-3 h-3 absolute -mt-3 ml-2 text-green-500" />
-                                )}
-                            </div>
-                            <span className="text-gray-700 w-32">{item.label}{item.label !== "Bénéfice" ? " :" : ""}</span>
-                            <span className="text-gray-700">{item.value}</span>
-                        </div>
-                    ))}
-                </div>
+                <h2 className="text-md font-medium mb-2">Lance ton Business</h2>
+                <table className="w-full text-sm">
+                    <tbody>
+                        {businessItems.map((item, index) => (
+                            <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} ${index === businessItems.length - 1 ? 'font-semibold' : ''}`}>
+                                <td className="py-2 pl-2 pr-4 border-b border-gray-200">
+                                    <div className="w-4 h-4 text-gray-500 flex-shrink-0">
+                                        <item.icon className="w-full h-full" />
+                                        {item.label === "Prix de vente" && (
+                                            <FiTrendingUp className="w-2 h-2 absolute -mt-2 ml-2 text-green-500" />
+                                        )}
+                                    </div>
+                                </td>
+                                <td className="py-2 pr-4 border-b border-gray-200 text-gray-600">{item.label}{item.label !== "Bénéfice" ? " :" : ""}</td>
+                                <td className="py-2 pr-2 border-b border-gray-200 text-gray-700">{item.value}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );

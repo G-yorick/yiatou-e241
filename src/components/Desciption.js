@@ -18,7 +18,7 @@ export default function Desciption({texte,max = 100}) {
           {more ? texte : textArray}
           {texte.length > max ? <button onClick={onSeeMore}>
           <span className="flex items-start font-medium">
-            {more ? '...voir moins' : '...voir plus'}
+            {more ? '...' : '...'}
             <i className={`fi fi-rr-angle-small-down flex text-3xl ${more ? 'rotate-[180deg]' : 'rotate-0'}`}></i>
           </span>
         </button> : null}

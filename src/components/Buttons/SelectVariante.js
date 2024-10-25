@@ -16,7 +16,7 @@ const SelectVariante = ({ unsplashId, alt }) => {
 
   return (
     <button 
-      className="w-[100px] h-[100px] shrink-0 relative flex justify-center items-center bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 overflow-hidden"
+      className="w-[60px] h-[60px] shrink-0 relative flex justify-center items-center bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 overflow-hidden"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       aria-label={`Sélectionner la variante ${alt}`}

@@ -3,6 +3,7 @@ import {FaFacebookMessenger, FaInstagram} from "react-icons/fa";
 import React, { useState } from 'react'
 import ModalModel from "./ModalModel";
 import ButtonCta from "../Buttons/ButtonCta";
+import Login from "../../pages/auth/Login";
 
 export default function ShareProduct({toggleActiveShare, activeShare, product = null, isProduct = true}) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -42,7 +43,7 @@ export default function ShareProduct({toggleActiveShare, activeShare, product = 
 function ProductImage({image = ""}) { 
   return (
     <div className="w-full h-[50em] bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="w-[150px] h-[150px] bg-white rounded-lg overflow-hidden flex justify-center items-center mt-96">
+      <div className="w-[150px] h-[150px] bg-white rounded-lg overflow-hidden flex justify-center items-center mt-[600px]">
         <img src={image} alt="product share" className="w-full h-full object-cover"/>
       </div>
     </div>
@@ -89,19 +90,19 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
         <div className="flex gap-3 justify-between mt-10">
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('WhatsApp')}>
             <IoLogoWhatsapp color="#25D366" size={30}/>
-            <p className="font-medium text-gray-700">WhatsApp</p>
+            <p className="text-sm text-gray-500">WhatsApp</p>
           </div>
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Facebook')}>
             <IoLogoFacebook color="#1877F2" size={30}/>
-            <p className="font-medium text-gray-700">Facebook</p>
+            <p className="text-sm text-gray-500">Facebook</p>
           </div>
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Messenger')}>
             <FaFacebookMessenger color="#00B2FF" size={30}/>
-            <p className="font-medium text-gray-700">Messenger</p>
+            <p className="text-sm text-gray-500">Messenger</p>
           </div>
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Instagram')}>
             <FaInstagram color="#E4405F" size={30}/>
-            <p className="font-medium text-gray-700">Instagram</p>
+            <p className="text-sm text-gray-500">Instagram</p>
           </div>
         </div>
         <div className="mt-10">
@@ -138,21 +139,7 @@ function LoginModal({ onClose, onLogin }) {
 
     return (
         <ModalModel onClose={onClose} icon={<IconUser />} title="Connexion" active={true}>
-            <div className="px-3 py-5">
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
-                    </div>
-                    <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">Mot de passe</label>
-                        <input type="password" id="password" name="password" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />
-                    </div>
-                    <ButtonCta type="submit">
-                        Se connecter
-                    </ButtonCta>
-                </form>
-            </div>
+            <Login/>
         </ModalModel>
     );
 }

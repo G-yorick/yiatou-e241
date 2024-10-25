@@ -1,9 +1,9 @@
-const OverflowSliderModel = ({children}) => {
-    return (
-        <div className="flex px-3 hidden-scroll py-6 flex-nowrap gap-6 overflow-x-scroll">
-            {children}
-        </div>
-    );
-}
+const OverflowSliderModel = ({ children }) => {
+  return (
+    <div className="flex px-3 overflow-x-auto flex-nowrap gap-6 scrollbar-hide">
+      {children}
+    </div>
+  );
+};
 
 export default OverflowSliderModel;

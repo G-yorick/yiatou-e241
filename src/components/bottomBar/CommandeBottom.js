@@ -7,7 +7,7 @@ const CommandeBottom = () => {
         <BottomBarLayout>
             <div className='px-3 py-3 shadow-xl w-full'>
                 <ButtonWhatsapp>
-                Commander sur Whatsapps
+                Commander sur WhatsApp
                 </ButtonWhatsapp>
             </div>
         </BottomBarLayout>

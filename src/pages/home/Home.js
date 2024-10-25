@@ -28,7 +28,7 @@ const Home = () => {
     <PageLayout bottomBar={<BottomBar />} topBar={<TopBar />}>
       <ShareProduct product={product} toggleActiveShare={toggleActiveShare} activeShare={activeShare}/>
       <HomeSlider />
-      <div className="-top-2 flex relative gap-3 bg-orange-200 w-full">
+      <div className="mx-2 flex relative gap-3 bg-orange-200 rounded-tl-lg rounded-tr-lg overflow-hidden">
         <ButtonHome data="entre 10 - 14 jours" icon={<MdDirectionsCar />}>
           Livraison rapide
         </ButtonHome>
@@ -37,13 +37,10 @@ const Home = () => {
           Service client
         </ButtonHome>
       </div>
-      <div className="flex relative bg-orange-200 mx-3">
-        
-      </div>
       <Promises/>
       <SampleSection />
-      <h2 className="px-3 py-2 text-xl font-base">Les plus achetés</h2>
-      <div className="grid grid-cols-2 gap-2 mt-4">
+      <h2 className="px-3 py-1 text-md">Les plus achetés</h2>
+      <div className="mx-2 grid grid-cols-2 gap-2">
         {produits.map((produit, i) => (
           <Article key={i} product={produit} share={() => toggleActiveShare(produit)} />
         ))}

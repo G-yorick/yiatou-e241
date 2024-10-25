@@ -36,10 +36,10 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
 
   return (
     <div className="p-4 bg-gray-50 rounded-lg">
-      <h3 className="font-medium text-lg text-gray-900 flex items-center">
+      <h3 className="font-medium text-md text-gray-900 flex items-center">
         Livraison à{' '}
         <button
-          className="text-sm text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded ml-1"
+          className="text-md text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded ml-1"
           onClick={handleOpenModal}
           onKeyDown={handleKeyDown}
           tabIndex={0}
@@ -48,10 +48,10 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
           {city}
         </button>
       </h3>
-      <p className="mt-2 text-gray-600">
+      <p className="mt-2 text-gray-600 text-sm">
         Prix: <span className="font-base">{formatCurrency(price, currency)}/{unit}</span>
       </p>
-      <p className="mt-1 text-gray-600">
+      <p className="mt-1 text-gray-600 text-sm">
         Délais: <span className="font-base">{formatDateRange(startDate, newEndDate)}</span> (10 - {deliveryDays} jours)
       </p>
       <p className="mt-2 text-xs text-black font-medium">

@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/styles/custom.css",
   ],
   theme: {
     extend: {
@@ -22,12 +23,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-      scrollbar: ['rounded']
-    },
+    scrollbar: ['rounded']
   },
   plugins: [
-    require('daisyui'),
     require('tailwind-scrollbar-hide')
   ],
   daisyui: {
@@ -37,5 +35,8 @@ module.exports = {
         },
       },
     ]
-  }
+  },
+  corePlugins: {
+    // ... autres core plugins
+  },
 }
