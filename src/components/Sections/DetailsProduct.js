@@ -33,10 +33,6 @@ const DetailsProduct = ({product}) => {
             </div>
         </div>
         <div className="px-3 py-5 pt-4 flex flex-col gap-3">
-                <p className="font-medium text-lg flex gap-3 items-center">
-                    <span>Description</span>
-                    <span className="text-sm text-gray-400">(35 Vendus)</span>
-                </p>
                 <p className="text-gray-600 mb-3 text-justify text-sm">
                     <Desciption texte={product.description}/>
                 </p>

@@ -1,4 +1,4 @@
-import { FaUserLock, FaShoppingCart } from "react-icons/fa";
+import { FaUserLock } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import ModalModel from "../../components/Modals/ModalModel";

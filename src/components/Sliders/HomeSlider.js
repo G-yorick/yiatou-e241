@@ -9,20 +9,18 @@ const HomeSlider = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-      };
+    };
     return (
-        <Slider arrows={false} {...settings}>
-          {sliders.map((img,i) =>{
+        <Slider arrows={false} {...settings} className="w-full mt-10">
+          {sliders.map((img, i) => {
             return (
-              <div key={i} className='w-full h-[150px] p-2 flex justify-center items-center'>
-                <img src={img} alt={`slider-${i}`} className='w-full h-full rounded object-cover'/>
+              <div key={i} className='w-full h-[150px] flex justify-center items-center'>
+                <img src={img} alt={`slider-${i}`} className='w-full h-full object-cover'/>
               </div>
             );
           })}
         </Slider>
-      );
-    }
+    );
+}
 
 export default HomeSlider;
-
-  

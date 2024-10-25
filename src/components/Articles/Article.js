@@ -1,43 +1,51 @@
 import { Link } from "react-router-dom";
 import { Products } from "../../utils/utils";
+
 /**
  * 
- * @param {{share : Function,product : Products}} param0 
+ * @param {{share : Function, product : Products}} param0 
  * @returns 
  */
-const Article = ({share = null,product}) => {
-  let text = product.description.split("");
-  text.length = 19;
-  const onShare = () =>{
-    try {
+const Article = ({ share = null, product }) => {
+  const handleShare = () => {
+    if (typeof share === 'function') {
       share();
-    } catch (error) {
-      console.log('pas une fonction');
+    } else {
+      console.log('share n\'est pas une fonction');
     }
-  }
-    return (
-        <div className="w-full bg-white rounded-xl relative overflow-hidden">
-              <div className="absolute left-0 top-0 px-4 bg-red-600 rounded-tl rounded-br-2xl text-white font-medium">
-                <span className="text-[11px]">-30%</span>
-              </div>
-              <Link to={`/produit-details/${product.id}`}>
-              <img
-                class="max-h-[160px] w-full object-cover"
-                src={product.image[0]}
-                alt=""
-              />
-              </Link>
-              <div className="py-1 px-3">
-                <Link to={`/produit-details/${product.id}`} className="text-gray-600 w-full block text-[13px]">{text.join("")}...</Link>
-                <p className="flex justify-between items-center py-2">
-                  <strong className=" w-full"><Link to={`/produit-details/${product.id}`} className="w-full inline-block">{product.prix.toLocaleString()} FCFA</Link></strong>
-                  <button className="bg-gray-100 px-[6px] py-[5px] flex justify-center items-center rounded-full" onClick={onShare}>
-                  <i class="fi fi-rr-refer-arrow flex"></i>
-                    </button>
-                  </p>
-              </div>
+  };
+
+  return (
+    <div className="w-full bg-white rounded-xl relative overflow-hidden">
+      <Link to={`/produit-details/${product.id}`} className="block">
+        <img
+          className="max-h-[160px] w-full object-cover"
+          src={product.image[0]}
+          alt={product.name}
+        />
+      </Link>
+      <div className="p-3">
+        <Link to={`/produit-details/${product.id}`} className="text-gray-800 font-semibold text-sm block mb-2">
+          {product.name}
+        </Link>
+        <p className="text-gray-900 font-bold text-lg mb-2">
+          {product.prix.toLocaleString()} FCFA
+        </p>
+        <div className="flex justify-between items-center mb-2">
+          <p className="text-gray-600 text-xs">
+            {product.sampleAvailable ? "Échantillon dispo" : `Achat min: ${product.minPurchase} pièces`}
+          </p>
+          <button 
+            className="bg-gray-100 p-2 rounded-full"
+            onClick={handleShare}
+            aria-label="Partager"
+          >
+            <i className="fi fi-rr-refer-arrow flex"></i>
+          </button>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Article;

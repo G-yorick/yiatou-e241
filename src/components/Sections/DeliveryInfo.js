@@ -52,7 +52,7 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
         Prix: <span className="font-base">{formatCurrency(price, currency)}/{unit}</span>
       </p>
       <p className="mt-1 text-gray-600">
-        Délais: <span className="font-base">{formatDateRange(startDate, newEndDate)}</span> ({deliveryDays} jours)
+        Délais: <span className="font-base">{formatDateRange(startDate, newEndDate)}</span> (10 - {deliveryDays} jours)
       </p>
       <p className="mt-2 text-xs text-black font-medium">
         (Paiement du transport à la livraison)

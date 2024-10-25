@@ -21,8 +21,14 @@ module.exports = {
       }
     },
   },
+  variants: {
+    extend: {
+      scrollbar: ['rounded']
+    },
+  },
   plugins: [
-    require('daisyui')
+    require('daisyui'),
+    require('tailwind-scrollbar-hide')
   ],
   daisyui: {
     themes: [

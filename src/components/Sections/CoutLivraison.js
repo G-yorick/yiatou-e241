@@ -1,14 +1,14 @@
 import React from 'react';
-import { FiTag, FiDollarSign, FiTrendingUp } from 'react-icons/fi';
-import { FaPlane } from 'react-icons/fa';
+import { FiTag, FiTrendingUp } from 'react-icons/fi';
+import { FaPlane, FaMoneyBillWave, FaCalculator } from 'react-icons/fa';
 
 const CoutLivraison = ({ numberOfPieces = 20 }) => {
     const businessItems = [
         { label: "Prix d'achat", value: `14,000 FCFA (${numberOfPieces} pièces)`, icon: FiTag },
         { label: "Transport", value: "7,500 FCFA /Kg", icon: FaPlane },
-        { label: "Prix de revient", value: "1,075 FCFA /1", icon: FiDollarSign },
+        { label: "Prix de revient", value: "1,075 FCFA /1", icon: FaCalculator },
         { label: "Prix de vente", value: "2,500 FCFA /1", icon: FiTrendingUp },
-        { label: "Bénéfice", value: "3,000 FCFA", icon: FiTrendingUp },
+        { label: "Bénéfice", value: `1,425 x ${numberOfPieces} = 28,500 FCFA`, icon: FaMoneyBillWave },
     ];
 
     return (
@@ -25,7 +25,7 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
                                     <FiTrendingUp className="w-3 h-3 absolute -mt-3 ml-2 text-green-500" />
                                 )}
                             </div>
-                            <span className="text-gray-700 w-32">{item.label} :</span>
+                            <span className="text-gray-700 w-32">{item.label}{item.label !== "Bénéfice" ? " :" : ""}</span>
                             <span className="text-gray-700">{item.value}</span>
                         </div>
                     ))}

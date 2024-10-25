@@ -12,7 +12,7 @@ const MoreProduct = () => {
 
     return (
         <div className="p-4">
-            <h2 className="font-medium text-lg mb-3">D'autres articles interessants</h2>
+            <h2 className="font-medium text-lg mb-3">D'autres articles intéressants</h2>
             <div className="flex space-x-4 overflow-x-auto">
                 {products.map(product => (
                     <MoreArticleItem 

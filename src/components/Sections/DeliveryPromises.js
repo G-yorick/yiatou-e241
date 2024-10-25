@@ -11,7 +11,7 @@ const DeliveryPromises = () => {
 
   return (
     <div className="bg-white p-4 border border-t-4 border-b-4 border-gray-300">
-      <h3 className="font-medium text-lg mb-3">Nos promesses de livraison</h3>
+      <h3 className="font-medium text-lg mb-3">Promesses de livraison</h3>
       <div className="grid grid-cols-2 gap-4">
         {promises.map((promise, index) => (
           <div key={index} className="flex items-center">

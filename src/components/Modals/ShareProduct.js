@@ -5,6 +5,9 @@ import ModalModel from "./ModalModel";
 import ButtonCta from "../Buttons/ButtonCta";
 
 export default function ShareProduct({toggleActiveShare, activeShare, product = null, isProduct = true}) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
   const toggleModal = () => {
     try {
       toggleActiveShare();
@@ -12,6 +15,15 @@ export default function ShareProduct({toggleActiveShare, activeShare, product = 
       console.log("toggleActiveShare doit être une fonction");
     }
   }
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    setShowLoginModal(false);
+  }
+
+  const toggleLoginModal = () => {
+    setShowLoginModal(!showLoginModal);
+  };
 
   return (
     <ModalModel 
@@ -21,12 +33,13 @@ export default function ShareProduct({toggleActiveShare, activeShare, product = 
       title="Partage et gagne" 
       active={activeShare}
     >
-      <ModalImageContent isProduct={isProduct}/>
+      <ModalImageContent isProduct={isProduct} isLoggedIn={isLoggedIn} toggleLoginModal={toggleLoginModal} />
+      {showLoginModal && <LoginModal onClose={toggleLoginModal} onLogin={handleLogin} />}
     </ModalModel>
   )
 }
 
-function ProductImage({image = ""}) {
+function ProductImage({image = ""}) { 
   return (
     <div className="w-full h-[50em] bg-black bg-opacity-50 flex justify-center items-center">
       <div className="w-[150px] h-[150px] bg-white rounded-lg overflow-hidden flex justify-center items-center mt-96">
@@ -36,16 +49,29 @@ function ProductImage({image = ""}) {
   );
 }
 
-function ModalImageContent({isProduct = true}) {
+function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
     const [showFAQ, setShowFAQ] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(false);
 
     const toggleFAQ = () => {
         setShowFAQ(!showFAQ);
     };
 
-    const toggleLoginModal = () => {
-        setShowLoginModal(!showLoginModal);
+    const handleShare = (platform) => {
+        if (!isLoggedIn) {
+            alert("Tu ne gagneras pas 1,000 FCFA de commission, car tu n'es pas connecté");
+        } else {
+            // Implement sharing logic here
+            console.log(`Sharing on ${platform}`);
+        }
+    };
+
+    const handleCopyLink = () => {
+        if (!isLoggedIn) {
+            alert("Tu ne gagneras pas 1,000 FCFA de commission, car tu n'es pas connecté");
+        } else {
+            // Implement copy link logic here
+            console.log("Link copied");
+        }
     };
 
     return (
@@ -61,33 +87,36 @@ function ModalImageContent({isProduct = true}) {
         }
         
         <div className="flex gap-3 justify-between mt-10">
-          <div className="flex flex-col gap-1 justify-center items-center">
+          <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('WhatsApp')}>
             <IoLogoWhatsapp color="#25D366" size={30}/>
             <p className="font-medium text-gray-700">WhatsApp</p>
           </div>
-          <div className="flex flex-col gap-1 justify-center items-center">
+          <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Facebook')}>
             <IoLogoFacebook color="#1877F2" size={30}/>
             <p className="font-medium text-gray-700">Facebook</p>
           </div>
-          <div className="flex flex-col gap-1 justify-center items-center">
+          <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Messenger')}>
             <FaFacebookMessenger color="#00B2FF" size={30}/>
             <p className="font-medium text-gray-700">Messenger</p>
           </div>
-          <div className="flex flex-col gap-1 justify-center items-center">
+          <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Instagram')}>
             <FaInstagram color="#E4405F" size={30}/>
             <p className="font-medium text-gray-700">Instagram</p>
           </div>
         </div>
         <div className="mt-10">
-          <button className="text-lg rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-gray-400">
+          <button 
+            className="text-lg rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-gray-400"
+            onClick={handleCopyLink}
+          >
             Copier le lien
           </button>
         </div>
-        <ButtonCta onClick={toggleLoginModal}>
-          Connexion
-        </ButtonCta>
-        
-        {showLoginModal && <LoginModal onClose={toggleLoginModal} />}
+        {!isLoggedIn && (
+          <ButtonCta onClick={toggleLoginModal}>
+            Connexion
+          </ButtonCta>
+        )}
       </div>
     );
 }
@@ -100,11 +129,17 @@ function IconMoney() {
     )
 }
 
-function LoginModal({ onClose }) {
+function LoginModal({ onClose, onLogin }) {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Implement login logic here
+        onLogin();
+    };
+
     return (
         <ModalModel onClose={onClose} icon={<IconUser />} title="Connexion" active={true}>
             <div className="px-3 py-5">
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
                         <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" />

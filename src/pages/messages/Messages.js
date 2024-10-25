@@ -4,7 +4,7 @@ import PageLayout from "../layout/PageLayout";
 
 const Messages = () => {
     return (
-        <PageLayout topBar={<TopBarWithButtonBack link="/" title="Messageri"/>}>
+        <PageLayout topBar={<TopBarWithButtonBack link="/" title="Messagerie"/>}>
             <div className="px-3 py-4 min-h-[90vh] bg-white h-full">
                 <p className="text-center mt-3 mb-5 text-gray-500 font-medium">Ajourd'hui</p>
                 <div className="flex flex-col gap-4">
