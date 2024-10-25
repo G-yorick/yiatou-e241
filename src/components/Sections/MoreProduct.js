@@ -12,8 +12,8 @@ const MoreProduct = () => {
 
     return (
         <div className="p-4">
-            <h2 className="font-medium text-lg mb-3">D'autres articles intéressants</h2>
-            <div className="flex space-x-4 overflow-x-auto">
+            <h2 className="font-medium text-mb mb-3">D'autres articles intéressants</h2>
+            <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
                 {products.map(product => (
                     <MoreArticleItem 
                         key={product.id}
