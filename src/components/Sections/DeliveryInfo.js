@@ -39,13 +39,27 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
       <h3 className="font-medium text-md text-gray-900 flex items-center">
         Livraison à{' '}
         <button
-          className="text-md text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded ml-1"
+          className="text-md text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded ml-1 flex items-center"
           onClick={handleOpenModal}
           onKeyDown={handleKeyDown}
           tabIndex={0}
           aria-label="Sélectionner une ville"
         >
           {city}
+          <svg
+            className="w-4 h-4 ml-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
         </button>
       </h3>
       <p className="mt-2 text-gray-600 text-sm">

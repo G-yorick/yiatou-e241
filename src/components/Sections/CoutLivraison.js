@@ -15,20 +15,28 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
         <div className="py-2 px-4 bg-white border border-b-4 border-gray-200">
             <div className="mt-0">
                 <h2 className="text-md font-medium mb-2">Lance ton Business</h2>
-                <table className="w-full text-sm">
+                <table className="w-full text-sm border-collapse border border-gray-300">
                     <tbody>
                         {businessItems.map((item, index) => (
-                            <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} ${index === businessItems.length - 1 ? 'font-semibold' : ''}`}>
-                                <td className="py-2 pl-2 pr-4 border-b border-gray-200">
-                                    <div className="w-4 h-4 text-gray-500 flex-shrink-0">
-                                        <item.icon className="w-full h-full" />
-                                        {item.label === "Prix de vente" && (
-                                            <FiTrendingUp className="w-2 h-2 absolute -mt-2 ml-2 text-green-500" />
-                                        )}
+                            <tr 
+                                key={index} 
+                                className={`
+                                    ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
+                                    ${index === businessItems.length - 1 ? 'font-semibold bg-green-100' : ''}
+                                `}
+                            >
+                                <td className="py-2 pl-2 pr-4 border border-gray-300">
+                                    <div className="flex items-center">
+                                        <div className="w-4 h-4 text-gray-500 flex-shrink-0 mr-2">
+                                            <item.icon className="w-full h-full" />
+                                            {item.label === "Prix de vente" && (
+                                                <FiTrendingUp className="w-2 h-2 absolute -mt-2 ml-2 text-green-500" />
+                                            )}
+                                        </div>
+                                        <span className="text-gray-600">{item.label}</span>
                                     </div>
                                 </td>
-                                <td className="py-2 pr-4 border-b border-gray-200 text-gray-600">{item.label}{item.label !== "Bénéfice" ? " :" : ""}</td>
-                                <td className="py-2 pr-2 border-b border-gray-200 text-gray-700">{item.value}</td>
+                                <td className="py-2 pr-2 border border-gray-300 text-gray-700">{item.value}</td>
                             </tr>
                         ))}
                     </tbody>

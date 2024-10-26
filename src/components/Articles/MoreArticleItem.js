@@ -15,7 +15,7 @@ const MoreArticleItem = ({ imageUrl, price }) => {
                     <FaImage className="text-gray-400" size={24}/>
                 )}
             </div>
-            <div className="h-[20px] px-2 py-1 bg-white flex items-center justify-center">
+            <div className="h-[20px] px-2 py-1 bg-white flex items-center">
                 <p className="text-[14px] font-medium text-start">
                     {price ? `${price} FCFA` : 'Prix non disponible'}
                 </p>

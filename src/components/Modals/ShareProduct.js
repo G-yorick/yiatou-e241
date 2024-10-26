@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import ModalModel from "./ModalModel";
 import ButtonCta from "../Buttons/ButtonCta";
 import Login from "../../pages/auth/Login";
+import FAQ from '../FAQ/FAQ';
 
 export default function ShareProduct({toggleActiveShare, activeShare, product = null, isProduct = true}) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,7 +44,7 @@ export default function ShareProduct({toggleActiveShare, activeShare, product = 
 function ProductImage({image = ""}) { 
   return (
     <div className="w-full h-[50em] bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="w-[150px] h-[150px] bg-white rounded-lg overflow-hidden flex justify-center items-center mt-[600px]">
+      <div className="w-[150px] h-[150px] bg-white rounded-lg overflow-hidden flex justify-center items-center mt-[630px]">
         <img src={image} alt="product share" className="w-full h-full object-cover"/>
       </div>
     </div>
@@ -81,27 +82,34 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
         <p>Tu gagneras encore</p> : 
         <p className="text-center my-3 text-sm relative">
           Tu gagneras <strong>+1,500 FCFA</strong> à chaque fois qu'un de tes amis achetera cet article avec ton lien.
-          <span className="inline-block align-middle ml-1 bg-white rounded-full p-1 cursor-pointer" onClick={toggleFAQ}>
+          <button 
+            className="inline-block align-middle ml-1 bg-white rounded-full p-1 cursor-pointer hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+            onClick={toggleFAQ}
+            aria-label="Afficher ou masquer la FAQ"
+            aria-expanded={showFAQ}
+          >
             <i className="fi fi-rr-info text-red-500 text-sm"></i>
-          </span>
+          </button>
         </p>
         }
         
+        {showFAQ && <FAQ onClose={toggleFAQ} />}
+        
         <div className="flex gap-3 justify-between mt-10">
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('WhatsApp')}>
-            <IoLogoWhatsapp color="#25D366" size={30}/>
+            <IoLogoWhatsapp color="#25D366" size={50}/>
             <p className="text-sm text-gray-500">WhatsApp</p>
           </div>
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Facebook')}>
-            <IoLogoFacebook color="#1877F2" size={30}/>
+            <IoLogoFacebook color="#1877F2" size={50}/>
             <p className="text-sm text-gray-500">Facebook</p>
           </div>
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Messenger')}>
-            <FaFacebookMessenger color="#00B2FF" size={30}/>
+            <FaFacebookMessenger color="#00B2FF" size={50}/>
             <p className="text-sm text-gray-500">Messenger</p>
           </div>
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Instagram')}>
-            <FaInstagram color="#E4405F" size={30}/>
+            <FaInstagram color="#E4405F" size={50}/>
             <p className="text-sm text-gray-500">Instagram</p>
           </div>
         </div>

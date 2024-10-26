@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ShareProduct from "../Modals/ShareProduct";
 import Desciption from "../Desciption";
 import React from 'react';
@@ -9,10 +9,23 @@ import React from 'react';
  * @returns 
  */
 const DetailsProduct = ({product}) => {
-    const [activeModal,setActiveModal] = useState(false);
-    const toggleModal = () =>{
+    const [activeModal, setActiveModal] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const totalImages = product.image.length;
+
+    const toggleModal = () => {
         setActiveModal(!activeModal);
     }
+
+    const nextImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % totalImages);
+    }
+
+    useEffect(() => {
+        const intervalId = setInterval(nextImage, 5000);
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (
         <>
         <ShareProduct product={product} toggleActiveShare={toggleModal} activeShare={activeModal}/>
@@ -36,10 +49,13 @@ const DetailsProduct = ({product}) => {
                 <p className="text-gray-600 mb-3 text-justify text-sm">
                     <Desciption texte={product.description}/>
                 </p>
-                <button onClick={toggleModal} className="flex justify-center items-center gap-5 py-3 rounded bg-red-200 text-gray-900 border-dashed border-2 border-red-500">
-                <span className="font-medium">Partages pour gagner <strong>{product.prix.toLocaleString()} FCFA</strong></span>
-                <i className="fi fi-br-refer-arrow"></i>
-            </button>
+                <button 
+                    onClick={toggleModal} 
+                    className="flex justify-center items-center gap-5 py-3 rounded bg-red-200 text-gray-900 border-dashed border-2 border-red-500"
+                >
+                    <span className="font-medium">Partages pour gagner <strong>{product.prix.toLocaleString()} FCFA</strong></span>
+                    <i className="fi fi-br-refer-arrow"></i>
+                </button>
         </div>
         </>
     );
