@@ -1,5 +1,25 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Products } from "../../utils/utils";
+
+const useTextAnimation = (texts, interval) => {
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIsVisible(false);
+      setTimeout(() => {
+        setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+        setIsVisible(true);
+      }, 300); // Delay for fade-out effect
+    }, interval);
+
+    return () => clearInterval(intervalId);
+  }, [texts, interval]);
+
+  return { currentText: texts[currentTextIndex], isVisible };
+};
 
 /**
  * 
@@ -14,6 +34,11 @@ const Article = ({ share = null, product }) => {
       console.log('share n\'est pas une fonction');
     }
   };
+
+  const { currentText, isVisible } = useTextAnimation(
+    ["Échantillon dispo", "Livraison dispo"],
+    3000
+  );
 
   return (
     <div className="w-full bg-white rounded-lg shadow-sm overflow-hidden">
@@ -35,11 +60,17 @@ const Article = ({ share = null, product }) => {
           {product.prix.toLocaleString()} FCFA
         </p>
         <div className="flex justify-between items-center">
-          <p className={`text-[10px] leading-tight ${product.sampleAvailable ? 'text-green-600' : 'text-gray-600'}`}>
-            {product.sampleAvailable ? "Échantillon dispo" : `Achat min: ${product.minPurchase} pièces`}
-          </p>
+          {product.sampleAvailable ? (
+            <p className={`text-[13px] leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+              {currentText}
+            </p>
+          ) : (
+            <p className="text-[13px] leading-tight text-gray-600">
+              Achat min: {product.minPurchase} pièces
+            </p>
+          )}
           <button 
-            className="bg-gray-100 p-1 rounded-full"
+            className="bg-gray-100 p-2 rounded-full transition-transform duration-300 ease-in-out hover:rotate-180 focus:rotate-180"
             onClick={handleShare}
             aria-label="Partager"
           >

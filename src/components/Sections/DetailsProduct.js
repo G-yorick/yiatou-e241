@@ -19,16 +19,16 @@ const DetailsProduct = ({product}) => {
         <div className="px-3 py-5 bg-gray-100">
             <div className="grid grid-cols-3 gap-4">
                 <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-bold">{product.prix.toLocaleString()} FCFA</h3>
-                    <p className="text-xs text-gray-600">10-50 unités</p>
+                    <h3 className="text-md font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                    <p className="text-[11px] text-gray-600">10-50 unités</p>
                 </div>
                 <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-bold">{product.prix.toLocaleString()} FCFA</h3>
-                    <p className="text-xs text-gray-600">51-100 unités</p>
+                    <h3 className="text-md font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                    <p className="text-[11px] text-gray-600">51-100 unités</p>
                 </div>
                 <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-bold">{product.prix.toLocaleString()} FCFA</h3>
-                    <p className="text-xs text-gray-600"> ≥101-500 unités </p>
+                    <h3 className="text-md font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                    <p className="text-[11px] text-gray-600"> ≥101-500 unités </p>
                 </div>
             </div>
         </div>

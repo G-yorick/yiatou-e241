@@ -28,9 +28,9 @@ export const produits = [
     new Products(5, 'Mini Caméra', "Description du produit 5...", ['/img/pro/p10.png','/img/pro/p6.png','/img/pro/p11.png'], 15000, true, 0),
 ]
 export const sliders = [
-    '/img/slides/s1.jpg',
-    '/img/slides/s2.jpeg',
-    '/img/slides/s3.jpg',
+    '/img/slides/s1.png',
+    '/img/slides/s2.png',
+    '/img/slides/s3.png',
 ];
 
 export const calculateDeliveryPrice = (basePrice) => {

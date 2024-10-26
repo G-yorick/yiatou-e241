@@ -16,12 +16,12 @@ const Garantees = () => {
   };
 
   return (
-    <div className="mx-2 mt-1 bg-orange-200 rounded-md overflow-hidden">
+    <div className="mx-2 mt-1 bg-[#00A650] rounded-bl-md rounded-br-md overflow-hidden">
       <div className="w-full px-2 py-2">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <FaHandshake className="text-black text-md" />
-            <h2 className="text-xs font-semibold text-black">Nos promesses</h2>
+          <div className="flex items-center space-x-2 ">
+            <FaHandshake className="text-white text-xl" />
+            <h2 className="text-sm text-white font-bold">Nos promesses</h2>
           </div>
           <button 
             className={`text-black rounded-full transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 ${isAnimating ? 'transform scale-110' : ''}`} 
@@ -30,7 +30,7 @@ const Garantees = () => {
             aria-label="Voir plus de détails sur nos promesses"
             tabIndex={0}
           >
-            <FaChevronRight className="text-sm" />
+            <FaChevronRight className="text-sm text-white" />
           </button>
         </div>
       </div>

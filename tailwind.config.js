@@ -9,7 +9,8 @@ module.exports = {
       colors : {
         "main-button" : "#FF5722",
         "background" : "#FFE5AF",
-        "background-f" : "#FFF"
+        "background-f" : "#FFF",
+        'temu-green': '#00A650',
       },
       fontFamily : {
         'klavika-bold' : ['klavika-bold','sans-serif'],
