@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react';
-import SearchBar from '../../components/search/SearchBar';
-import NavLinks from '../../components/topBar/NavLinks';
-const TopBarLayout = ({children}) => {
-    const [showLogoAndIcon, setShowLogoAndIcon] = useState(true);
+
+const TopBarLayout = ({ children }) => {
+    const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setShowLogoAndIcon(false);
-            } else {
-                setShowLogoAndIcon(true);
-            }
+            setIsScrolled(window.scrollY > 0);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -22,19 +17,12 @@ const TopBarLayout = ({children}) => {
 
     return (
         <>
-        <div className="h-auto pl-3 pr-3 w-full z-[100] fixed left-0 top-0 shadow bg-white">
-            <div className={`w-full max-w-[640px] h-[60px] mx-auto flex ${showLogoAndIcon ? 'justify-between' : 'justify-center'} items-center`}>
-                {showLogoAndIcon ? children : <SearchBar />}
-            </div>
-            {showLogoAndIcon && (
-                <div className="w-full max-w-[640px] mx-auto flex justify-center items-center mt-2">
-                    <SearchBar />
+            <div className={`w-full z-[100] fixed left-0 top-0 transition-all duration-300 ${isScrolled ? 'shadow bg-white' : 'bg-white'}`}>
+                <div className="w-full max-w-[640px] mx-auto">
+                    {children}
                 </div>
-            )}
-            <NavLinks />
-            
-        </div>
-        <div className="h-[120px] w-full bg-white"></div>
+            </div>
+            <div className="h-24 top-0 w-full"></div> {/* Ajustez cette hauteur si nécessaire */}
         </>
     );
 }
