@@ -40,7 +40,7 @@ const Home = () => {
       <Promises/>
       <SampleSection />
       <h2 className="px-3 py-1 text-sm font-bold">Les plus achetés</h2>
-      <div className="mx-4 grid grid-cols-2 gap-2">
+      <div className="mx-3 grid grid-cols-2 gap-2">
         {produits.map((produit, i) => (
           <Article key={i} product={produit} share={() => toggleActiveShare(produit)} />
         ))}

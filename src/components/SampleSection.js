@@ -25,7 +25,7 @@ const SampleSection = () => {
           <p className="text-xs text-gray-600 mt-0.5">Livraison tout de suite</p>
         </div>
         <div className="flex items-center space-x-2">
-          <span className="text-gray-500 text-sm">Voir plus</span>
+          <span className="text-gray-500 text-xs">Voir plus</span>
           <button
             className={`p-1 text-black rounded-full transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 ${
               isAnimating ? 'transform scale-110' : ''
@@ -39,7 +39,7 @@ const SampleSection = () => {
           </button>
         </div>
       </div>
-      <div className="flex overflow-x-auto space-x-4 mt-2 scrollbar-hide">
+      <div className="flex overflow-x-auto space-x-2 mt-2 scrollbar-hide">
         {samples.map((sample, index) => (
           <SampleCard key={index} image={sample.image} price={sample.price} />
         ))}

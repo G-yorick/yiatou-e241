@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from "react";
 import { FaUserLock } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
@@ -16,6 +17,7 @@ import Echantillons from "../../components/Sections/Echantillons";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 
 const ProduitDetails = () => {
+  const topRef = useRef(null);
   const {id} = useParams();
   
     const [modalUserInfo,setModalUserInfo] = useState(false);
@@ -32,33 +34,41 @@ const ProduitDetails = () => {
         // Ajoutez d'autres villes selon vos besoins
     ];
 
+    useEffect(() => {
+      if (topRef.current) {
+        topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, []);
+
     return (
-        <PageLayout bottomBar={
-          !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
-        }>
-            <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">
-                <PersonnalInfo/>
-            </ModalModel>
-            <HeaderProductDetails product={product}/>
-            <DetailsProduct product={product}/>
-            <SelectProductColor/>
-            <DeliveryInfo
-                initialCity="Libreville"
-                initialPrice={2000}
-                currency="FCFA"
-                unit="Kg"
-                startDate={new Date()} // Utilisez la date actuelle ou une date spécifique
-                endDate={new Date(new Date().setDate(new Date().getDate() + 14))} // Date de fin initiale (14 jours après la date de début)
-                daysRange={14}
-                cities={cities}
-                onModalOpen={() => setIsCityModalOpen(true)}
-                onModalClose={() => setIsCityModalOpen(false)}
-            />
-            <Echantillons/>
-            <DeliveryPromises />
-            <CoutLivraison/>
-            <MoreProduct/>
-        </PageLayout>
+        <div ref={topRef} id="product-details-top" className="bg-gray-100 min-h-screen">
+            <PageLayout bottomBar={
+              !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
+            }>
+                <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">
+                    <PersonnalInfo/>
+                </ModalModel>
+                <HeaderProductDetails product={product}/>
+                <DetailsProduct product={product}/>
+                <SelectProductColor/>
+                <DeliveryInfo
+                    initialCity="Libreville"
+                    initialPrice={2000}
+                    currency="FCFA"
+                    unit="Kg"
+                    startDate={new Date()} // Utilisez la date actuelle ou une date spécifique
+                    endDate={new Date(new Date().setDate(new Date().getDate() + 14))} // Date de fin initiale (14 jours après la date de début)
+                    daysRange={14}
+                    cities={cities}
+                    onModalOpen={() => setIsCityModalOpen(true)}
+                    onModalClose={() => setIsCityModalOpen(false)}
+                />
+                <Echantillons/>
+                <DeliveryPromises />
+                <CoutLivraison/>
+                <MoreProduct/>
+            </PageLayout>
+        </div>
     );
 }
 

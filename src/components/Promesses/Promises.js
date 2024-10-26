@@ -16,8 +16,8 @@ const Garantees = () => {
   };
 
   return (
-    <div className="mx-2 mt-1 bg-[#00A650] rounded-bl-md rounded-br-md overflow-hidden">
-      <div className="w-full px-2 py-2">
+    <div className="mx-2 mt-1 bg-[#418920] rounded-bl-md rounded-br-md overflow-hidden">
+      <div className="w-full px-4 py-1">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 ">
             <FaHandshake className="text-white text-xl" />
