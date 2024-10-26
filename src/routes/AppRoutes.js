@@ -19,6 +19,7 @@ import Verify from "../pages/auth/Verify";
 import AddPassword from "../pages/auth/AddPassword";
 import Politique from "../pages/appPages/Politique";
 import Conditions from "../pages/appPages/Conditions";
+import Promises from "../pages/appPages/Promises";
 
 const AppRoutes = () => {
     return (
@@ -44,6 +45,7 @@ const AppRoutes = () => {
             <Route path="/restore" element={<Restore/>}/>
             <Route path="/verify" element={<Verify/>}/>
             <Route path="/password" element={<AddPassword/>}/>
+            <Route path="/promises" element={<Promises/>}/>
             </Routes>
         </Router>
     );

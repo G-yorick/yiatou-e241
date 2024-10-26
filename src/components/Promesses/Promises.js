@@ -1,12 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaHandshake, FaChevronRight } from 'react-icons/fa';
 
 const Garantees = () => {
   const [isAnimating, setIsAnimating] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 300);
+    setTimeout(() => {
+      setIsAnimating(false);
+      navigate('/promises');
+    }, 300);
   };
 
   const handleKeyDown = (event) => {

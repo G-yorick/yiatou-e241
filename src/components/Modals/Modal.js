@@ -25,10 +25,10 @@ const Modal = ({ isOpen, onClose, productImage, price, minPurchase }) => {
         price={price}
         minPurchase={minPurchase}
       />
-      <div className="px-4 py-4 bg-white">
+      <div className="px-3 py-3 bg-white">
         <button
           onClick={handleContinue}
-          className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-lg font-semibold"
+          className="w-full h-14 rounded-md bg-blue-600 text-white py-2 px-3 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-base font-semibold"
           aria-label="Continuer l'achat"
         >
           Continuer
@@ -53,39 +53,39 @@ const ModalContent = ({ productImage, price, minPurchase }) => {
   };
 
   return (
-    <div className="px-4 py-6">
-      <div className="mb-6">
-        <h3 className="font-semibold text-md mb-2">Prix unitaire</h3>
-        <div className="flex items-center space-x-4">
-          <img src={productImage} alt="Product" className="w-20 h-20 object-cover rounded" />
+    <div className="px-3 py-4">
+      <div className="mb-4">
+        <h3 className="font-semibold text-sm mb-1">Prix unitaire</h3>
+        <div className="flex items-center space-x-3">
+          <img src={productImage} alt="Product" className="w-16 h-16 object-cover rounded" />
           <div>
-            <p className="font-bold text-xl">{formatPrice(price)}</p>
-            <p className="text-sm text-gray-600">Achat min. {minPurchase} pièces</p>
+            <p className="font-bold text-lg">{formatPrice(price)}</p>
+            <p className="text-xs text-gray-600">Achat min. {minPurchase} pièces</p>
           </div>
         </div>
       </div>
 
       <div>
-        <h3 className="font-medium text-sm mb-2 text-gray-500">Couleur</h3>
-        <ul className="space-y-4">
+        <h3 className="font-medium text-xs mb-1 text-gray-500">Couleur</h3>
+        <ul className="space-y-2">
           {colorOptions.map((color) => (
             <li key={color.name} className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <img src={color.image} alt={color.name} className="w-16 h-16 object-cover" />
-                <span className='text-md font-semibold text-black'>{color.name}</span>
+              <div className="flex items-center space-x-3">
+                <img src={color.image} alt={color.name} className="w-12 h-12 object-cover" />
+                <span className='text-sm font-semibold text-black'>{color.name}</span>
               </div>
-              <div className="flex items-center space-x-2 border border-gray-300 rounded-full">
+              <div className="flex items-center space-x-1 border border-gray-300 rounded-full">
                 <button
                   onClick={() => handleQuantityChange(color.name, -1)}
-                  className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center focus:outline-none"
-                  aria-label={`Diminuer la quantit�� de ${color.name}`}
+                  className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center focus:outline-none"
+                  aria-label={`Diminuer la quantité de ${color.name}`}
                 >
                   -
                 </button>
-                <span className="w-8 text-center">{quantities[color.name]}</span>
+                <span className="w-6 text-center text-sm">{quantities[color.name]}</span>
                 <button
                   onClick={() => handleQuantityChange(color.name, 1)}
-                  className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center focus:outline-none"
+                  className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center focus:outline-none"
                   aria-label={`Augmenter la quantité de ${color.name}`}
                 >
                   +
@@ -96,9 +96,9 @@ const ModalContent = ({ productImage, price, minPurchase }) => {
         </ul>
       </div>
 
-      <div className="mt-6 pt-4">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="font-semibold text-lg">Total</h3>
+      <div className="mt-4 pt-3 border-t border-gray-200">
+        <div className="flex justify-between items-center">
+          <h3 className="font-semibold text-xl">TOTAL</h3>
           <p className="font-bold text-xl">{formatPrice(calculateTotal())}</p>
         </div>
       </div>
