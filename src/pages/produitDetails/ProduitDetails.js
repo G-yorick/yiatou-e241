@@ -111,13 +111,13 @@ const BottomButton = ({toggleModal}) => {
 const PersonnalInfo = () => {
   return (
     <>
-      <div>
-        <p className="text-center text-sm font-medium text-gray-400">
+      <div className="mb-2">
+        <p className="text-center text-sm font-medium text-[#333333]">
           Ces informations permettent a Yiatou de traiter tes commandes et
           restent privées.
         </p>
       </div>
-      <form className="mt-[16px] flex flex-col gap-3">
+      <form className="mt-3 flex flex-col gap-3">
         <div className="flex gap-4 items-center">
           <div className="flex gap-2 items-center">
             <input type="radio" name="sexe" id="m" />

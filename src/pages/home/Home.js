@@ -28,7 +28,7 @@ const Home = () => {
     <PageLayout bottomBar={<BottomBar />} topBar={<TopBar />}>
       <ShareProduct product={product} toggleActiveShare={toggleActiveShare} activeShare={activeShare}/>
       <HomeSlider />
-      <div className="mx-2 flex relative gap-3 bg-[#ffe5af] rounded-tl-lg rounded-tr-lg overflow-hidden">
+      <div className="mx-3 flex relative gap-3 bg-[#ffe5af] rounded-tl-lg rounded-tr-lg overflow-hidden">
         <ButtonHome data="entre 10 - 14 jours" icon={<MdDirectionsCar />}>
           Livraison rapide
         </ButtonHome>
@@ -37,7 +37,6 @@ const Home = () => {
           Service client
         </ButtonHome>
       </div>
-      <Promises/>
       <SampleSection />
       <h2 className="px-3 py-1 text-md font-bold text-[#333333]">Les plus achetés</h2>
       <div className="mx-3 grid grid-cols-2 gap-2">

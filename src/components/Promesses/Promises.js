@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaHandshake, FaChevronRight } from 'react-icons/fa';
 
-const Garantees = () => {
+const Promises = ({ className }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
 
@@ -21,10 +21,10 @@ const Garantees = () => {
   };
 
   return (
-    <div className="mx-2 mt-1 bg-[#418920] rounded-bl-md rounded-br-md overflow-hidden">
+    <div className={`bg-[#418920] rounded-md overflow-hidden flex items-center ${className}`}>
       <div className="w-full px-4 py-1">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 ">
+          <div className="flex items-center space-x-2">
             <FaHandshake className="text-white text-xl" />
             <h2 className="text-sm text-white font-bold">Nos promesses</h2>
           </div>
@@ -43,4 +43,4 @@ const Garantees = () => {
   );
 };
 
-export default Garantees;
+export default Promises;
