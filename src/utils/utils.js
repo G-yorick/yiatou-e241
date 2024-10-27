@@ -70,11 +70,22 @@ export const formatDateRange = (startDate, endDate) => {
 };
 
 export const samples = [
-  { image: "/img/pro/p6.png", name: "Produit 1", price: "1000 FCFA" },
-  { image: "/img/pro/p7.png", name: "Produit 2", price: "1500 FCFA" },
-  { image: "/img/pro/p8.png", name: "Produit 3", price: "2000 FCFA" },
-  { image: "/img/pro/p9.png", name: "Produit 4", price: "2400 FCFA" },
-  { image: "/img/pro/p10.png", name: "Produit 5", price: "2440 FCFA" },
-  // Ajoutez d'autres échantillons si nécessaire
+  { id: 1, image: "/img/pro/p6.png", name: "Produit 1", price: 1000, description: "Description détaillée du Produit 1" },
+  { id: 2, image: "/img/pro/p7.png", name: "Produit 2", price: 1500, description: "Description détaillée du Produit 2" },
+  { id: 3, image: "/img/pro/p8.png", name: "Produit 3", price: 2000, description: "Description détaillée du Produit 3" },
+  { id: 4, image: "/img/pro/p9.png", name: "Produit 4", price: 2400, description: "Description détaillée du Produit 4" },
+  { id: 5, image: "/img/pro/p10.png", name: "Produit 5", price: 2440, description: "Description détaillée du Produit 5" },
 ];
 
+export const fetchEchantillonDetails = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const echantillon = samples.find(sample => sample.id === id);
+      if (echantillon) {
+        resolve(echantillon);
+      } else {
+        reject(new Error("Échantillon non trouvé"));
+      }
+    }, 300); // Simule un délai de réseau de 300ms
+  });
+};

@@ -17,7 +17,7 @@ const Echantillons = ({ sampleText, samplePrice, sampleCommission, onOrder, samp
   };
 
   return (
-    <div className="bg-white p-4 border border-t-4 border-gray-300 relative">
+    <div className="bg-white p-4 border border-t-4 border-[#cccccc] relative">
       <div className="flex justify-between items-center">
         <h3 className="font-medium text-md">
           Échantillons <span className="text-xs font-normal text-gray-400 ">

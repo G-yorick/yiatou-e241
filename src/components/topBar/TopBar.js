@@ -22,9 +22,9 @@ const TopBar = () => {
 
     return (
         <TopBarLayout>
-            <div className={`flex flex-col items-center w-full px-4 py-1 space-y-0 transition-all duration-300 ${isScrolled ? 'pt-4' : 'pt-2'}`}>
+            <div className={`flex flex-col items-center w-full px-4 space-y-0 transition-all duration-300 ${isScrolled ? 'pt-4' : 'pt-2'}`}>
                 <div className={`flex items-center justify-between w-full mb-1 transition-opacity duration-300 ${isScrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-12 opacity-100'}`}>
-                    <img src="/img/logo/logo.png" alt="logo" className="h-12 w-auto" />
+                    <img src="/img/logo/logo.png" alt="logo" className="h-12 w-auto ml-1" />
                     <SmsNotif />
                 </div>
                 <SearchBar />

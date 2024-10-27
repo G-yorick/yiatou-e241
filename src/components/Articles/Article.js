@@ -1,30 +1,6 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Products } from "../../utils/utils";
-
-// Hook personnalisé pour l'intersection observer
-const useIntersectionObserver = (options) => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting);
-    }, options);
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [options]);
-
-  return [ref, isIntersecting];
-};
 
 const useTextAnimation = (texts, interval) => {
  const [currentTextIndex, setCurrentTextIndex] = React.useState(0);
@@ -52,11 +28,6 @@ const useTextAnimation = (texts, interval) => {
 * @returns
 */
 const Article = ({ share = null, product }) => {
- const [ref, isVisible] = useIntersectionObserver({
-   threshold: 0.1, // La carte sera considérée comme visible lorsque 10% sera dans la vue
-   rootMargin: '0px 0px -10% 0px' // Déclenche l'animation un peu avant que la carte soit complètement visible
- });
-
  const handleShare = () => {
    try {
      if (typeof share === 'function') {
@@ -80,10 +51,7 @@ const Article = ({ share = null, product }) => {
 
  return (
    <div 
-     ref={ref}
-     className={`w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col transition-all duration-500 ease-out ${
-       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-     }`}
+     className="w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col"
    >
      {/* Image */}
      <Link to={`/produit-details/${product.id}`} className="block relative">
@@ -102,14 +70,14 @@ const Article = ({ share = null, product }) => {
        {/* Description */}
        <Link
          to={`/produit-details/${product.id}`}
-         className="text-gray-800 font-serif text-xs leading-tight block mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis"
+         className="text-[#333333] text-xs leading-tight block mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis"
        >
          {truncatedDescription}
        </Link>
 
 
        {/* Price */}
-       <p className="text-gray-900 font-bold text-sm mb-0.3">
+       <p className="text-[#333333] font-bold text-sm mb-0.3">
          {product.prix.toLocaleString()} FCFA
        </p>
 
@@ -124,7 +92,7 @@ const Article = ({ share = null, product }) => {
            </p>
          ) : (
            <p className="text-[11px] font-medium leading-tight text-gray-600">
-             Achat min: {product.minPurchase} pcs
+             Achat min: {product.minPurchase} 
            </p>
          )}
 

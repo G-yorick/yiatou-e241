@@ -31,9 +31,9 @@ export default function ShareProduct({toggleActiveShare, activeShare, product = 
     <ModalModel 
       onClose={toggleModal} 
       topContent={isProduct ? <ProductImage image={product?.image[0]}/> : null} 
-      icon={<IconMoney/>} 
       title="Partage et gagne" 
       active={activeShare}
+      titleClassName="text-xl font-bold"
     >
       <ModalImageContent isProduct={isProduct} isLoggedIn={isLoggedIn} toggleLoginModal={toggleLoginModal} />
       {showLoginModal && <LoginModal onClose={toggleLoginModal} onLogin={handleLogin} />}
@@ -77,7 +77,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
     };
 
     return (
-      <div className="px-3 py-3">
+      <div className="px-3 -my-8 mb-2">
         {!isProduct ? 
         <p>Tu gagneras encore</p> : 
         <p className="text-center mb-1 text-sm relative">
@@ -96,9 +96,9 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
         {showFAQ && <FAQ onClose={toggleFAQ} />}
         
         <div className="flex gap-3 justify-between mt-3">
-          <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('WhatsApp')}>
-            <IoLogoWhatsapp color="#25D366" size={45}/>
-            <p className="text-xs text-gray-500">WhatsApp</p>
+        <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Instagram')}>
+            <FaInstagram color="#E4405F" size={45}/>
+            <p className="text-xs text-gray-500">Instagram</p>
           </div>
           <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Facebook')}>
             <IoLogoFacebook color="#1877F2" size={45}/>
@@ -108,14 +108,14 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
             <FaFacebookMessenger color="#00B2FF" size={45}/>
             <p className="text-xs text-gray-500">Messenger</p>
           </div>
-          <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Instagram')}>
-            <FaInstagram color="#E4405F" size={45}/>
-            <p className="text-xs text-gray-500">Instagram</p>
+          <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('WhatsApp')}>
+            <IoLogoWhatsapp color="#25D366" size={45}/>
+            <p className="text-xs text-gray-500">WhatsApp</p>
           </div>
         </div>
         <div className="mt-6">
           <button 
-            className="text-base rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-gray-400"
+            className="text-base rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-[#cccccc]"
             onClick={handleCopyLink}
           >
             Copier le lien

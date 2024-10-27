@@ -36,7 +36,7 @@ function ShareContent() {
         </div>
       </div>
       <div className="mt-10">
-        <button className="text-lg rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-gray-400">
+        <button className="text-lg rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-[#cccccc]">
           Copier le lien
         </button>
       </div>

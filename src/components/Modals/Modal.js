@@ -19,16 +19,16 @@ const Modal = ({ isOpen, onClose, productImage, price, minPurchase }) => {
   };
 
   return (
-    <ModalModel onClose={onClose} title="Variations" active={isOpen}>
+    <ModalModel onClose={onClose} title="Variations" titleClassName="text-xl font-bold " active={isOpen}>
       <ModalContent 
         productImage={productImage}
         price={price}
         minPurchase={minPurchase}
       />
-      <div className="px-3 py-3 bg-white">
+      <div className="px-3 bg-white">
         <button
           onClick={handleContinue}
-          className="w-full h-14 rounded-md bg-blue-600 text-white py-2 px-3 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-base font-semibold"
+          className="w-full h-14 rounded-md bg-[#ff5722] text-white py-2 px-3  focus:outline-none text-base font-semibold"
           aria-label="Continuer l'achat"
         >
           Continuer
@@ -53,7 +53,7 @@ const ModalContent = ({ productImage, price, minPurchase }) => {
   };
 
   return (
-    <div className="px-3 py-4">
+    <div className="px-3 pt-1 pb-4">
       <div className="mb-4">
         <h3 className="font-semibold text-sm mb-1">Prix unitaire</h3>
         <div className="flex items-center space-x-3">
@@ -74,7 +74,7 @@ const ModalContent = ({ productImage, price, minPurchase }) => {
                 <img src={color.image} alt={color.name} className="w-12 h-12 object-cover" />
                 <span className='text-sm font-semibold text-black'>{color.name}</span>
               </div>
-              <div className="flex items-center space-x-1 border border-gray-300 rounded-full">
+              <div className="flex items-center space-x-1 border border-[#cccccc] rounded-full">
                 <button
                   onClick={() => handleQuantityChange(color.name, -1)}
                   className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center focus:outline-none"
@@ -96,7 +96,7 @@ const ModalContent = ({ productImage, price, minPurchase }) => {
         </ul>
       </div>
 
-      <div className="mt-4 pt-3 border-t border-gray-200">
+      <div className="mt-4 pt-3 border-t border-[#cccccc]">
         <div className="flex justify-between items-center">
           <h3 className="font-semibold text-xl">TOTAL</h3>
           <p className="font-bold text-xl">{formatPrice(calculateTotal())}</p>

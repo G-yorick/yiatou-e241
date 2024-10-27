@@ -41,7 +41,7 @@ const CommandeInfo = () => {
                     <span className="bg-yellow-300 px-2 rounded font-bold uppercase">28,500 FCFA</span>
                 </p>
             </div>
-            <div className="flex items-center gap-3 my-6 p-3 bg-gray-300 border-2 rounded-xl border-dashed border-gray-600">
+            <div className="flex items-center gap-3 my-6 p-3 bg-gray-300 border-2 rounded-xl border-dashed border-[#cccccc]">
                 <div>
                     <FaCar size={20}/>
                 </div>

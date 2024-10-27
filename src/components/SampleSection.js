@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa';
 import SampleCard from './SampleCard';
 import { samples } from '../utils/utils';
@@ -6,12 +7,15 @@ import { samples } from '../utils/utils';
 
 const SampleSection = () => {
  const [isAnimating, setIsAnimating] = useState(false);
-
+ const navigate = useNavigate();
 
  const handleClick = () => {
-   setIsAnimating(true);
-   setTimeout(() => setIsAnimating(false), 300);
- };
+  setIsAnimating(true);
+  setTimeout(() => {
+    setIsAnimating(false);
+    navigate('/echantillonDetails');
+  }, 300);
+};
 
 
  const handleKeyDown = (event) => {
@@ -22,16 +26,16 @@ const SampleSection = () => {
 
 
  return (
-   <section className="px-3 py-2 border-b-4 border-gray-200 bg-gradient-to-r from-orange-400 via-orange-300 to-blue-400">
+   <section className="px-3 py-2 border-b-4 border-[#cccccc] bg-white">
      <div className="flex justify-between items-start">
        <div>
-         <h2 className="text-md font-serif font-bold text-white">Échantillons</h2>
-         <p className="text-sm font-light font-semi-bold text-white mt-0.3 opacity-90">Livraison tout de suite</p>
+         <h2 className="text-md font-bold text-[#333333]">Échantillons</h2>
+         <p className="text-xs font-light font-semi-bold text-[#333333] mt-0.3 opacity-90">Livraison tout de suite</p>
        </div>
        <div className="flex items-center">
-         <span className="text-white text-xs font-light mr-1">Voir plus</span>
+         <span className="text-[#333333] text-xs font-light mr-1">Voir plus</span>
          <button
-           className={`p-1 text-white rounded-full transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 ${
+           className={`p-1 text-[#333333] rounded-full transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 ${
              isAnimating ? 'transform scale-110' : ''
            }`}
            onClick={handleClick}
@@ -39,7 +43,7 @@ const SampleSection = () => {
            aria-label="Voir plus de détails sur les échantillons"
            tabIndex={0}
          >
-           <FaChevronRight className="text-sm" />
+           <FaChevronRight className="text-xs" />
          </button>
        </div>
      </div>

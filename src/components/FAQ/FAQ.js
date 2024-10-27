@@ -31,7 +31,7 @@ function FAQ({ onClose }) {
                 style={{maxWidth: '500px'}}
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="flex justify-between items-center p-6 bg-white sticky top-0 z-10">
+                <div className="flex justify-between items-center p-2 bg-white sticky top-0 z-10">
                     <h2 className="text-xl font-bold w-full text-center">FAQs</h2>
                     <button
                         className="text-gray-500 hover:text-gray-700 focus:outline-none absolute right-4"

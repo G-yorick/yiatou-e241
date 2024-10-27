@@ -12,10 +12,10 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
     ];
 
     return (
-        <div className="py-2 px-4 bg-white border border-b-4 border-gray-200">
+        <div className="py-2 px-4 bg-white border border-b-4 border-[#cccccc]">
             <div className="mt-0">
                 <h2 className="text-md font-medium mb-2">Lance ton Business</h2>
-                <table className="w-full text-sm border-collapse border border-gray-300">
+                <table className="w-full text-sm border-collapse border border-[#cccccc]">
                     <tbody>
                         {businessItems.map((item, index) => (
                             <tr 
@@ -25,7 +25,7 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
                                     ${index === businessItems.length - 1 ? 'font-semibold bg-green-100' : ''}
                                 `}
                             >
-                                <td className="py-2 pl-2 pr-4 border border-gray-300">
+                                <td className="py-2 pl-2 pr-4 border border-[#cccccc]">
                                     <div className="flex items-center">
                                         <div className="w-4 h-4 text-gray-500 flex-shrink-0 mr-2">
                                             <item.icon className="w-full h-full" />
@@ -36,7 +36,7 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
                                         <span className="text-gray-600">{item.label}</span>
                                     </div>
                                 </td>
-                                <td className="py-2 pr-2 border border-gray-300 text-gray-700 text-right">{item.value}</td>
+                                <td className="py-2 pr-2 border border-[#cccccc] text-[#333333] text-right">{item.value}</td>
                             </tr>
                         ))}
                     </tbody>

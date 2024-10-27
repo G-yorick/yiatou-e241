@@ -20,6 +20,7 @@ module.exports = {
         'klavika-medium-italic' : ['klavika-medium-italic','sans-serif'],
         'klavika-medium' : ['klavika-medium','sans-serif'],
         'klavika-medium-regular' : ['klavika-medium-regular','sans-serif'],
+        sans: ['Roboto', 'sans-serif'],
       },
       keyframes: {
         'fade-in': {

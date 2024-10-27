@@ -16,8 +16,8 @@ const CustomSelect = ({ value, onChange, options, currency }) => {
           </option>
         ))}
       </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-blue-600 pr-20">
-        <FaChevronDown className="h-3 w-3" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-blue-600 pr-14">
+        <FaChevronDown className="h-3 w-3 " />
       </div>
     </div>
   );

@@ -21,6 +21,7 @@ import Politique from "../pages/appPages/Politique";
 import Conditions from "../pages/appPages/Conditions";
 import Promises from "../pages/appPages/Promises";
 import Cart from "../pages/cart/Cart";
+import EchantillonDetails from "../pages/echantillonDetails/EchantillonDetails";
 
 const AppRoutes = () => {
     return (
@@ -48,6 +49,7 @@ const AppRoutes = () => {
             <Route path="/password" element={<AddPassword/>}/>
             <Route path="/promises" element={<Promises/>}/>
             <Route path="/cart" component={Cart} />
+            <Route path="/echantillonDetails" element={<EchantillonDetails/>}/>
             </Routes>
         </Router>
     );
