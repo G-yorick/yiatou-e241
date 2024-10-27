@@ -22,7 +22,7 @@ export class Products {
 
 export const produits = [
     new Products(1, 'Sac à dos', "Description du produit,Description du produit,Description du produit 1,Description du produit 1...,Description du produit 1...,Description du produit 1...", ['/img/pro/p1.png','/img/pro/p2.png','/img/pro/p3.png'], 8500, true, 0),
-    new Products(2, 'Cracheur', "Description du produit 2...", ['/img/pro/p4.png','/img/pro/p5.png'], 3000, false, 5),
+    new Products(2, 'Cracheur', "Description du produit 2...", ['/img/pro/p5.png'], 3000, false, 5),
     new Products(3, 'Lunette de luxe', "Description du produit 3...", ['/img/pro/p12.png','/img/pro/p13.png'], 18000, true, 0),
     new Products(4, 'Clé USB Type-C', "Description du produit 4...", ['/img/pro/p7.png','/img/pro/p8.png','/img/pro/p9.png'], 3500, false, 10),
     new Products(5, 'Mini Caméra', "Description du produit 5...", ['/img/pro/p10.png','/img/pro/p6.png'], 15000, true, 0),
