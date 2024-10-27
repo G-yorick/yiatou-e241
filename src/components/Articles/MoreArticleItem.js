@@ -3,8 +3,8 @@ import { FaImage } from "react-icons/fa";
 
 const MoreArticleItem = ({ imageUrl, price }) => {
     return (
-        <div className=" mb-6 w-[120px] h-[140px] shrink-0 shadow overflow-hidden flex flex-col">
-            <div className="h-[120px] bg-gray-200 flex justify-center items-center">
+        <div className="relative flex-shrink-0 w-24 h-32 bg-white rounded-lg shadow-sm overflow-hidden mb-1">
+            <div className="w-full h-3/4 bg-gray-200 flex justify-center items-center">
                 {imageUrl ? (
                     <img 
                         src={imageUrl} 
@@ -15,8 +15,8 @@ const MoreArticleItem = ({ imageUrl, price }) => {
                     <FaImage className="text-gray-400" size={24}/>
                 )}
             </div>
-            <div className="h-[20px] px-2 py-1 bg-white flex items-center">
-                <p className="text-[14px] font-medium text-start">
+            <div className="p-1 text-start">
+                <p className="text-xs font-semibold">
                     {price ? `${price} FCFA` : 'Prix non disponible'}
                 </p>
             </div>

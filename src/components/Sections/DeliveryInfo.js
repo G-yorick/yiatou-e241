@@ -5,19 +5,18 @@ import { formatCurrency, addDaysToDate, formatDateRange } from '../../utils/util
 const CustomSelect = ({ value, onChange, options, currency }) => {
   return (
     <div className="relative inline-flex items-center">
-      <select
-        value={value}
-        onChange={onChange}
-        className="appearance-none bg-transparent text-md text-blue-600 focus:outline-none py-1 pl-2"
-      >
-        {options.map((option) => (
-          <option key={option.name} value={option.name}>
-            {option.name === value ? option.name : `${formatCurrency(option.price, currency)} - ${option.name}`}
-          </option>
-        ))}
-      </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-blue-600 pr-14">
-        <FaChevronDown className="h-3 w-3 " />
+      <div className="relative">
+        <select
+          value={value}
+          onChange={onChange}
+          className="appearance-none bg-transparent text-md text-blue-600 focus:outline-none py-1 pl-2 pr-2"
+        >
+          {options.map((option) => (
+            <option key={option.name} value={option.name}>
+              {option.name === value ? option.name : `${formatCurrency(option.price, currency)} - ${option.name}`}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
@@ -44,12 +43,15 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
         <span className="font-medium text-md text-gray-900 mr-1">
           Livraison à
         </span>
-        <CustomSelect
-          value={selectedCity}
-          onChange={handleCityChange}
-          options={cities}
-          currency={currency}
-        />
+        <div className="flex items-center -ml-2">
+          <CustomSelect
+            value={selectedCity}
+            onChange={handleCityChange}
+            options={cities}
+            currency={currency}
+          />
+          <FaChevronDown className="h-3 w-3 text-blue-600 -ml-24" />
+        </div>
       </div>
       <p className="mt-2 text-gray-600 text-sm">
         Prix: <span className="font-base">{formatCurrency(price, currency)}/{unit}</span>
