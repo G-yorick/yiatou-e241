@@ -19,7 +19,6 @@ const BottomBar = () => {
           </NavItem>
         </div>
       </div>
-      <div className="h-[70px]"></div>
     </>
   );
 };

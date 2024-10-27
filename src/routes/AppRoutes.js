@@ -20,6 +20,7 @@ import AddPassword from "../pages/auth/AddPassword";
 import Politique from "../pages/appPages/Politique";
 import Conditions from "../pages/appPages/Conditions";
 import Promises from "../pages/appPages/Promises";
+import Cart from "../pages/cart/Cart";
 
 const AppRoutes = () => {
     return (
@@ -46,6 +47,7 @@ const AppRoutes = () => {
             <Route path="/verify" element={<Verify/>}/>
             <Route path="/password" element={<AddPassword/>}/>
             <Route path="/promises" element={<Promises/>}/>
+            <Route path="/cart" component={Cart} />
             </Routes>
         </Router>
     );

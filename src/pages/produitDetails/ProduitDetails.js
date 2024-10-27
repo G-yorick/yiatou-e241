@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import { FaUserLock } from "react-icons/fa";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import { FaUserLock, FaShoppingCart } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
 import ModalModel from "../../components/Modals/ModalModel";
 import CoutLivraison from "../../components/Sections/CoutLivraison";
 import DetailsProduct from "../../components/Sections/DetailsProduct";
@@ -41,7 +40,7 @@ const ProduitDetails = () => {
     }, []);
 
     return (
-        <div ref={topRef} id="product-details-top" className="bg-gray-100 min-h-screen">
+        <div ref={topRef} id="product-details-top" className="bg-gray-100 min-h-screen relative">
             <PageLayout bottomBar={
               !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
             }>
@@ -113,12 +112,12 @@ const PersonnalInfo = () => {
   return (
     <>
       <div>
-        <p className="text-center font-medium text-gray-600">
-          Ces information permettent a Yiatou de traiter tes commandes et
-          restent privees.
+        <p className="text-center text-sm font-medium text-gray-400">
+          Ces informations permettent a Yiatou de traiter tes commandes et
+          restent privées.
         </p>
       </div>
-      <form className="mt-[70px] mb-2 flex flex-col gap-3">
+      <form className="mt-[16px] flex flex-col gap-3">
         <div className="flex gap-4 items-center">
           <div className="flex gap-2 items-center">
             <input type="radio" name="sexe" id="m" />
@@ -150,7 +149,7 @@ const PersonnalInfo = () => {
         <textarea
           name="adresse"
           placeholder="Adresse de livraison"
-          className="border px-2 py-2 rounded w-full min-h-[150px] resize-none"
+          className="border px-2 py-2 rounded w-full min-h-[100px] resize-none"
         ></textarea>
         {/* <button className="w-full py-2 px-3 rounded bg-blue-800 text-white font-medium">
           Enregistrer
@@ -179,26 +178,57 @@ const PersonnalInfo = () => {
  * @returns 
  */
 const HeaderProductDetails = ({product}) => {
+  const [currentImage, setCurrentImage] = useState(1);
+  
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    const imageHeight = window.innerWidth; // Supposons que la hauteur de l'image soit égale à la largeur de la fenêtre
+    const newImageIndex = Math.floor(scrollPosition / imageHeight) + 1;
+    
+    if (newImageIndex !== currentImage && newImageIndex <= product.image.length) {
+      setCurrentImage(newImageIndex);
+    }
+  }, [currentImage, product.image.length]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
     
   return (
     <div className="w-full relative">
-      <div className="absolute left-[8px] top-[8px] z-[100]">
-              <Link to="/" className="bg-white border inline-block px-2 py-2 rounded-full">
-                  <i className="fi fi-br-angle-left flex text-[13px]"></i>
-              </Link>
-          </div>
-      <SliderModel dots={true}>
-          {product.image.map((img,i) =>{
-            return (
-              <div key={i} className='w-full h-[100vw] bg-white flex justify-center items-center'>
-                <img src={img} alt={product.name} className="w-full h-full object-cover"/>
-
-              </div>
-            );
-          })}
+      <div className="absolute left-0 right-0 top-[8px] z-[100] flex justify-between px-[8px]">
+        <Link to="/" className="bg-white border inline-block p-2 rounded-full">
+          <i className="fi fi-br-angle-left flex text-[13px]"></i>
+        </Link>
+        <Link to="/cart" className="bg-white border inline-block p-2 rounded-full">
+          <FaShoppingCart className="text-[13px] " />
+        </Link>
+      </div>
+      <SliderModel onSlideChange={(index) => setCurrentImage(index + 1)}>
+        {product.image.map((img,i) =>{
+          return (
+            <div key={i} className='w-full h-[100vw] bg-white flex justify-center items-center'>
+              <img src={img} alt={product.name} className="w-full h-full object-cover"/>
+            </div>
+          );
+        })}
       </SliderModel>
+      <ProductLevelIndicator currentImage={currentImage} totalImages={product.image.length} />
     </div>
   );
 }
+
+const ProductLevelIndicator = ({ currentImage, totalImages }) => {
+  return (
+    <div className="absolute bottom-4 right-4 bg-gray-200 rounded-full shadow-md p-2 z-50">
+      <div className="text-sm font-semibold">
+        {currentImage} / {totalImages}
+      </div>
+    </div>
+  );
+};
 
 export default ProduitDetails;

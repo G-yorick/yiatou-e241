@@ -1,67 +1,56 @@
 import React, { useState } from 'react';
-import CitySelectionModal from '../Modals/CitySelectionModal';
+import { FaChevronDown } from 'react-icons/fa';
 import { formatCurrency, addDaysToDate, formatDateRange } from '../../utils/utils';
 
-const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, endDate, daysRange, cities, onModalOpen, onModalClose }) => {
-  const [city, setCity] = useState(initialCity);
+const CustomSelect = ({ value, onChange, options, currency }) => {
+  return (
+    <div className="relative inline-flex items-center">
+      <select
+        value={value}
+        onChange={onChange}
+        className="appearance-none bg-transparent text-md text-blue-600 focus:outline-none py-1 pl-2"
+      >
+        {options.map((option) => (
+          <option key={option.name} value={option.name}>
+            {option.name === value ? option.name : `${formatCurrency(option.price, currency)} - ${option.name}`}
+          </option>
+        ))}
+      </select>
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-blue-600 pr-20">
+        <FaChevronDown className="h-3 w-3" />
+      </div>
+    </div>
+  );
+};
+
+const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, endDate, daysRange, cities }) => {
+  const [selectedCity, setSelectedCity] = useState(initialCity);
   const [price, setPrice] = useState(initialPrice);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [deliveryDays, setDeliveryDays] = useState(daysRange);
 
-  const handleCitySelection = (selectedCity) => {
-    setCity(selectedCity.name);
-    setPrice(selectedCity.price);
+  const handleCityChange = (e) => {
+    const cityName = e.target.value;
+    const selectedCityObj = cities.find(city => city.name === cityName);
+    setSelectedCity(cityName);
+    setPrice(selectedCityObj.price);
     setDeliveryDays(daysRange + 2);
-    setIsModalOpen(false);
-    onModalClose();
-  };
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-    onModalOpen();
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    onModalClose();
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      handleOpenModal();
-    }
   };
 
   const newEndDate = addDaysToDate(startDate, deliveryDays);
 
   return (
     <div className="p-4 bg-gray-50 rounded-lg">
-      <h3 className="font-medium text-md text-gray-900 flex items-center">
-        Livraison à{' '}
-        <button
-          className="text-md text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded ml-1 flex items-center"
-          onClick={handleOpenModal}
-          onKeyDown={handleKeyDown}
-          tabIndex={0}
-          aria-label="Sélectionner une ville"
-        >
-          {city}
-          <svg
-            className="w-4 h-4 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </button>
-      </h3>
+      <div className="flex items-center">
+        <span className="font-medium text-md text-gray-900 mr-1">
+          Livraison à
+        </span>
+        <CustomSelect
+          value={selectedCity}
+          onChange={handleCityChange}
+          options={cities}
+          currency={currency}
+        />
+      </div>
       <p className="mt-2 text-gray-600 text-sm">
         Prix: <span className="font-base">{formatCurrency(price, currency)}/{unit}</span>
       </p>
@@ -71,12 +60,6 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
       <p className="mt-2 text-xs text-black font-medium">
         (Paiement du transport à la livraison)
       </p>
-      <CitySelectionModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onSelectCity={handleCitySelection}
-        cities={cities}
-      />
     </div>
   );
 };

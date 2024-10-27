@@ -1,15 +1,13 @@
 import React from 'react';
-import { FaChevronRight } from 'react-icons/fa';
+import { FaChevronRight, FaChevronDown } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
-const Echantillons = ({ sampleText, samplePrice, sampleCommission, onOrder }) => {
+const Echantillons = ({ sampleText, samplePrice, sampleCommission, onOrder, sampleId }) => {
+  const navigate = useNavigate();
+
   const handleOrder = () => {
-    if (onOrder) {
-      onOrder({
-        type: 'sample',
-        price: samplePrice,
-        commission: sampleCommission
-      });
-    }
+    // Assurez-vous que sampleId est bien défini et passé en tant que prop
+    // navigate(`/echantillon-details/${sampleId}`);
   };
 
   const handleKeyDown = (event) => {
@@ -19,27 +17,30 @@ const Echantillons = ({ sampleText, samplePrice, sampleCommission, onOrder }) =>
   };
 
   return (
-    <div className="bg-white p-4 border border-t-4 border-gray-300">
-      <h3 className="font-medium text-md">
-        Échantillons <span className="text-xs font-normal text-gray-400">
-          (Livraison en -2h sur LBV) 
-          <FaChevronRight className="inline-block ml-20 text-xl" />
-          {sampleText && `, ${sampleText}`}
-        </span>
-      </h3>
+    <div className="bg-white p-4 border border-t-4 border-gray-300 relative">
+      <div className="flex justify-between items-center">
+        <h3 className="font-medium text-md">
+          Échantillons <span className="text-xs font-normal text-gray-400 ">
+            (Livraison en -2h sur LBV) 
+            {sampleText && `, ${sampleText}`}
+          </span>
+        </h3>
+        <FaChevronRight className="text-gray-400 text-xl" />
+      </div>
       <p className="text-sm mb-0">
         <span className="font-medium text-gray-400">
-          {typeof samplePrice === 'number' ? samplePrice.toLocaleString() : samplePrice}11.300 FCFA 
+          {typeof samplePrice === 'number' ? samplePrice.toLocaleString() : '11.300'} FCFA 
           <span className='text-gray-400 text-sm'>  / pièce</span>
         </span>
         <button
-          className="text-sm text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 rounded ml-1"
+          className="text-sm text-blue-600 focus:outline-none rounded ml-1 inline-flex items-center" 
           onClick={handleOrder}
           onKeyDown={handleKeyDown}
           tabIndex="0"
           aria-label="Commander des échantillons"
         >
           Commander
+          <FaChevronDown className="text-blue-600 text-xs ml-1" />
         </button>
       </p>
     </div>

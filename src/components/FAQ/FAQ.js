@@ -4,7 +4,7 @@ const faqItems = [
     {
         Q: "Comment gagner de l'argent ?",
         R: [
-            "Connectes-toi sut Yiatou.",
+            "Connectes-toi sur Yiatou.",
             "Partage un article avec ton lien unique avec tes amis.",
             "Tes amis s'inscrivent si ce n'est pas encore fait.",
             "Une fois qu'un de tes amis  commandé, tu seras informé par notification et tu pourras voir le total d'argent gagné depuis l'onglet 'Argent' de ton application.",
@@ -27,38 +27,40 @@ function FAQ({ onClose }) {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-end z-50 animate-fade-in" onClick={onClose}>
             <div 
-                className="bg-white rounded-t-2xl p-6 w-full max-h-[80vh] overflow-y-auto animate-slide-up relative"
+                className="bg-white rounded-t-2xl w-full max-h-[80vh] overflow-hidden animate-slide-up relative flex flex-col"
                 style={{maxWidth: '500px'}}
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="flex justify-between items-center mb-4">
+                <div className="flex justify-between items-center p-6 bg-white sticky top-0 z-10">
                     <h2 className="text-xl font-bold w-full text-center">FAQs</h2>
                     <button
-                        className="text-gray-500 hover:text-gray-700 focus:outline-none absolute right-4 top-4"
+                        className="text-gray-500 hover:text-gray-700 focus:outline-none absolute right-4"
                         onClick={onClose}
                         aria-label="Fermer la FAQ"
                     >
-                        <i className="fi fi-rr-cross text-2xl"></i>
+                        <i className="fi fi-rr-cross text-lg"></i>
                     </button>
                 </div>
-                <ul className="space-y-6">
-                    {faqItems.map((item, index) => (
-                        <li key={index} className="border-b pb-4 last:border-b-0">
-                            <h3 className="font-semibold text-lg mb-2">Q: {item.Q}</h3>
-                            <div className="text-gray-600 mb-2">
-                                <p className="font-medium">R:</p>
-                                <ol className="list-decimal pl-8 space-y-1">
-                                    {item.R.map((point, idx) => (
-                                        <li key={idx}>{point}</li>
-                                    ))}
-                                </ol>
-                            </div>
-                            {item.note && (
-                                <p className="text-red-500 font-bold text-sm mt-2">{item.note}</p>
-                            )}
-                        </li>
-                    ))}
-                </ul>
+                <div className="overflow-y-auto p-6 pt-0">
+                    <ul className="space-y-6">
+                        {faqItems.map((item, index) => (
+                            <li key={index} className="border-b pb-4 last:border-b-0">
+                                <h3 className="font-semibold text-lg mb-2">Q: {item.Q}</h3>
+                                <div className="text-gray-600 mb-2">
+                                    <p className="font-medium">R:</p>
+                                    <ol className="list-decimal pl-8 space-y-1">
+                                        {item.R.map((point, idx) => (
+                                            <li key={idx}>{point}</li>
+                                        ))}
+                                    </ol>
+                                </div>
+                                {item.note && (
+                                    <p className="text-red-500 font-bold text-sm mt-2">{item.note}</p>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );

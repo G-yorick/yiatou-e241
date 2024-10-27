@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Products } from "../../utils/utils";
 
+// Hook personnalisé pour l'intersection observer
+const useIntersectionObserver = (options) => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsIntersecting(entry.isIntersecting);
+    }, options);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [options]);
+
+  return [ref, isIntersecting];
+};
 
 const useTextAnimation = (texts, interval) => {
  const [currentTextIndex, setCurrentTextIndex] = React.useState(0);
@@ -29,6 +52,11 @@ const useTextAnimation = (texts, interval) => {
 * @returns
 */
 const Article = ({ share = null, product }) => {
+ const [ref, isVisible] = useIntersectionObserver({
+   threshold: 0.1, // La carte sera considérée comme visible lorsque 10% sera dans la vue
+   rootMargin: '0px 0px -10% 0px' // Déclenche l'animation un peu avant que la carte soit complètement visible
+ });
+
  const handleShare = () => {
    try {
      if (typeof share === 'function') {
@@ -40,7 +68,7 @@ const Article = ({ share = null, product }) => {
  };
 
 
- const { currentText, isVisible } = useTextAnimation(
+ const { currentText, isVisible: isTextVisible } = useTextAnimation(
    ["Échantillon dispo", "Livraison dispo"],
    3000
  );
@@ -51,7 +79,12 @@ const Article = ({ share = null, product }) => {
 
 
  return (
-   <div className="w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col">
+   <div 
+     ref={ref}
+     className={`w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col transition-all duration-500 ease-out ${
+       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+     }`}
+   >
      {/* Image */}
      <Link to={`/produit-details/${product.id}`} className="block relative">
        <div className="aspect-w-1 aspect-h-1 w-full">
@@ -85,7 +118,7 @@ const Article = ({ share = null, product }) => {
          {/* Sample/Delivery Info */}
          {product.sampleAvailable ? (
            <p className={`text-[11px] font-medium leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${
-             isVisible ? 'opacity-100' : 'opacity-0'
+             isTextVisible ? 'opacity-100' : 'opacity-0'
            }`}>
              {currentText}
            </p>

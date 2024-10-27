@@ -36,7 +36,7 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
                                         <span className="text-gray-600">{item.label}</span>
                                     </div>
                                 </td>
-                                <td className="py-2 pr-2 border border-gray-300 text-gray-700">{item.value}</td>
+                                <td className="py-2 pr-2 border border-gray-300 text-gray-700 text-right">{item.value}</td>
                             </tr>
                         ))}
                     </tbody>
