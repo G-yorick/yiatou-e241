@@ -38,7 +38,7 @@ const Home = () => {
         </ButtonHome>
       </div>
       <SampleSection />
-      <h2 className="px-3 py-1 text-md font-bold text-[#333333]">Les plus achetés</h2>
+      <h2 className="px-3 py-1 mt-2 text-md font-bold text-[rgb(51,51,51)]">Les plus achetés</h2>
       <div className="mx-3 grid grid-cols-2 gap-2">
         {produits.map((produit, i) => (
           <Article key={i} product={produit} share={() => toggleActiveShare(produit)} />

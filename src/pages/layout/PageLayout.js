@@ -1,14 +1,14 @@
 import Layout from "./Layout";
 import TopBarLayout from "./TopBarLayout";
 
-const PageLayout = ({children,topBar = false,bottomBar = false,className = "bg-gray-100"}) => {
+const PageLayout = ({children, topBar = false, bottomBar = false, className = "bg-gray-100"}) => {
     return (
         <Layout className={className}>
-            <div>
-                {topBar ? <TopBarLayout>{topBar}</TopBarLayout> : null}
+            {topBar && <TopBarLayout>{topBar}</TopBarLayout>}
+            <div className="w-full">
                 {children}
-                {bottomBar ? bottomBar : null}
             </div>
+            {bottomBar}
         </Layout>
     );
 }

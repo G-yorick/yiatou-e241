@@ -77,7 +77,7 @@ const Article = ({ share = null, product }) => {
 
 
        {/* Price */}
-       <p className="text-[#333333] font-bold text-sm mb-0.3">
+       <p className="text-[#333333] font-bold text-md mb-0.3">
          {product.prix.toLocaleString()} FCFA
        </p>
 
@@ -85,13 +85,13 @@ const Article = ({ share = null, product }) => {
        <div className="flex justify-between items-center">
          {/* Sample/Delivery Info */}
          {product.sampleAvailable ? (
-           <p className={`text-[11px] font-medium leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${
+           <p className={`text-[12px] font-medium leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${
              isTextVisible ? 'opacity-100' : 'opacity-0'
            }`}>
              {currentText}
            </p>
          ) : (
-           <p className="text-[11px] font-medium leading-tight text-gray-600">
+           <p className="text-[12px] font-medium leading-tight text-gray-600">
              Achat min: {product.minPurchase} 
            </p>
          )}

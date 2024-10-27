@@ -29,19 +29,19 @@ const DetailsProduct = ({product}) => {
     return (
         <div className="bg-white">
             <ShareProduct product={product} toggleActiveShare={toggleModal} activeShare={activeModal}/>
-            <div className="px-2 py-3 bg-gray-100 mt-2">
+            <div className="px-2 py-2 bg-gray-100 mt-2">
                 <div className="grid grid-cols-3 gap-2">
-                    <div className="flex flex-col items-center text-center">
-                        <h3 className="text-sm font-bold">{product.prix.toLocaleString()} FCFA</h3>
-                        <p className="text-[10px] text-gray-600">10-50 unités</p>
+                    <div className="flex flex-col justify-center items-center text-center min-h-[60px]">
+                        <h3 className="text-[16px] font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                        <p className="text-[12px] text-gray-600 whitespace-nowrap">10-50 unités</p>
                     </div>
-                    <div className="flex flex-col items-center text-center">
-                        <h3 className="text-sm font-bold">{product.prix.toLocaleString()} FCFA</h3>
-                        <p className="text-[10px] text-gray-600">51-100 unités</p>
+                    <div className="flex flex-col justify-center items-center text-center min-h-[60px]">
+                        <h3 className="text-[16px] font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                        <p className="text-[12px] text-gray-600 whitespace-nowrap">51-100 unités</p>
                     </div>
-                    <div className="flex flex-col items-center text-center">
-                        <h3 className="text-sm font-bold">{product.prix.toLocaleString()} FCFA</h3>
-                        <p className="text-[10px] text-gray-600"> ≥101-500 unités </p>
+                    <div className="flex flex-col justify-center items-center text-center min-h-[60px]">
+                        <h3 className="text-[16px] font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                        <p className="text-[12px] text-gray-600 whitespace-nowrap">≥101-500 unités</p>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ const DetailsProduct = ({product}) => {
                 </p>
                 <button 
                     onClick={toggleModal} 
-                    className="flex justify-center items-center gap-3 py-2 rounded bg-red-200 text-[#333333] border-dashed border-2 border-[#cccccc]"
+                    className="flex justify-center items-center gap-3 py-2 rounded bg-red-200 text-[#333333] border-dashed border-2  border-[#ef4444]"
                 >
                     <span className="font-medium text-sm">Partages pour gagner <strong>{product.prix.toLocaleString()} FCFA</strong></span>
                     <i className="fi fi-br-refer-arrow"></i>

@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const NavLink = ({ to, label }) => {
+const NavLink = ({ to, label, className = "" }) => {
     const location = useLocation();
     const isActive = location.pathname === to || (to === '/explore' && location.pathname === '/');
 

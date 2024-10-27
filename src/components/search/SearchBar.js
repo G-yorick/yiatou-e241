@@ -25,11 +25,11 @@ const SearchBar = () => {
 
     return (
         <form onSubmit={handleSubmit} className="flex items-center w-full max-w-[640px] px-2 md:px-6 lg:px-8 transition-colors duration-300">
-            <div className="relative w-full">
+            <div className="relative w-full -translate-y-2.5">
                 <input
                     type="text"
                     placeholder="Rechercher"
-                    className={`w-full h-10 pl-4 pr-10 border ${borderClass} ${inputClass} border-2 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-colors duration-300`}
+                    className={`w-full h-10 pl-4 pr-10 border ${borderClass} ${inputClass} border-1 rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-colors duration-300`}
                     aria-label="Rechercher" 
                 />
                 <button

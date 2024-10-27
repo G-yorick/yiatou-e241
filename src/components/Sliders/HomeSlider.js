@@ -11,10 +11,10 @@ const HomeSlider = () => {
         slidesToScroll: 1,
     };
     return (
-        <Slider arrows={false} {...settings} className="w-full mt-10">
+        <Slider arrows={false} {...settings} className="w-full">
           {sliders.map((img, i) => {
             return (
-              <div key={i} className='w-full h-[150px] flex justify-center items-center mt-2'>
+              <div key={i} className='w-full h-[200px] flex justify-center items-center mt-24'>
                 <img src={img} alt={`slider-${i}`} className='w-full h-full object-cover'/>
               </div>
             );

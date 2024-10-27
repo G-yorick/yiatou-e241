@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaX } from 'react-icons/fa6';
+
 
 const faqItems = [
     {
@@ -31,15 +33,18 @@ function FAQ({ onClose }) {
                 style={{maxWidth: '500px'}}
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="flex justify-between items-center p-2 bg-white sticky top-0 z-10">
-                    <h2 className="text-xl font-bold w-full text-center">FAQs</h2>
-                    <button
-                        className="text-gray-500 hover:text-gray-700 focus:outline-none absolute right-4"
-                        onClick={onClose}
-                        aria-label="Fermer la FAQ"
-                    >
-                        <i className="fi fi-rr-cross text-lg"></i>
-                    </button>
+                <div className="flex justify-between items-center p-4 bg-white sticky top-0 z-10">
+                    <div className="flex-1" />
+                    <h2 className="text-[22px] font-bold flex-1 text-center">FAQs</h2>
+                    <div className="flex-1 flex justify-end">
+                        <button 
+                            onClick={onClose} 
+                            className='p-2 rounded-full bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors duration-200'
+                            aria-label="Fermer"
+                        >
+                            <FaX />
+                        </button>
+                    </div>
                 </div>
                 <div className="overflow-y-auto p-6 pt-0">
                     <ul className="space-y-6">

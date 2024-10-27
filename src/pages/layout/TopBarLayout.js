@@ -27,7 +27,7 @@ const TopBarLayout = ({ children }) => {
                    {children}
                </div>
            </div>
-           <div className="h-[90px] top-0 w-full"></div> {/* Ajustez cette hauteur si nécessaire */}
+           <div className="h-[30px] top-0 w-full"></div> 
        </>
    );
 }

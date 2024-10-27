@@ -33,7 +33,6 @@ export default function ShareProduct({toggleActiveShare, activeShare, product = 
       topContent={isProduct ? <ProductImage image={product?.image[0]}/> : null} 
       title="Partage et gagne" 
       active={activeShare}
-      titleClassName="text-xl font-bold"
     >
       <ModalImageContent isProduct={isProduct} isLoggedIn={isLoggedIn} toggleLoginModal={toggleLoginModal} />
       {showLoginModal && <LoginModal onClose={toggleLoginModal} onLogin={handleLogin} />}
@@ -80,7 +79,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
       <div className="px-3 -my-8 mb-2">
         {!isProduct ? 
         <p>Tu gagneras encore</p> : 
-        <p className="text-center mb-1 text-sm relative">
+        <p className="text-center text-sm relative">
           Tu gagneras <strong>+1,500 FCFA</strong> à chaque fois qu'un de tes amis achetera cet article avec ton lien.
           <button 
             className="inline-block align-middle ml-1 bg-white rounded-full p-1 cursor-pointer hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
@@ -95,7 +94,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
         
         {showFAQ && <FAQ onClose={toggleFAQ} />}
         
-        <div className="flex gap-3 justify-between mt-3">
+        <div className="flex gap-3 justify-between mt-8">
         <div className="flex flex-col gap-1 justify-center items-center cursor-pointer" onClick={() => handleShare('Instagram')}>
             <FaInstagram color="#E4405F" size={45}/>
             <p className="text-xs text-gray-500">Instagram</p>
@@ -130,13 +129,6 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
     );
 }
 
-function IconMoney() {
-    return (
-      <span className="px-2 py-2 text-white rounded-full bg-green-600">
-        <i className="fi fi-sr-sack-dollar flex"></i>
-      </span>
-    )
-}
 
 function LoginModal({ onClose, onLogin }) {
     const handleSubmit = (e) => {

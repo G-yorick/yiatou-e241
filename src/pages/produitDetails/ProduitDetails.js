@@ -16,62 +16,64 @@ import Echantillons from "../../components/Sections/Echantillons";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 
 const ProduitDetails = () => {
-  const topRef = useRef(null);
   const {id} = useParams();
   
-    const [modalUserInfo,setModalUserInfo] = useState(false);
-    const [isCityModalOpen, setIsCityModalOpen] = useState(false);
-    const product = produits.find((p) => p.id === parseFloat(id));
+  const [modalUserInfo,setModalUserInfo] = useState(false);
+  const [isCityModalOpen, setIsCityModalOpen] = useState(false);
+  const product = produits.find((p) => p.id === parseFloat(id));
  
-    const toggleModal = () =>{
-        setModalUserInfo(!modalUserInfo);
-    }
-    const cities = [
-        { name: 'Libreville', price: 2000 },
-        { name: 'Akanda', price: 2500 },
-        { name: 'Owendo', price: 2500 },
-        // Ajoutez d'autres villes selon vos besoins
-    ];
+  const toggleModal = () =>{
+    setModalUserInfo(!modalUserInfo);
+  }
+  const cities = [
+    { name: 'Libreville', price: 2000 },
+    { name: 'Akanda', price: 2500 },
+    { name: 'Owendo', price: 2500 },
+    // Ajoutez d'autres villes selon vos besoins
+  ];
 
-    useEffect(() => {
-      if (topRef.current) {
-        topRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, []);
-
-    return (
-        <div ref={topRef} id="product-details-top" className="bg-gray-100 min-h-screen relative overflow-x-hidden">
-            <PageLayout bottomBar={
-              !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
-            }>
-                <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">
-                    <PersonnalInfo/>
-                </ModalModel>
-                <HeaderProductDetails product={product}/>
-                <DetailsProduct product={product}/>
-                <SelectProductColor/>
-                <DeliveryInfo
-                    initialCity="Libreville"
-                    initialPrice={2000}
-                    currency="FCFA"
-                    unit="Kg"
-                    startDate={new Date()} // Utilisez la date actuelle ou une date spécifique
-                    endDate={new Date(new Date().setDate(new Date().getDate() + 14))} // Date de fin initiale (14 jours après la date de début)
-                    daysRange={14}
-                    cities={cities}
-                    onModalOpen={() => setIsCityModalOpen(true)}
-                    onModalClose={() => setIsCityModalOpen(false)}
-                />
-                <Echantillons/>
-                <DeliveryPromises />
-                <CoutLivraison/>
-                <MoreProduct/>
-            </PageLayout>
+  return (
+    // Ajout de pt-[56px] pour compenser la hauteur de la barre de navigation
+    <div className="bg-gray-100 min-h-screen relative overflow-x-hidden">
+      <PageLayout bottomBar={
+        !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
+      }>
+        <div className="fixed top-0 left-0 right-0 z-[100] bg-white">
+          <div className="flex justify-between px-[8px] py-[8px]">
+            <Link to="/" className="bg-white border inline-block p-2 rounded-full">
+              <i className="fi fi-br-angle-left flex text-[13px]"></i>
+            </Link>
+            <Link to="/cart" className="bg-white border inline-block p-2 rounded-full">
+              <FaShoppingCart className="text-[13px]" />
+            </Link>
+          </div>
         </div>
-    );
+        <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">
+          <PersonnalInfo/>
+        </ModalModel>
+        <HeaderProductDetails product={product}/>
+        <DetailsProduct product={product}/>
+        <SelectProductColor/>
+        <DeliveryInfo
+          initialCity="Libreville"
+          initialPrice={2000}
+          currency="FCFA"
+          unit="Kg"
+          startDate={new Date()} // Utilisez la date actuelle ou une date spécifique
+          endDate={new Date(new Date().setDate(new Date().getDate() + 14))} // Date de fin initiale (14 jours après la date de début)
+          daysRange={14}
+          cities={cities}
+          onModalOpen={() => setIsCityModalOpen(true)}
+          onModalClose={() => setIsCityModalOpen(false)}
+        />
+        <Echantillons/>
+        <DeliveryPromises />
+        <CoutLivraison/>
+        <MoreProduct/>
+      </PageLayout>
+    </div>
+  );
 }
-
-
 
 const BottomButton = ({toggleModal}) => {
   const handleOrder = () => {
@@ -172,6 +174,7 @@ const PersonnalInfo = () => {
     </>
   );
 };
+
 /**
  * 
  * @param {{product : Products}} param0 
@@ -198,15 +201,8 @@ const HeaderProductDetails = ({product}) => {
   }, [handleScroll]);
     
   return (
+    // Suppression des boutons de la div HeaderProductDetails car ils sont maintenant fixes en haut
     <div className="w-full relative">
-      <div className="absolute left-0 right-0 top-[8px] z-[100] flex justify-between px-[8px]">
-        <Link to="/" className="bg-white border inline-block p-2 rounded-full">
-          <i className="fi fi-br-angle-left flex text-[13px]"></i>
-        </Link>
-        <Link to="/cart" className="bg-white border inline-block p-2 rounded-full">
-          <FaShoppingCart className="text-[13px] " />
-        </Link>
-      </div>
       <SliderModel onSlideChange={(index) => setCurrentImage(index + 1)}>
         {product.image.map((img,i) =>{
           return (

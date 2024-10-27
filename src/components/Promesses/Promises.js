@@ -35,7 +35,7 @@ const Promises = ({ className }) => {
             aria-label="Voir plus de détails sur nos promesses"
             tabIndex={0}
           >
-            <FaChevronRight className="text-sm text-white" />
+            <FaChevronRight className="text-xs text-white" />
           </button>
         </div>
       </div>

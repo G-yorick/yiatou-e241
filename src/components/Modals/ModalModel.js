@@ -1,6 +1,6 @@
 import { FaX } from 'react-icons/fa6';
 
-const ModalModel = ({title = "", icon = null, active = true, topContent = null, onClose, children, titleClassName}) => {
+const ModalModel = ({title = "", icon = null, active = true, topContent = null, onClose, children}) => {
     const handleClose = () => {
         if (onClose && typeof onClose === 'function') {
             onClose();
@@ -19,13 +19,19 @@ const ModalModel = ({title = "", icon = null, active = true, topContent = null, 
                 {topContent}
                 <div className='modal-content bg-white rounded-t-[20px] w-full shadow-lg'>
                     <div className='py-4 px-3 relative'>
-                        <div className="bg-white rounded-t-3xl px-4 pt-4 pb-6 relative">
-                            {icon && <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">{icon}</div>}
-                            <h2 className={`text-center mb-4 ${titleClassName}`}>{title}</h2>
+                        <div className="bg-white rounded-t-3xl px-4 pt-2 pb-8 relative">
+                            <div className="flex items-center justify-center gap-2">
+                                {icon && (
+                                    <div className="flex items-center justify-center w-6 h-6">
+                                        {icon}
+                                    </div>
+                                )}
+                                <h2 className="text-[22px] font-bold leading-none">{title}</h2>
+                            </div>
                         </div>
                         <button 
                             onClick={handleClose} 
-                            className='absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors duration-200'
+                            className='absolute right-3 top-1/2 -translate-y-7 p-2 rounded-full bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors duration-200'
                             aria-label="Fermer"
                         >
                             <FaX />
