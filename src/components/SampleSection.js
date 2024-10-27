@@ -29,7 +29,7 @@ const SampleSection = () => {
  return (
    <>
      
-     <section className="px-3 py-2 border-b-4 border-[#cccccc] bg-white">
+     <section className="px-3 py-2 border-b-4 border-[#cccccc] bg-gray-100">
        {/* Ajoutez une marge en bas pour séparer Promises du contenu suivant */}
        <div className="mb-2">
          <Promises />
