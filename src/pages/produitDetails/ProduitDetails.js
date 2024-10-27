@@ -40,7 +40,7 @@ const ProduitDetails = () => {
     }, []);
 
     return (
-        <div ref={topRef} id="product-details-top" className="bg-gray-100 min-h-screen relative">
+        <div ref={topRef} id="product-details-top" className="bg-gray-100 min-h-screen relative overflow-x-hidden">
             <PageLayout bottomBar={
               !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
             }>
@@ -210,7 +210,7 @@ const HeaderProductDetails = ({product}) => {
       <SliderModel onSlideChange={(index) => setCurrentImage(index + 1)}>
         {product.image.map((img,i) =>{
           return (
-            <div key={i} className='w-full h-[100vw] bg-white flex justify-center items-center'>
+            <div key={i} className='w-full h-[100vw] bg-white flex justify-center items-center overflow-hidden'>
               <img src={img} alt={product.name} className="w-full h-full object-cover"/>
             </div>
           );
