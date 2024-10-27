@@ -223,7 +223,7 @@ const HeaderProductDetails = ({product}) => {
 
 const ProductLevelIndicator = ({ currentImage, totalImages }) => {
   return (
-    <div className="absolute bottom-4 right-4 bg-gray-200 rounded-full shadow-md p-2 z-50">
+    <div className="absolute bottom-4 right-5 bg-white  z-50">
       <div className="text-sm font-semibold">
         {currentImage} / {totalImages}
       </div>
