@@ -39,7 +39,7 @@ const MoreProduct = () => {
           <div className="flex justify-between items-center px-3">
             <div className="flex items-center justify-between w-full ">
               <h3 className="font-medium text-md ">D'autres articles intéressants</h3>
-              <div className="flex items-center mr-3">
+              <div className="flex items-center ">
                 <span className="text-[#333333] text-xs font-light mr-1">Voir plus</span>
                 <button
                   className={`p-1 text-[#333333] rounded-full transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 ${

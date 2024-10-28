@@ -33,7 +33,7 @@ function FAQ({ onClose }) {
                 style={{maxWidth: '500px'}}
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="flex justify-between items-center p-4 bg-white sticky top-0 z-10">
+                <div className="flex justify-between items-center p-2 bg-white sticky top-0 z-10">
                     <div className="flex-1" />
                     <h2 className="text-[22px] font-bold flex-1 text-center">FAQs</h2>
                     <div className="flex-1 flex justify-end">

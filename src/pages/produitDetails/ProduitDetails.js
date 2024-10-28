@@ -130,8 +130,8 @@ const BottomButton = ({toggleModal}) => {
 const PersonnalInfo = () => {
   return (
     <>
-      <div className="mb-2">
-        <p className="text-center text-sm font-medium text-[#333333]">
+      <div className="mb-1">
+        <p className="text-center text-sm text-gray-700 -translate-y-7">
           Ces informations permettent a Yiatou de traiter tes commandes et
           restent privées.
         </p>

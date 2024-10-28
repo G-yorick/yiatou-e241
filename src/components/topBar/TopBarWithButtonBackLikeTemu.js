@@ -26,18 +26,18 @@ const TopBarWithButtonBackLikeTemu = ({ link, className = "", title }) => {
         </Link>
         
         <div className="flex-1 flex justify-center items-center transition-all duration-300">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 justify-center">
             <img 
-              src="/img/promesses/engagement.webp" 
+              src="/icons/shield-check.svg" 
               alt="Nos engagements Yiatou"
               className={`object-contain transition-all duration-300 ${
                 isScrolled 
                   ? 'w-16 h-6' 
                   : 'w-36 h-16'
-              }`}
+              } [filter:invert(45%)_sepia(85%)_saturate(402%)_hue-rotate(71deg)_brightness(92%)_contrast(89%)]`}
             />
             {isScrolled && (
-              <span className="text-md font-medium text-gray-800 whitespace-nowrap -translate-x-3">
+              <span className="text-md font-medium text-[#418920] whitespace-nowrap -translate-x-3">
                 Nos engagements Yiatou
               </span>
             )}
