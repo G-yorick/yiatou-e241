@@ -26,7 +26,7 @@ const TopBar = () => {
                 <div className={`flex items-center px-1 justify-between w-full mb-1 transition-all duration-300 ease-in-out ${
                     isScrolled ? 'max-h-0 opacity-0 scale-95 transform' : 'max-h-12 opacity-100 scale-100 transform'
                 }`}>
-                    <img src="/img/logo/logo.png" alt="logo" className="h-[41px] w-auto transition-transform duration-300" />
+                    <img src="/img/logo/logo.png" alt="logo" className="h-[38px] w-auto transition-transform duration-300" />
                     <SmsNotif />
                 </div>
                 <SearchBar />

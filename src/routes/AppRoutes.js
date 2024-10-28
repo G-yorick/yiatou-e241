@@ -49,7 +49,7 @@ const AppRoutes = () => {
             <Route path="/password" element={<AddPassword/>}/>
             <Route path="/promises" element={<Promises/>}/>
             <Route path="/cart" element={<Cart/>}/>
-            <Route path="/echantillonDetails" element={<EchantillonDetails/>}/>
+            <Route path="/echantillonDetails/:id" element={<EchantillonDetails />} />
             </Routes>
         </Router>
     );

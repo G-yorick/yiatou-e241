@@ -57,7 +57,12 @@ const SampleSection = () => {
        <div className="mt-2 relative">
          <div className="flex overflow-x-auto space-x-2 scrollbar-hide pl-3 pr-[3vw]">
            {samples.map((sample, index) => (
-             <SampleCard key={index} image={sample.image} price={sample.price} />
+             <SampleCard 
+               key={index} 
+               id={sample.id} 
+               image={sample.image} 
+               price={sample.price} 
+             />
            ))}
          </div>
        </div>

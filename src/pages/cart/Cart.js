@@ -207,7 +207,7 @@ const Cart = () => {
             className="flex-1 text-lg font-bold"
             disabled={selectedCount === 0}
           >
-            Commander ({selectedCount})
+            Commander 
           </ButtonCta>
         </div>
       </div>

@@ -26,21 +26,27 @@ const DetailsProduct = ({product}) => {
         return () => clearInterval(intervalId);
     }, []);
 
+    const getPriceByQuantity = (min, max) => {
+        if (min >= 101) return 7000;
+        if (min >= 51) return 7500;
+        return 8500;
+    };
+
     return (
         <div className="bg-white">
             <ShareProduct product={product} toggleActiveShare={toggleModal} activeShare={activeModal}/>
             <div className="px-2 py-2 bg-gray-100 mt-2">
                 <div className="grid grid-cols-3 gap-2">
                     <div className="flex flex-col justify-center items-center text-center min-h-[60px]">
-                        <h3 className="text-[16px] font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                        <h3 className="text-[16px] font-bold">{getPriceByQuantity(10, 50).toLocaleString()} FCFA</h3>
                         <p className="text-[12px] text-gray-600 whitespace-nowrap">10-50 unités</p>
                     </div>
                     <div className="flex flex-col justify-center items-center text-center min-h-[60px]">
-                        <h3 className="text-[16px] font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                        <h3 className="text-[16px] font-bold">{getPriceByQuantity(51, 100).toLocaleString()} FCFA</h3>
                         <p className="text-[12px] text-gray-600 whitespace-nowrap">51-100 unités</p>
                     </div>
                     <div className="flex flex-col justify-center items-center text-center min-h-[60px]">
-                        <h3 className="text-[16px] font-bold">{product.prix.toLocaleString()} FCFA</h3>
+                        <h3 className="text-[16px] font-bold">{getPriceByQuantity(101, 500).toLocaleString()} FCFA</h3>
                         <p className="text-[12px] text-gray-600 whitespace-nowrap">≥101-500 unités</p>
                     </div>
                 </div>
@@ -53,7 +59,7 @@ const DetailsProduct = ({product}) => {
                     onClick={toggleModal} 
                     className="flex justify-center items-center gap-3 py-2 rounded bg-red-200 text-[#333333] border-dashed border-2  border-[#ef4444]"
                 >
-                    <span className="font-medium text-sm">Partages pour gagner <strong>{product.prix.toLocaleString()} FCFA</strong></span>
+                    <span className="font-medium text-sm">Partages pour gagner <strong>1500 FCFA</strong></span>
                     <i className="fi fi-br-refer-arrow text-xs"></i> 
                 </button>
             </div>
