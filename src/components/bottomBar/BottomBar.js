@@ -3,8 +3,8 @@ import NavItem from "./NavItem";
 const BottomBar = () => {
   return (
     <>
-      <div className="fixed h-[50px] bottom-0 left-0 w-full bg-white border-t">
-        <div className="flex justify-between items-center h-full px-16 max-w-[640px] m-auto">
+      <div className="fixed h-[60px] bottom-0 left-0 w-full bg-white border-t">
+        <div className="flex justify-between items-center h-full px-12 max-w-[640px] m-auto">
           <NavItem icon="fi fi-rr-home" iconSec="fi fi-sr-home">
             Accueil
           </NavItem>
