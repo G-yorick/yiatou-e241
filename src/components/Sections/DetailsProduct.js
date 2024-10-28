@@ -46,7 +46,7 @@ const DetailsProduct = ({product}) => {
                 </div>
             </div>
             <div className="px-2 py-3 flex flex-col gap-2">
-                <p className="text-gray-600 mb-2 text-justify text-xs">
+                <p className="text-gray-600 mb-2 text-justify text-[14px]">
                     <Desciption texte={product.description}/>
                 </p>
                 <button 
@@ -54,7 +54,7 @@ const DetailsProduct = ({product}) => {
                     className="flex justify-center items-center gap-3 py-2 rounded bg-red-200 text-[#333333] border-dashed border-2  border-[#ef4444]"
                 >
                     <span className="font-medium text-sm">Partages pour gagner <strong>{product.prix.toLocaleString()} FCFA</strong></span>
-                    <i className="fi fi-br-refer-arrow"></i>
+                    <i className="fi fi-br-refer-arrow text-xs"></i> 
                 </button>
             </div>
         </div>

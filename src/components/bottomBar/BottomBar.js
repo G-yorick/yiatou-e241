@@ -4,7 +4,7 @@ const BottomBar = () => {
   return (
     <>
       <div className="fixed h-[70px] bottom-0 left-0 w-full bg-white border-t">
-        <div className="flex justify-between items-center h-full px-3 max-w-[640px] m-auto">
+        <div className="flex justify-between items-center h-full px-5 max-w-[640px] m-auto">
           <NavItem icon="fi fi-rr-home" iconSec="fi fi-sr-home">
             Accueil
           </NavItem>

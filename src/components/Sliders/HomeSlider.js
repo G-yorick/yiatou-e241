@@ -14,7 +14,7 @@ const HomeSlider = () => {
         <Slider arrows={false} {...settings} className="w-full">
           {sliders.map((img, i) => {
             return (
-              <div key={i} className='w-full h-[200px] flex justify-center items-center mt-24'>
+              <div key={i} className='w-full h-[150px] flex justify-center items-center mt-28'>
                 <img src={img} alt={`slider-${i}`} className='w-full h-full object-cover'/>
               </div>
             );

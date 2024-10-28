@@ -26,7 +26,7 @@ const ModalModel = ({title = "", icon = null, active = true, topContent = null, 
                                         {icon}
                                     </div>
                                 )}
-                                <h2 className="text-[22px] font-bold leading-none">{title}</h2>
+                                <h2 className="text-[21px] font-bold leading-none">{title}</h2>
                             </div>
                         </div>
                         <button 

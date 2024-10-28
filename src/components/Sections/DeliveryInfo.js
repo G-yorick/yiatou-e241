@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import { FiChevronDown } from 'react-icons/fi';
 import { formatCurrency, addDaysToDate, formatDateRange } from '../../utils/utils';
 
 const CustomSelect = ({ value, onChange, options, currency }) => {
@@ -50,7 +50,8 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
             options={cities}
             currency={currency}
           />
-          <FaChevronDown className="h-3 w-3 text-blue-600 -ml-24" />
+          <FiChevronDown className="h-4 w-4 text-blue-600 -ml-24" />
+          
         </div>
       </div>
       <p className="mt-2 text-gray-600 text-sm">

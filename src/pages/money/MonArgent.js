@@ -1,6 +1,6 @@
 import { FaImage } from "react-icons/fa";
 import BottomBar from "../../components/bottomBar/BottomBar";
-import TopBarTitle from "../../components/topBar/TopBarTitle";
+import TopBarWithButtonBack from "../../components/topBar/TopBarWithButtonBack";
 import PageLayout from "../layout/PageLayout";
 import { Link } from "react-router-dom";
 import ModalModel from "../../components/Modals/ModalModel";
@@ -14,8 +14,8 @@ export default function MonArgent() {
   };
   return (
     <PageLayout
-      bottomBar={<BottomBar />}
-      topBar={<TopBarTitle title="Mon argent" />}
+      // bottomBar={<BottomBar />}
+      topBar={<TopBarWithButtonBack title="Mon argent" />}
     >
       <ModalModel
         onClose={toggleModalMoney}

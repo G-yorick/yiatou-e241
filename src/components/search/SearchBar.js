@@ -24,12 +24,12 @@ const SearchBar = () => {
     const iconClass = hasScrolled ? 'text-black' : 'text-gray-400';
 
     return (
-        <form onSubmit={handleSubmit} className="flex items-center w-full max-w-[640px] px-2 md:px-6 lg:px-8 transition-colors duration-300">
-            <div className="relative w-full -translate-y-2.5">
+        <form onSubmit={handleSubmit} className="flex items-center w-full max-w-[640px] px-1 md:px-6 lg:px-8 transition-colors duration-300">
+            <div className="relative w-full -translate-y-3.5">
                 <input
                     type="text"
                     placeholder="Rechercher"
-                    className={`w-full h-10 pl-4 pr-10 border ${borderClass} ${inputClass} border-1 rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-colors duration-300`}
+                    className={`w-full h-10 pl-4 pr-10 border ${borderClass} ${inputClass} border-2 rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-colors duration-300`}
                     aria-label="Rechercher" 
                 />
                 <button

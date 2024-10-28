@@ -1,30 +1,42 @@
 import { Link, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-const NavLink = ({ to, label, className = "" }) => {
+const NavLink = ({ to, label, className = '' }) => {
     const location = useLocation();
-    const isActive = location.pathname === to || (to === '/explore' && location.pathname === '/');
-
-    const baseClasses = "text-base no-underline transition-colors duration-200 ease-in-out";
-    const activeClasses = "text-blue-600 font-semibold";
-    const inactiveClasses = "text-gray-700 hover:text-blue-500";
-    const focusClasses = "focus:font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50";
+    const isActive = location.pathname === to || (location.pathname === '/' && to === '/explorer');
 
     return (
-        <Link 
-            to={to} 
-            className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses} ${focusClasses}`}
-            aria-label={label}
-            aria-current={isActive ? 'page' : undefined}
-        >
-            {label}
-        </Link>
+        <div className="flex flex-col items-center">
+            <Link 
+                to={to}
+                className={`
+                    relative 
+                    text-center 
+                    transition-all 
+                    hover:text-gray-800
+                    ${className}
+                    ${isActive ? 'font-semibold' : 'font-light'}
+                `}
+                aria-current={isActive ? 'page' : undefined}
+            >
+                {label}
+                {/* Indicateur de page active */}
+                <div 
+                    className={`
+                        absolute 
+                        -bottom-1
+                        left-1/2 
+                        w-14
+                        h-[2px]
+                        bg-black 
+                        transition-all
+                        duration-200
+                        ${isActive ? 'opacity-100 -translate-x-1/2' : 'opacity-0'}
+                    `}
+                    aria-hidden="true"
+                />
+            </Link>
+        </div>
     );
-}
-
-NavLink.propTypes = {
-    to: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
 };
 
 export default NavLink;

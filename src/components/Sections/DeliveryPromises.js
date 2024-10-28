@@ -10,7 +10,7 @@ const DeliveryPromises = () => {
   ];
 
   return (
-    <div className="bg-white p-4 border border-t-4 border-b-4 border-[#cccccc]">
+    <div className="bg-white p-4 border border-t-2 border-b-2 border-gray-100">
       <h3 className="font-medium text-md mb-3">Promesses de livraison</h3>
       <div className="grid grid-cols-2 gap-4">
         {promises.map((promise, index) => (

@@ -91,7 +91,7 @@ const Article = ({ share = null, product }) => {
              {currentText}
            </p>
          ) : (
-           <p className="text-[12px] font-medium leading-tight text-gray-600">
+           <p className="text-[12px] font-medium leading-tight text-gray-500">
              Achat min: {product.minPurchase} 
            </p>
          )}
@@ -103,7 +103,7 @@ const Article = ({ share = null, product }) => {
            onClick={handleShare}
            aria-label="Partager"
          >
-           <i className="fi fi-rr-refer-arrow text-[12px] flex"></i>
+           <i className="fi fi-rr-refer-arrow text-[15px] flex"></i>
          </button>
        </div>
      </div>

@@ -12,7 +12,7 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
     ];
 
     return (
-        <div className="py-2 px-4 bg-white border border-b-4 border-[#cccccc]">
+        <div className="py-2 px-4 bg-white border border-b-2 border-gray-100">
             <div className="mt-0">
                 <h2 className="text-md font-medium mb-2">Lance ton Business</h2>
                 <table className="w-full text-sm border-collapse border border-[#cccccc]">
