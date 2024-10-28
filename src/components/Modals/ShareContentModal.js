@@ -1,7 +1,6 @@
 import React from 'react';
 import ModalModel from "./ModalModel";
 import {IoLogoWhatsapp, IoLogoFacebook} from "react-icons/io5";
-import {FaFacebookMessenger, FaInstagram} from "react-icons/fa";
 
 export default function ShareContentModal({ isOpen, onClose }) {
   return (
@@ -23,15 +22,18 @@ function ShareContent() {
           <p className="font-medium text-gray-700">WhatsApp</p>
         </div>
         <div className="flex flex-col gap-1 justify-center items-center">
-          <IoLogoFacebook color="#1877F2" size={30}/>
+
+          <i class="fi fi-brands-tik-tok text-[#1877F2] text-3xl"></i>
           <p className="font-medium text-gray-700">Facebook</p>
         </div>
         <div className="flex flex-col gap-1 justify-center items-center">
-          <FaFacebookMessenger color="#00B2FF" size={30}/>
+
+          <i class="fi fi-brands-facebook-messenger text-[#00B2FF] text-3xl "></i>
           <p className="font-medium text-gray-700">Messenger</p>
         </div>
         <div className="flex flex-col gap-1 justify-center items-center">
-          <FaInstagram color="#E4405F" size={30}/>
+          
+          <i class="fi fi-brands-facebook text-[#E4405F] text-3xl "></i>
           <p className="font-medium text-gray-700">Instagram</p>
         </div>
       </div>
