@@ -12,7 +12,7 @@ const LivraisonInfo = ({onOpenLivraison}) => {
         }
     }
     return (
-        <div className='bg-white px-3 py-5 flex flex-col gap-3 items-start'>
+        <div className='bg-white px-4 py-5 flex flex-col gap-3 items-start translate-y-6'>
             <h2 className='text-lg font-medium'>Informations de livraison</h2>
             <div className="grid grid-cols-[1fr_30px] w-full">
                 <div className="flex flex-col gap-2">
@@ -25,7 +25,7 @@ const LivraisonInfo = ({onOpenLivraison}) => {
                     </Link>
                 </div>
             </div>
-            <button onClick={openModalLivraison} className="bg-gray-100 px-4 py-2 rounded-xl font-medium">
+            <button onClick={openModalLivraison} className="px-4 py-2 rounded-xl font-medium">
                 Changer l'adresse de livraison
             </button>
         </div>
