@@ -40,7 +40,7 @@ const SampleSection = () => {
            <div className="flex items-center mr-3">
              <span className="text-[#333333] text-xs font-light mr-1">Voir plus</span>
              <button
-               className={`p-1 text-[#333333] rounded-full transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 ${
+               className={`p-2 text-[#333333] rounded-full transition-transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300 ${
                  isAnimating ? 'transform scale-110' : ''
                }`}
                onClick={handleClick}

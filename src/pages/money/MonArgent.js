@@ -45,7 +45,7 @@ const Header = ({ onGetMoney }) => {
     }
   };
   return (
-    <header className="w-full h-[200px] bg-green-200 rounded-b-[30px] px-3 py-5 flex flex-col justify-center items-start">
+    <header className="w-full h-[200px] bg-green-200 rounded-b-[30px] px-3 flex flex-col justify-center items-start translate-y-3">
       <p className="font-medium">Solde actuel</p>
       <p className="flex gap-3 items-end">
         <span className="font-bold text-3xl">6,500</span>

@@ -5,6 +5,7 @@ import BottomBar from '../../components/bottomBar/BottomBar';
 import { Link } from 'react-router-dom';
 import ShareProduct from '../../components/Modals/ShareProduct';
 import ButtonWhatsapp from '../../components/Buttons/ButtonWhatsapp';
+import { FaReceipt } from 'react-icons/fa';
 
 export default function Account() {
     const [share,setShare] = useState(false);
@@ -14,7 +15,7 @@ export default function Account() {
   return (
     <PageLayout bottomBar={<BottomBar/>} topBar={<ToBar onpenShare={toggleShare}/>}>
         <ShareProduct isProduct={false} toggleActiveShare={toggleShare} activeShare={share}/>
-        <div className='py-4 bg-white min-h-[80vh]'>
+        <div className='py-4 bg-white min-h-[80vh] mt-6'>
             {/* ------------------------------ */}
             <div className='px-3 py-3 grid grid-cols-[60px_1fr_30px] gap-2 border-b'>
                 <div className='w-[50px] h-[50px] bg-orange-100 flex justify-center items-center rounded-full'>
@@ -39,6 +40,16 @@ export default function Account() {
                 <p className='flex items-center gap-2 font-medium text-gray-600'>
                     <span className='text-[25px]'><FaPeopleGroup/></span>
                     <span>3 invités</span>
+                </p>
+            </div>
+            {/* ------------------------------- */}
+            {/* ------------------------------- */}
+            <div className='px-3 py-6 border-b'>
+                <p className='flex items-center gap-2 font-medium text-gray-600'>
+                    <span className='text-[25px]'>
+                        <i className="fi fi-rr-receipt"></i>
+                    </span>
+                    <span>Mes commandes</span>
                 </p>
             </div>
             {/* ------------------------------- */}
@@ -95,7 +106,7 @@ const ToBar = ({onpenShare}) =>{
         }
     }
     return (
-        <div className='px-3 flex justify-between w-full items-center'>
+        <div className='px-3 flex h-[40px] justify-between w-full items-center'>
             <h2 className='font-medium text-lg'>Mon compte</h2>
             <button onClick={toggle}>
                 <i class="fi fi-sr-share text-xl"></i>

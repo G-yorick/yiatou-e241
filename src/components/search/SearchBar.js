@@ -71,7 +71,7 @@ const SearchBar = () => {
                                 className="p-2 focus:outline-none"
                                 aria-label="Retour"
                             >
-                                <IoArrowBack className="w-6 h-6" />
+                                <i className="fi fi-br-angle-left w-6 h-6"></i>
                             </button>
                         )}
                         <div className={`relative w-full ${!isSearchActive ? '-translate-y-3.5' : ''}`}>

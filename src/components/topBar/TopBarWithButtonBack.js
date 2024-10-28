@@ -1,7 +1,6 @@
 import React from "react";
 import TopBarLayout from "../../pages/layout/TopBarLayout";
 import { Link } from "react-router-dom";
-import { FaChevronLeft } from 'react-icons/fa';
 
 const TopBarWithButtonBack = ({title = null, link = "#"}) => {
   return (
@@ -9,11 +8,11 @@ const TopBarWithButtonBack = ({title = null, link = "#"}) => {
       <div className="w-full flex items-center justify-between h-[40px] px-3 relative">
         <Link 
           to={link} 
-          className="absolute left-3 flex items-center"
+          className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center"
           aria-label="Retour"
           tabIndex={0}
         >
-          <FaChevronLeft className="text-gray-400 text-xl" />
+          <i className="fi fi-br-angle-left w-6 h-6 mt-2"></i>
         </Link>
         <h2 className="text-lg font-medium w-full ml-10">{title}</h2>
       </div>
