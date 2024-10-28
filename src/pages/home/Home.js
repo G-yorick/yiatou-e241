@@ -15,6 +15,7 @@ import { produits, samples } from "../../utils/utils"; // Import samples from ut
 import Promises from "../../components/Promesses/Promises";
 import SampleCard from "../../components/SampleCard";
 import SampleSection from "../../components/SampleSection";
+import '@flaticon/flaticon-uicons/css/all/all.css';
 
 const Home = () => {
   const [activeShare,setActiveShare] = useState(false);
@@ -29,11 +30,11 @@ const Home = () => {
       <ShareProduct product={product} toggleActiveShare={toggleActiveShare} activeShare={activeShare}/>
       <HomeSlider />
       <div className="mx-3 flex relative gap-3 bg-[#ffe5af] rounded-tl-lg rounded-tr-lg overflow-hidden">
-        <ButtonHome data="entre 10 - 14 jours" icon={<MdDirectionsCar />}>
+        <ButtonHome data="entre 10 - 14 jours" icon={<i className="fi fi-rr-shipping-fast text-2xl flex items-center" />}>
           Livraison rapide
         </ButtonHome>
         <div className="absolute left-[50%] top-[50%] h-[70%] w-[2px] bg-white translate-x-[-50%] translate-y-[-50%]"></div>
-        <ButtonHome data="24/7" icon={<FaWhatsapp />}>
+        <ButtonHome data="24/7" icon={<FaWhatsapp className="flex items-center" />}>
           Service client
         </ButtonHome>
       </div>

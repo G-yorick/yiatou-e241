@@ -15,7 +15,7 @@ const TopBarWithButtonBack = ({title = null, link = "#"}) => {
         >
           <FaChevronLeft className="text-gray-400 text-xl" />
         </Link>
-        <h2 className="text-lg font-medium w-full text-center">{title}</h2>
+        <h2 className="text-lg font-medium w-full ml-10">{title}</h2>
       </div>
     </TopBarLayout>
   );
