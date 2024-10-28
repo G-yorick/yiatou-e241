@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { FaUserLock, FaShoppingCart } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import ModalModel from "../../components/Modals/ModalModel";
 import CoutLivraison from "../../components/Sections/CoutLivraison";
 import DetailsProduct from "../../components/Sections/DetailsProduct";
@@ -16,6 +16,7 @@ import Echantillons from "../../components/Sections/Echantillons";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 
 const ProduitDetails = () => {
+  const navigate = useNavigate();
   const {id} = useParams();
   
   const [modalUserInfo,setModalUserInfo] = useState(false);
@@ -32,6 +33,16 @@ const ProduitDetails = () => {
     // Ajoutez d'autres villes selon vos besoins
   ];
 
+  const handleCartClick = () => {
+    navigate('/cart');
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleCartClick();
+    }
+  };
+
   return (
     // Ajout de pt-[56px] pour compenser la hauteur de la barre de navigation
     <div className="bg-gray-100 min-h-screen relative overflow-x-hidden">
@@ -43,9 +54,15 @@ const ProduitDetails = () => {
             <Link to="/" className="bg-white border inline-block p-2 rounded-full">
               <i className="fi fi-br-angle-left flex text-[13px]"></i>
             </Link>
-            <Link to="/cart" className="bg-white border inline-block p-2 rounded-full">
+            <button 
+              onClick={handleCartClick}
+              onKeyDown={handleKeyDown}
+              className="bg-white border inline-block p-2 rounded-full"
+              aria-label="Voir le panier"
+              tabIndex={0}
+            >
               <FaShoppingCart className="text-[13px]" />
-            </Link>
+            </button>
           </div>
         </div>
         <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">

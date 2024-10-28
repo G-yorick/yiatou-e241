@@ -48,7 +48,7 @@ const AppRoutes = () => {
             <Route path="/verify" element={<Verify/>}/>
             <Route path="/password" element={<AddPassword/>}/>
             <Route path="/promises" element={<Promises/>}/>
-            <Route path="/cart" component={Cart} />
+            <Route path="/cart" element={<Cart/>}/>
             <Route path="/echantillonDetails" element={<EchantillonDetails/>}/>
             </Routes>
         </Router>

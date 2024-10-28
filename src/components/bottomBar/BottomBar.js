@@ -8,7 +8,7 @@ const BottomBar = () => {
           <NavItem icon="fi fi-rr-home" iconSec="fi fi-sr-home">
             Accueil
           </NavItem>
-          <NavItem to="/historique/historique" icon="fi fi-rr-shopping-cart" iconSec="fi fi-sr-shopping-cart">
+          <NavItem to="/cart" icon="fi fi-rr-shopping-cart" iconSec="fi fi-sr-shopping-cart">
             Panier
           </NavItem>
           <NavItem to="/money" icon="fi fi-rr-wallet" iconSec="fi fi-sr-wallet">
