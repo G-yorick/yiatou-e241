@@ -3,7 +3,7 @@ import PageLayout from "../layout/PageLayout";
 
 export default function Informations() {
   return (
-    <PageLayout topBar={<TopBarWithButtonBack link="/account" title="Mes informaions"/>}>
+    <PageLayout topBar={<TopBarWithButtonBack link="/account" title="Mes informations"/>}>
         <div className="px-3 py-5 flex flex-col gap-8 bg-white">
             <div className="border-b-2 border-gray-300 pb-5">
                 <H2>Informations personnelles</H2>

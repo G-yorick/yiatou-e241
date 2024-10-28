@@ -12,7 +12,7 @@ export default function Account() {
         setShare(!share);
     }
   return (
-    <PageLayout bottomBar={<BottomBar/>} topBar={<ToBar onpenShare={toggleShare}/>}>
+    <PageLayout bottomBar={<BottomBar/>} >
         <ShareProduct isProduct={false} toggleActiveShare={toggleShare} activeShare={share}/>
         <div className='py-4 bg-white min-h-[80vh]'>
             {/* ------------------------------ */}
@@ -46,27 +46,27 @@ export default function Account() {
             <div className='px-3 py-4 border-b'>
                 <h2 className='font-bold text-gray-900 text-lg'>Services</h2>
                 <ul className='flex-col gap-2 flex my-3'>
-                    <li className='font-medium text-gray-500'>
+                    <li className='font-medium '>
                         <Link to="/about" className='flex gap-2 items-center'>
-                        <span><i class="fi fi-rr-info flex"></i></span>
-                        <span>A propos</span>
+                        <span><i class="fi fi-rr-info flex text-gray-500"></i></span>
+                        <span className='text-black'>A propos</span>
                         </Link>
                     </li>
-                    <li className='font-medium text-gray-500'>
+                    <li className='font-medium'>
                         <Link to="/services" className='flex gap-2 items-center'>
-                        <span><i class="fi fi-rr-comment-question flex"></i></span>
-                        <span>Centre d'aide</span>
+                        <span><i class="fi fi-rr-comment-question flex text-gray-500"></i></span>
+                        <span className='text-black'>Centre d'aide</span>
                         </Link>
                     </li>
                     <li className='font-medium text-gray-500'>
                         <Link to="/politique" className='flex gap-2 items-center'>
-                        <span><i class="fi fi-rr-user-lock flex"></i></span>
-                        <span>Politique de confidentialité</span>
+                        <span><i class="fi fi-rr-user-lock flex text-gray-500"></i></span>
+                        <span className='text-black'>Politique de confidentialité</span>
                         </Link>
                     </li>
-                    <li className='font-medium text-gray-500'>
+                    <li className='font-medium '>
                         <Link to="/conditions" className='flex gap-2 items-center'>
-                        <span><i class="fi fi-rr-handshake flex"></i></span>
+                        <span><i class="fi fi-rr-handshake flex text-gray-500"></i></span>
                         <span>Termes et Conditions d'utilisation</span>
                         </Link>
                     </li>
@@ -84,22 +84,4 @@ export default function Account() {
         </div>
     </PageLayout>
   )
-}
-const ToBar = ({onpenShare}) =>{
-    const toggle = () =>{
-        try {
-            onpenShare();
-        } catch (error) {
-            console.log('onpenShare doit etre une fonction');
-            
-        }
-    }
-    return (
-        <div className='px-3 flex justify-between w-full items-center'>
-            <h2 className='font-medium text-lg'>Mon compte</h2>
-            <button onClick={toggle}>
-                <i class="fi fi-sr-share text-xl"></i>
-            </button>
-        </div>
-    );
 }
