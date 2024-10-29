@@ -20,7 +20,7 @@ const Commandes = () => {
     }
  
     return (
-        <PageLayout bottomBar={<CommandeBottom/>} topBar={<TopBarWithButtonBack link='/produit-details' title="Commandes"/>}>
+        <PageLayout bottomBar={<CommandeBottom/>} topBar={<TopBarWithButtonBack link='/cart' title="Commande"/>}>
             <ModalModel onClose={onToggleModalLivraison} active={modalLivraison} title='Ou doit-on livrer ?'>
                 <AddLivraison onCreateLivraison={onToggleModalCreateLivraison}/>
             </ModalModel>

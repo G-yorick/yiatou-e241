@@ -12,11 +12,11 @@ const AddLivraison = ({onCreateLivraison}) => {
         }
     }
   return (
-    <div className="relative">
+    <div className="relative px-3">
         {/* Input conteneur */}
       <div>
         {/* input */}
-        <div className="my-3">
+        <div className="my-3 ">
           <div className="flex justify-between items-center">
             <div className="flex gap-2 items-center">
               <input type="radio" name="adresses" id="adresse-1" />

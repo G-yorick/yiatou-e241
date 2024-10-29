@@ -8,7 +8,7 @@ import MoreProduct from "../../components/Sections/MoreProduct";
 import SelectProductColor from "../../components/Sections/SelectProductColor";
 import PageLayout from "../layout/PageLayout";
 import BottomBarLayout from "../layout/BottomBarLayout";
-import ButtonCta from "../../components/Buttons/ButtonCta";
+import ButtonCta from "../../components/Buttons/ButtonCta"; 
 import { Products, produits } from "../../utils/utils";
 import SliderModel from "../../components/Sliders/SliderModel";
 import DeliveryInfo from "../../components/Sections/DeliveryInfo";

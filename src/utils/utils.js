@@ -26,6 +26,7 @@ export const produits = [
     new Products(3, 'Lunette de luxe', "Description du produit 3...", ['/img/pro/p12.png','/img/pro/p13.png'], 18000, true, 0),
     new Products(4, 'Clé USB Type-C', "Description du produit 4...", ['/img/pro/p7.png','/img/pro/p8.png','/img/pro/p9.png'], 3500, false, 10),
     new Products(5, 'Mini Caméra', "Description du produit 5...", ['/img/pro/p10.png','/img/pro/p6.png'], 15000, true, 0),
+    new Products(6, 'Bouteille de champagne', "Description du produit 4...", ['/img/pro/champagne.jpg','/img/pro/champagne.jpg'], 3500, false, 10),
 ]
 export const sliders = [
     '/img/slides/s1.png',
@@ -88,4 +89,24 @@ export const fetchEchantillonDetails = (id) => {
       }
     }, 300); // Simule un délai de réseau de 300ms
   });
+};
+
+/**
+ * Formate un nombre en prix avec le symbole FCFA
+ * @param {number} amount - Le montant à formater
+ * @returns {string} Le montant formaté avec FCFA
+ */
+export const formatPrice = (amount) => {
+  // Vérifie si le montant est un nombre valide
+  if (typeof amount !== 'number' || isNaN(amount)) {
+    return '0 FCFA';
+  }
+
+  // Formate le nombre avec des séparateurs de milliers
+  const formattedAmount = amount.toLocaleString('fr-FR', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+
+  return `${formattedAmount} FCFA`;
 };

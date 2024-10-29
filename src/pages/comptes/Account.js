@@ -60,25 +60,25 @@ export default function Account() {
                     <li className='font-medium text-gray-500'>
                         <Link to="/about" className='flex gap-2 items-center'>
                         <span><i class="fi fi-rr-info flex"></i></span>
-                        <span>A propos</span>
+                        <span className="text-black">A propos</span>
                         </Link>
                     </li>
                     <li className='font-medium text-gray-500'>
                         <Link to="/services" className='flex gap-2 items-center'>
                         <span><i class="fi fi-rr-comment-question flex"></i></span>
-                        <span>Centre d'aide</span>
+                        <span className="text-black">Centre d'aide</span>
                         </Link>
                     </li>
                     <li className='font-medium text-gray-500'>
                         <Link to="/politique" className='flex gap-2 items-center'>
                         <span><i class="fi fi-rr-user-lock flex"></i></span>
-                        <span>Politique de confidentialité</span>
+                        <span className="text-black">Politique de confidentialité</span>
                         </Link>
                     </li>
                     <li className='font-medium text-gray-500'>
                         <Link to="/conditions" className='flex gap-2 items-center'>
                         <span><i class="fi fi-rr-handshake flex"></i></span>
-                        <span>Termes et Conditions d'utilisation</span>
+                        <span className="text-black">Termes et Conditions d'utilisation</span>
                         </Link>
                     </li>
                 </ul>

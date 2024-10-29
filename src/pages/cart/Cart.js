@@ -3,6 +3,7 @@ import { Trash2, Plus, Minus } from 'lucide-react'
 import TopBarWithButtonBack from '../../components/topBar/TopBarWithButtonBack'
 import PageLayout from '../layout/PageLayout'
 import ButtonCta from "../../components/Buttons/ButtonCta";
+import { useNavigate } from 'react-router-dom'
 
 const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
@@ -34,10 +35,12 @@ const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
 };
 
 const Cart = () => {
+  const navigate = useNavigate()
   const [cartItems, setCartItems] = useState([
     { id: 1, name: 'Clé USB 128 GB', price: 15000, quantity: 0, image: '/img/pro/p7.png', selected: false, isEchantillon: true },
     { id: 2, name: 'Clé USB 14 GB', price: 7000, quantity: 0, image: '/img/pro/p8.png', selected: false, isEchantillon: false },
     { id: 3, name: 'Clé USB 4 GB', price: 2500, quantity: 0, image: '/img/pro/p9.png', selected: false, isEchantillon: true },
+    { id: 4, name: 'Bouteille de Champagne', price: 2500, quantity: 0, image: '/img/pro/champagne.jpg', selected: false, isEchantillon: true },
   ])
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [itemToDelete, setItemToDelete] = useState(null)
@@ -93,6 +96,10 @@ const Cart = () => {
   const handleCancelDelete = () => {
     setIsDeleteModalOpen(false)
     setItemToDelete(null)
+  }
+
+  const handleCommander = () => {
+    navigate('/commandes')
   }
 
   return (
@@ -206,6 +213,7 @@ const Cart = () => {
           <ButtonCta
             className="flex-1 text-lg font-bold"
             disabled={selectedCount === 0}
+            onClick={handleCommander}
           >
             Commander 
           </ButtonCta>
