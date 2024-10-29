@@ -21,8 +21,8 @@ const Promises = ({ className }) => {
   };
 
   return (
-    <div className={`bg-[#418920] rounded-md overflow-hidden flex items-center ${className}`}>
-      <div className="w-full px-4 py-1">
+    <div className={` bg-[#418920] rounded-md overflow-hidden flex items-center ${className}`}>
+      <div className="w-full px-2 py-1">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <i className="fi fi-ss-shield-check text-white text-[18px] flex items-center"></i>

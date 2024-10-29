@@ -5,7 +5,7 @@ import BottomBar from '../../components/bottomBar/BottomBar';
 import { Link } from 'react-router-dom';
 import ShareProduct from '../../components/Modals/ShareProduct';
 import ButtonWhatsapp from '../../components/Buttons/ButtonWhatsapp';
-import { FaReceipt } from 'react-icons/fa';
+import NavItem from '../../components/bottomBar/NavItem';
 
 export default function Account() {
     const [share,setShare] = useState(false);
@@ -36,20 +36,23 @@ export default function Account() {
             </div>
             {/* ------------------------------- */}
             {/* ------------------------------- */}
-            <div className='px-3 py-6 border-b'>
+            <div className='px-3 py-5 border-b'>
                 <p className='flex items-center gap-2 font-medium text-gray-600'>
                     <span className='text-[25px]'><FaPeopleGroup/></span>
-                    <span>3 invités</span>
+                    <span className="text-black">3 invités</span>
                 </p>
             </div>
             {/* ------------------------------- */}
             {/* ------------------------------- */}
-            <div className='px-3 py-6 border-b'>
-                <p className='flex items-center gap-2 font-medium text-gray-600'>
+            <div className='px-3 py-5 border-b'>
+                <p className='grid grid-cols-[25px_1fr_30px] items-center gap-2 font-medium text-gray-600'>
                     <span className='text-[25px]'>
-                        <i className="fi fi-rr-receipt"></i>
+                        <i className="fi fi-rr-receipt text-2xl"></i>
                     </span>
-                    <span>Mes commandes</span>
+                    <span className="text-black">Mes commandes</span>
+                    <NavItem to="/historique/historique">
+                        <i className="fi fi-rs-angle-small-right text-3xl"></i>
+                    </NavItem>
                 </p>
             </div>
             {/* ------------------------------- */}
@@ -89,7 +92,7 @@ export default function Account() {
                 <ButtonWhatsapp className='flex justify-center items-center gap-3 py-2 rounded text-white bg-green-700 font-medium'>
                     Service client
                 </ButtonWhatsapp>
-                <button className='border-2 py-2 rounded-full font-medium'>Deconnexion</button>
+                {/* <button className='border-2 py-2 rounded-full font-medium'>Deconnexion</button> */}
             </div>
             {/* ------------------------------- */}
         </div>
