@@ -14,6 +14,7 @@ import SliderModel from "../../components/Sliders/SliderModel";
 import DeliveryInfo from "../../components/Sections/DeliveryInfo";
 import Echantillons from "../../components/Sections/Echantillons";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
+import TopNavigationBar from '../../components/navigation/TopNavigationBar';
 
 const ProduitDetails = () => {
   const navigate = useNavigate();
@@ -21,8 +22,19 @@ const ProduitDetails = () => {
   
   const [modalUserInfo,setModalUserInfo] = useState(false);
   const [isCityModalOpen, setIsCityModalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const product = produits.find((p) => p.id === parseFloat(id));
- 
+
+  useEffect(() => {
+    const handleNavScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 10);
+    };
+
+    window.addEventListener('scroll', handleNavScroll);
+    return () => window.removeEventListener('scroll', handleNavScroll);
+  }, []);
+
   const toggleModal = () =>{
     setModalUserInfo(!modalUserInfo);
   }
@@ -44,27 +56,15 @@ const ProduitDetails = () => {
   };
 
   return (
-    // Ajout de pt-[56px] pour compenser la hauteur de la barre de navigation
     <div className="bg-gray-100 min-h-screen relative overflow-x-hidden">
       <PageLayout bottomBar={
         !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
       }>
-        <div className="fixed top-0 left-0 right-0 z-[100] bg-white">
-          <div className="flex justify-between px-[8px] py-[8px]">
-            <Link to="/" className="bg-white border inline-block p-2 rounded-full">
-              <i className="fi fi-br-angle-left flex text-[13px]"></i>
-            </Link>
-            <button 
-              onClick={handleCartClick}
-              onKeyDown={handleKeyDown}
-              className="bg-white border inline-block p-2 rounded-full"
-              aria-label="Voir le panier"
-              tabIndex={0}
-            >
-              <FaShoppingCart className="text-[13px]" />
-            </button>
-          </div>
-        </div>
+        <TopNavigationBar 
+          isScrolled={isScrolled}
+          onCartClick={handleCartClick}
+          onKeyDown={handleKeyDown}
+        />
         <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">
           <PersonnalInfo/>
         </ModalModel>
@@ -200,25 +200,7 @@ const PersonnalInfo = () => {
 const HeaderProductDetails = ({product}) => {
   const [currentImage, setCurrentImage] = useState(1);
   
-  const handleScroll = useCallback(() => {
-    const scrollPosition = window.scrollY;
-    const imageHeight = window.innerWidth; // Supposons que la hauteur de l'image soit égale à la largeur de la fenêtre
-    const newImageIndex = Math.floor(scrollPosition / imageHeight) + 1;
-    
-    if (newImageIndex !== currentImage && newImageIndex <= product.image.length) {
-      setCurrentImage(newImageIndex);
-    }
-  }, [currentImage, product.image.length]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
-    
   return (
-    // Suppression des boutons de la div HeaderProductDetails car ils sont maintenant fixes en haut
     <div className="w-full relative">
       <SliderModel onSlideChange={(index) => setCurrentImage(index + 1)}>
         {product.image.map((img,i) =>{
@@ -236,8 +218,8 @@ const HeaderProductDetails = ({product}) => {
 
 const ProductLevelIndicator = ({ currentImage, totalImages }) => {
   return (
-    <div className="absolute bottom-4 right-5 bg-white  z-50">
-      <div className="text-sm font-semibold">
+    <div className="absolute bottom-4 right-5  z-50">
+      <div className="bg-black/45 text-white rounded-full text-xs font-light px-2">
         {currentImage} / {totalImages}
       </div>
     </div>

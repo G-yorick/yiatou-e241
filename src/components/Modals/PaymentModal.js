@@ -4,6 +4,7 @@ import ButtonCta from '../Buttons/ButtonCta';
 import WhatsAppModal from './WhatsAppModal';
 import { formatPrice } from '../../utils/utils';
 import { FaWhatsapp } from 'react-icons/fa';
+import { Check } from 'lucide-react';
 
 const PaymentModal = ({ 
   isOpen, 
@@ -16,6 +17,7 @@ const PaymentModal = ({
 }) => {
   const [selectedMethod, setSelectedMethod] = useState('Airtel');
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
+
 
   const handlePaymentMethodSelect = (method) => {
     setSelectedMethod(method);
@@ -96,6 +98,21 @@ const PaymentModal = ({
     return `Payer ${formatPrice(totalPrice)}`;
   };
 
+const paymentMethods = [
+  {
+    id: 'WhatsApp',
+    logo: '/img/pro/whatsapp.png'
+  },
+  {
+    id: 'Airtel',
+    logo: '/img/pro/airtelmoney.png'
+  }
+];
+
+  const getMethodColor = (methodId) => {
+    return methodId === 'WhatsApp' ? 'green' : 'red';
+  };
+
   return (
     <>
       <ModalModel
@@ -103,55 +120,48 @@ const PaymentModal = ({
         active={isOpen}
         onClose={onClose}
       >
-        {/* Payment methods */}
-        <div className="grid grid-cols-2 gap-4 mb-4 -mt-4">
-          <div 
-            role="radio"
-            aria-checked={selectedMethod === 'WhatsApp'}
-            tabIndex={0}
-            onClick={() => handlePaymentMethodSelect('WhatsApp')}
-            onKeyDown={(e) => e.key === 'Enter' && handlePaymentMethodSelect('WhatsApp')}
-            className={`
-              h-28 w-full border-2 cursor-pointer transition-all duration-200
-              ${selectedMethod === 'WhatsApp' 
-                ? 'border-green-500 ring-2 ring-green-500' 
-                : 'border-gray-200 hover:border-gray-300'
-              }
-              focus:outline-none focus:ring-2 focus:ring-green-500
-            `}
-          >
-            <div className="w-full h-full p-2">
-              <img 
-                src="/img/pro/whatsapp.png" 
-                alt="WhatsApp"
-                className="w-full h-full object-contain pointer-events-none"
-              />
-            </div>
-          </div>
-
-          <div 
-            role="radio"
-            aria-checked={selectedMethod === 'Airtel'}
-            tabIndex={0}
-            onClick={() => handlePaymentMethodSelect('Airtel')}
-            onKeyDown={(e) => e.key === 'Enter' && handlePaymentMethodSelect('Airtel')}
-            className={`
-              h-28 w-full border-2 cursor-pointer transition-all duration-200
-              ${selectedMethod === 'Airtel' 
-                ? 'border-red-500 ring-2 ring-red-500' 
-                : 'border-gray-200 hover:border-gray-300'
-              }
-              focus:outline-none focus:ring-2 focus:ring-red-500
-            `}
-          >
-            <div className="w-full h-full p-2">
-              <img 
-                src="/img/pro/airtelmoney.png" 
-                alt="Airtel Money"
-                className="w-full h-full object-contain pointer-events-none"
-              />
-            </div>
-          </div>
+        <div className="flex gap-4 mb-4 -mt-4">
+          {paymentMethods.map((method) => (
+            <button
+              key={method.id}
+              role="radio"
+              aria-checked={selectedMethod === method.id}
+              onClick={() => handlePaymentMethodSelect(method.id)}
+              className={`
+                relative p-4 border-2 flex-1
+                transition-all duration-300 ease-in-out
+                flex flex-col items-center gap-4
+                overflow-hidden
+                focus:outline-none
+                ${selectedMethod === method.id 
+                  ? `border-${method.id === 'WhatsApp' ? 'green' : 'red'}-500 shadow-lg scale-105` 
+                  : 'border-gray-200 hover:border-gray-300 hover:scale-105'
+                }
+              `}
+            >
+              {selectedMethod === method.id && (
+                <>
+                  <div className={`
+                    absolute -top-8 -right-8 w-16 h-16 
+                    ${method.id === 'WhatsApp' ? 'bg-green-500' : 'bg-red-500'} 
+                    rotate-45
+                  `} />
+                  <div className="absolute top-1 right-1">
+                    <Check className="w-4 h-4 text-white stroke-[3]" />
+                  </div>
+                </>
+              )}
+              
+              <div className="h-16 flex items-center justify-center">
+                <img
+                  src={method.logo}
+                  alt={method.title}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+              <span className="font-medium text-gray-800">{method.title}</span>
+            </button>
+          ))}
         </div>
 
         {/* Disclaimer */}
@@ -171,6 +181,8 @@ const PaymentModal = ({
               w-full h-12 text-lg rounded-lg font-medium
               ${getButtonStyles()}
               disabled:cursor-not-allowed disabled:opacity-50
+              transition-all duration-300 ease-in-out
+              hover:scale-[1.02]
             `}
           >
             {getButtonContent()}

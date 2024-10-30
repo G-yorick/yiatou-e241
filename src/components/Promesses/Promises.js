@@ -25,7 +25,7 @@ const Promises = ({ className }) => {
       <div className="w-full px-2 py-1">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <i className="fi fi-ss-shield-check text-white text-[18px] flex items-center"></i>
+            <i className="fi fi-ss-shield-check text-white text-[18px] flex items-center ml-2"></i>
             <h2 className="text-sm text-white font-bold leading-none">Nos promesses</h2>
           </div>
           <button 

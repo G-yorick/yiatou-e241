@@ -17,9 +17,9 @@ const WhatsAppModal = ({ isOpen, onClose, onConfirm }) => {
       active={isOpen}
       onClose={onClose}
     >
-      <div className="flex flex-col items-center px-4 min-h-[100px]">
-        <div className="flex-1 flex flex-col items-center justify-center w-full">
-          <div className="w-32 h-32 mb-2 -translate-y-7">
+      <div className="flex flex-col items-center px-4 -mt-4">
+        <div className="flex-1 flex flex-col items-center justify-center w-full mb-6">
+          <div className="w-32 h-32 mb-4">
             <img 
               src="/img/pro/whatsappbusiness.png"
               alt="WhatsApp Business"
@@ -27,21 +27,23 @@ const WhatsAppModal = ({ isOpen, onClose, onConfirm }) => {
             />
           </div>
           
-          <p className="text-center text-sm text-gray-600 mb-3 max-w-md -translate-y-4">
+          <p className="text-sm text-gray-600 text-center max-w-md">
             Vous serez redirigé vers WhatsApp pour finaliser votre commande avec notre service client. Un récapitulatif de votre commande sera automatiquement généré.
           </p>
         </div>
 
         <div className="w-full">
-          <ButtonCta
+          <button
             onClick={handleConfirm}
-            label="Continuer sur WhatsApp"
-            ariaLabel="Confirmer et ouvrir WhatsApp"
-            className="w-full h-12 text-lg bg-[#64ca5d] flex items-center justify-center gap-2"
+            className="w-full h-12 text-lg rounded-lg font-medium
+              bg-[#64ca5d] text-white
+              flex items-center justify-center gap-2
+              transition-all duration-300 ease-in-out
+              hover:scale-[1.02]"
           >
-            <FaWhatsapp className="w-5 h-5" />
+            <FaWhatsapp className="w-6 h-6" />
             <span>Continuer sur WhatsApp</span>
-          </ButtonCta>
+          </button>
         </div>
       </div>
     </ModalModel>

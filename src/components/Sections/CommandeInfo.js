@@ -160,7 +160,7 @@ const CommandeInfo = ({ isEchantillon = false, onTotalChange }) => {
                 
                 <div className="px-3">
                     <div className="mt-3">
-                        <h3 className="text-base font-medium mb-2 text-black">Livraison & Délais</h3>
+                        <h3 className="text-base font-medium mb-2 text-black">Livraison & Délais</h3> 
                         <div className="flex flex-col gap-1">
                             <div className="flex items-center justify-between py-0.5">
                                 <div className="flex flex-wrap items-center gap-x-1">
@@ -176,7 +176,6 @@ const CommandeInfo = ({ isEchantillon = false, onTotalChange }) => {
                                     <span className="text-xs font-medium text-gray-700">10500 FCFA/KG</span>
                                     <span className="text-xs text-gray-500">(14-21 jours)</span>
                                 </div>
-                                <i className="fi fi-br-angle-right w-4 h-4 -translate-y-2 mr-1" />
                             </div>
                         </div>
                     </div>

@@ -2,12 +2,15 @@ import React from 'react';
 import { CartProvider } from './context/CartContext';
 import AppRoutes from './routes/AppRoutes';
 import DetailsEchantillon from './components/Sections/DetailsEchantillon';
+import { UserProvider } from './context/UserContext';
 
 function App() {
   return (
-    <CartProvider>
-      <AppRoutes />
-    </CartProvider>
+    <UserProvider>
+      <CartProvider>
+        <AppRoutes />
+      </CartProvider>
+    </UserProvider>
   );
 }
 

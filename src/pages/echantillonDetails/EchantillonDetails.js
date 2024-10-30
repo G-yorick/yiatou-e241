@@ -13,6 +13,7 @@ import SliderModel from "../../components/Sliders/SliderModel";
 import DeliveryInfo from "../../components/Sections/DeliveryInfo";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 import DetailsEchantillon from "../../components/Sections/DetailsEchantillon";
+import TopNavigationBar from '../../components/navigation/TopNavigationBar';
 
 const EchantillonDetails = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const EchantillonDetails = () => {
   const [echantillon, setEchantillon] = useState(null);
   const [modalUserInfo, setModalUserInfo] = useState(false);
   const [isCityModalOpen, setIsCityModalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const loadEchantillonDetails = async () => {
@@ -33,6 +35,16 @@ const EchantillonDetails = () => {
 
     loadEchantillonDetails();
   }, [id]);
+
+  useEffect(() => {
+    const handleNavScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 10);
+    };
+
+    window.addEventListener('scroll', handleNavScroll);
+    return () => window.removeEventListener('scroll', handleNavScroll);
+  }, []);
 
   const toggleModal = () => {
     setModalUserInfo(!modalUserInfo);
@@ -71,22 +83,11 @@ const EchantillonDetails = () => {
       <PageLayout bottomBar={
         !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
       }>
-        <div className="fixed top-0 left-0 right-0 z-[100] bg-white">
-          <div className="flex justify-between px-[8px] py-[8px]">
-            <Link to="/" className="bg-white border inline-block p-2 rounded-full">
-              <i className="fi fi-br-angle-left flex text-[13px]"></i>
-            </Link>
-            <button
-              onClick={handleCartClick}
-              onKeyDown={handleKeyDown}
-              className="bg-white border inline-block p-2 rounded-full"
-              aria-label="Voir le panier"
-              tabIndex={0}
-            >
-              <FaShoppingCart className="text-[13px]" />
-            </button>
-          </div>
-        </div>
+        <TopNavigationBar 
+          isScrolled={isScrolled}
+          onCartClick={handleCartClick}
+          onKeyDown={handleKeyDown}
+        />
 
         <ModalModel onClose={toggleModal} active={modalUserInfo} title="Information de livraison">
           <PersonnalInfo />
