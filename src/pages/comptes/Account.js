@@ -69,7 +69,7 @@ export default function Account() {
                     <li className='font-medium text-gray-500'>
                         <Link to="/services" className='flex gap-2 items-center'>
                         <span><i class="fi fi-rr-comment-question flex"></i></span>
-                        <span className="text-black">Centre d'aide</span>
+                        <span className="text-black">FAQs</span>
                         </Link>
                     </li>
                     <li className='font-medium text-gray-500'>
