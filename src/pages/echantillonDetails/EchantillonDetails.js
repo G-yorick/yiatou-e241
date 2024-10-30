@@ -110,7 +110,11 @@ const EchantillonDetails = () => {
           isSample={true} 
           onStartClick={handleStartClick}
         />
-        <CoutLivraison />
+        <CoutLivraison 
+          numberOfPieces={20} 
+          onStartClick={handleStartClick} 
+          showStartButton={true} 
+        />
         <MoreProduct />
       </PageLayout>
     </div>

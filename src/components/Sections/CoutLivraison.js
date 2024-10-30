@@ -3,7 +3,7 @@ import { FiTag, FiTrendingUp } from 'react-icons/fi';
 import { FaPlane, FaMoneyBillWave, FaCalculator } from 'react-icons/fa';
 import BusinessInfoModal from '../Modals/BusinessInfoModal';
 
-const CoutLivraison = ({ numberOfPieces = 20, onStartClick }) => {
+const CoutLivraison = ({ numberOfPieces = 20, onStartClick, showStartButton = false }) => {
     const [showModal, setShowModal] = useState(false);
 
     const handleStartClick = () => {
@@ -55,13 +55,16 @@ const CoutLivraison = ({ numberOfPieces = 20, onStartClick }) => {
                         ))}
                     </tbody>
                 </table>
-                <button
-                    onClick={handleStartClick}
-                    className="text-md text-black underline hover:text-gray-700 cursor-pointer"
-                    aria-label="Démarrer mon business"
-                >
-                    Je me lance
-                </button>
+                
+                {showStartButton && (
+                    <button
+                        onClick={handleStartClick}
+                        className="text-md text-black underline hover:text-gray-700 cursor-pointer"
+                        aria-label="Démarrer mon business"
+                    >
+                        Je me lance
+                    </button>
+                )}
             </div>
 
             <BusinessInfoModal
