@@ -3,6 +3,7 @@ import ModalModel from './ModalModel';
 import ButtonCta from '../Buttons/ButtonCta';
 import WhatsAppModal from './WhatsAppModal';
 import { formatPrice } from '../../utils/utils';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const PaymentModal = ({ 
   isOpen, 
@@ -13,7 +14,7 @@ const PaymentModal = ({
   deliveryInfo = {},
   orderNumber = 'N/A'
 }) => {
-  const [selectedMethod, setSelectedMethod] = useState(null);
+  const [selectedMethod, setSelectedMethod] = useState('Airtel');
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
 
   const handlePaymentMethodSelect = (method) => {
@@ -62,7 +63,7 @@ const PaymentModal = ({
       `Total: ${formatPrice(totalPrice + deliveryFee)}`,
       
       `\n💳 *Paiement*`,
-      `Mode de paiement souhaité: WhatsApp Pay`
+      `Mode de commande souhaité: WhatsApp Business`
     ].join('\n');
 
     return message;
@@ -74,6 +75,25 @@ const PaymentModal = ({
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     onClose();
+  };
+
+  const getButtonStyles = () => {
+    if (selectedMethod === 'WhatsApp') {
+      return 'bg-[#64ca5d] flex items-center justify-center gap-2 text-white';
+    }
+    return 'bg-red-500 hover:bg-red-600 text-white';
+  };
+
+  const getButtonContent = () => {
+    if (selectedMethod === 'WhatsApp') {
+      return (
+        <>
+          <FaWhatsapp className="w-6 h-6" />
+          <span>Continuer sur WhatsApp</span>
+        </>
+      );
+    }
+    return `Payer ${formatPrice(totalPrice)}`;
   };
 
   return (
@@ -94,16 +114,16 @@ const PaymentModal = ({
             className={`
               h-28 w-full border-2 cursor-pointer transition-all duration-200
               ${selectedMethod === 'WhatsApp' 
-                ? 'border-red-500 ring-2 ring-red-500' 
+                ? 'border-green-500 ring-2 ring-green-500' 
                 : 'border-gray-200 hover:border-gray-300'
               }
-              focus:outline-none focus:ring-2 focus:ring-red-500
+              focus:outline-none focus:ring-2 focus:ring-green-500
             `}
           >
             <div className="w-full h-full p-2">
               <img 
-                src="/img/pro/whatsapPay.png" 
-                alt="WhatsApp Pay"
+                src="/img/pro/whatsapp.png" 
+                alt="WhatsApp"
                 className="w-full h-full object-contain pointer-events-none"
               />
             </div>
@@ -140,18 +160,22 @@ const PaymentModal = ({
         </p>
 
         {/* Payment button */}
-        <ButtonCta
-          onClick={handlePayment}
-          disabled={!selectedMethod}
-          label={`Payer ${totalPrice}`}
-          ariaLabel={`Payer ${totalPrice} avec ${selectedMethod || 'le moyen de paiement sélectionné'}`}
-          className={`
-            w-full h-16 text-xl
-            ${!selectedMethod ? 'opacity-50 cursor-not-allowed' : ''}
-          `}
-        >
-          Payer {totalPrice}
-        </ButtonCta>
+        <div className={`
+          w-full transition-all duration-300
+          ${!selectedMethod ? 'opacity-50' : ''}
+        `}>
+          <button
+            onClick={handlePayment}
+            disabled={!selectedMethod}
+            className={`
+              w-full h-12 text-lg rounded-lg font-medium
+              ${getButtonStyles()}
+              disabled:cursor-not-allowed disabled:opacity-50
+            `}
+          >
+            {getButtonContent()}
+          </button>
+        </div>
       </ModalModel>
 
       <WhatsAppModal

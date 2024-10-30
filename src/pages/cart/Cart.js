@@ -182,8 +182,8 @@ const Cart = () => {
           ))}
           
           {hasSelectedEchantillons && (
-            <div className="bg-gray-100 p-3 mx-1 rounded-lg mt-4">
-              <p className="text-sm text-gray-600 text-center">
+            <div className="fixed bottom-[110px] left-0 right-0 bg-gray-100 p-3 z-10">
+              <p className="text-xs text-gray-600 px-3 text-center">
                 Les échantillons sont limités à 3 par commande et seront livrés séparément de vos autres articles
               </p>
             </div>
@@ -192,7 +192,7 @@ const Cart = () => {
           {hasSelectedEchantillons && (
             <div 
               role="alert" 
-              className="bg-red-100 border border-red-300 text-[#333333] p-3 rounded-full text-sm mx-1 text-center translate-y-10"
+              className="bg-red-100 border border-red-300 text-[#333333] p-3 rounded-full text-sm mx-1 mb-24"
             >
               Votre panier contient des articles n'ayant pas les mêmes délais de livraison.
             </div>
@@ -200,11 +200,11 @@ const Cart = () => {
 
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg">
-          <div className="flex justify-between items-center mb-4">
+        <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg z-20">
+          <div className="flex justify-between items-center mb-2">
             <div>
               <span className="font-semibold text-black">TOTAL</span>
-              <span className="text-sm text-gray-600 ml-2">
+              <span className="text-xs text-gray-600 ml-2">
                 ({selectedCount} article{selectedCount > 1 ? 's' : ''} sélectionné{selectedCount > 1 ? 's' : ''})
               </span>
             </div>

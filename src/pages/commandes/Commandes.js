@@ -9,18 +9,26 @@ import AddLivraison from '../../components/Modals/AddLivraison';
 import CreateLivraison from '../../components/Modals/CreateLivraison';
 
 const Commandes = () => {
-    const [modalLivraison,setModalLivraison] = useState(false);
-    const [modalCreateLivraison,setModalCreateLivraison] = useState(false);
+    const [modalLivraison, setModalLivraison] = useState(false);
+    const [modalCreateLivraison, setModalCreateLivraison] = useState(false);
+    const [totalAmount, setTotalAmount] = useState(0);
 
-    const onToggleModalLivraison = () =>{
+    const handleTotalChange = (newTotal) => {
+        setTotalAmount(newTotal);
+    };
+
+    const onToggleModalLivraison = () => {
         setModalLivraison(!modalLivraison);
     }
-    const onToggleModalCreateLivraison = () =>{
+    const onToggleModalCreateLivraison = () => {
         setModalCreateLivraison(!modalCreateLivraison);
     }
  
     return (
-        <PageLayout bottomBar={<CommandeBottom/>} topBar={<TopBarWithButtonBack link='/cart' title="Commande"/>}>
+        <PageLayout 
+            bottomBar={<CommandeBottom totalAmount={totalAmount} />} 
+            topBar={<TopBarWithButtonBack link='/cart' title="Commande"/>}
+        >
             <ModalModel onClose={onToggleModalLivraison} active={modalLivraison} title='Ou doit-on livrer ?'>
                 <AddLivraison onCreateLivraison={onToggleModalCreateLivraison}/>
             </ModalModel>
@@ -28,7 +36,10 @@ const Commandes = () => {
                 <CreateLivraison/>
             </ModalModel>
             <LivraisonInfo onOpenLivraison={onToggleModalLivraison}/>
-            <CommandeInfo/>
+            <CommandeInfo 
+                onTotalChange={handleTotalChange}
+                isEchantillon={false}
+            />
         </PageLayout>
     );
 }
