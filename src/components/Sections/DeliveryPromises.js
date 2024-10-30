@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 
-const DeliveryPromises = () => {
+const DeliveryPromises = ({ isSample = false, onStartClick }) => {
   const promises = [
     { icon: Check, text: "Respect des délais" },
     { icon: Check, text: "Retour produit" },

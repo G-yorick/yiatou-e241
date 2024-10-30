@@ -70,25 +70,112 @@ export const formatDateRange = (startDate, endDate) => {
   return `${startDate.toLocaleDateString('fr-FR', options)} - ${endDate.toLocaleDateString('fr-FR', options)}`;
 };
 
+export class Sample {
+    /**
+     * Échantillon
+     * @param {number} id 
+     * @param {string} name 
+     * @param {string} description 
+     * @param {string} image 
+     * @param {number} price
+     * @param {boolean} disponibility
+     * @param {string[]} specifications
+     */
+    constructor(id, name, description, image, price, disponibility, specifications) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.image = image;
+        this.price = price;
+        this.disponibility = disponibility;
+        this.specifications = specifications;
+    }
+}
+
 export const samples = [
-  { id: 1, image: "/img/pro/p6.png", name: "Produit 1", price: 1000, description: "Description détaillée du Produit 1" },
-  { id: 2, image: "/img/pro/p7.png", name: "Produit 2", price: 1500, description: "Description détaillée du Produit 2" },
-  { id: 3, image: "/img/pro/p8.png", name: "Produit 3", price: 2000, description: "Description détaillée du Produit 3" },
-  { id: 4, image: "/img/pro/p9.png", name: "Produit 4", price: 2400, description: "Description détaillée du Produit 4" },
-  { id: 5, image: "/img/pro/p10.png", name: "Produit 5", price: 2440, description: "Description détaillée du Produit 5" },
+    new Sample(
+        1,
+        "Échantillon Sac à dos",
+        "Cet échantillon de sac à dos est fabriqué avec des matériaux de haute qualité. Il vous permet de tester la robustesse et la finition du produit avant de commander en grande quantité.",
+        ["/img/pro/p1.png", "/img/pro/p1.png"],
+        2500,
+        true,
+        [
+            "Dimensions: 30cm x 45cm",
+            "Matériau: Polyester 600D",
+            "Poche principale spacieuse",
+            "Compartiment pour ordinateur portable"
+        ]
+    ),
+    new Sample(
+        2,
+        "Échantillon Lunettes de luxe",
+        "Échantillon de nos lunettes de luxe vous permettant d'apprécier la qualité des verres et la finition du cadre avant votre commande finale.",
+        ["/img/pro/p12.png", "/img/pro/p12.png"],
+        3500,
+        true,
+        [
+            "Monture en acétate premium",
+            "Verres polarisés",
+            "Protection UV400",
+            "Charnières renforcées"
+        ]
+    ),
+    new Sample(
+        3,
+        "Échantillon Mini Caméra",
+        "Testez notre mini caméra de surveillance avec cet échantillon fonctionnel. Idéal pour évaluer la qualité d'image et les fonctionnalités.",
+        ["/img/pro/p10.png", "/img/pro/p10.png"],
+        4500,
+        true,
+        [
+            "Résolution 1080p",
+            "Vision nocturne",
+            "Détection de mouvement",
+            "Batterie longue durée"
+        ]
+    ),
+    new Sample(
+        4,
+        "Échantillon Clé USB",
+        "Échantillon de notre clé USB Type-C permettant de tester la vitesse de transfert et la compatibilité avec vos appareils.",
+        ["/img/pro/p7.png", "/img/pro/p7.png"],
+        1500,
+        true,
+        [
+            "Capacité: 8GB",
+            "Interface USB 3.0",
+            "Vitesse de transfert jusqu'à 100MB/s",
+            "Compatible Windows/Mac"
+        ]
+    ),
+    new Sample(
+        5,
+        "Échantillon Bouteille",
+        "Échantillon de notre bouteille de champagne premium, permettant d'apprécier la qualité du produit et son packaging.",
+        ["/img/pro/champagne.jpg", "/img/pro/champagne.jpg"],
+        5000,
+        true,
+        [
+            "Volume: 200ml",
+            "Verre premium",
+            "Bouchon de qualité",
+            "Design exclusif"
+        ]
+    ),
 ];
 
 export const fetchEchantillonDetails = (id) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const echantillon = samples.find(sample => sample.id === id);
-      if (echantillon) {
-        resolve(echantillon);
-      } else {
-        reject(new Error("Échantillon non trouvé"));
-      }
-    }, 300); // Simule un délai de réseau de 300ms
-  });
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const echantillon = samples.find(sample => sample.id === parseInt(id));
+            if (echantillon) {
+                resolve(echantillon);
+            } else {
+                reject(new Error("Échantillon non trouvé"));
+            }
+        }, 300);
+    });
 };
 
 /**

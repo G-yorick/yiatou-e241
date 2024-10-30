@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiTag, FiTrendingUp } from 'react-icons/fi';
 import { FaPlane, FaMoneyBillWave, FaCalculator } from 'react-icons/fa';
+import BusinessInfoModal from '../Modals/BusinessInfoModal';
 
-const CoutLivraison = ({ numberOfPieces = 20 }) => {
+const CoutLivraison = ({ numberOfPieces = 20, onStartClick }) => {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleStartClick = () => {
+        setShowModal(true);
+    };
+
+    const handleContinue = () => {
+        setShowModal(false);
+        if (onStartClick) {
+            onStartClick();
+        }
+    };
+
     const businessItems = [
         { label: "Prix d'achat", value: `14,000 FCFA (${numberOfPieces} pièces)`, icon: FiTag },
         { label: "Transport", value: "7,500 FCFA /Kg", icon: FaPlane },
@@ -15,7 +29,7 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
         <div className="py-2 px-4 bg-white border border-b-2 border-gray-100">
             <div className="mt-0">
                 <h2 className="text-md font-medium mb-2">Lance ton Business</h2>
-                <table className="w-full text-sm border-collapse border border-[#cccccc]">
+                <table className="w-full text-sm border-collapse border border-[#cccccc] mb-4">
                     <tbody>
                         {businessItems.map((item, index) => (
                             <tr 
@@ -41,7 +55,20 @@ const CoutLivraison = ({ numberOfPieces = 20 }) => {
                         ))}
                     </tbody>
                 </table>
+                <button
+                    onClick={handleStartClick}
+                    className="text-md text-black underline hover:text-gray-700 cursor-pointer"
+                    aria-label="Démarrer mon business"
+                >
+                    Je me lance
+                </button>
             </div>
+
+            <BusinessInfoModal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                onContinue={handleContinue}
+            />
         </div>
     );
 }
