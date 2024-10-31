@@ -3,10 +3,10 @@ import { FiTag, FiTrendingUp } from 'react-icons/fi';
 import { FaPlane, FaMoneyBillWave, FaCalculator } from 'react-icons/fa';
 import BusinessInfoModal from '../Modals/BusinessInfoModal';
 
-const CoutLivraison = ({ numberOfPieces = 20, onStartClick, showStartButton = false }) => {
+const CoutLivraison = ({ numberOfPieces = 20, onStartClick }) => {
     const [showModal, setShowModal] = useState(false);
 
-    const handleStartClick = () => {
+    const handleInfoClick = () => {
         setShowModal(true);
     };
 
@@ -28,7 +28,16 @@ const CoutLivraison = ({ numberOfPieces = 20, onStartClick, showStartButton = fa
     return (
         <div className="py-2 px-4 bg-white border border-b-2 border-gray-100">
             <div className="mt-0">
-                <h2 className="text-md font-medium mb-2">Lance ton Business</h2>
+                <div className="flex items-center gap-2 mb-2">
+                    <h2 className="text-md font-medium">Lance ton Business</h2>
+                    <button
+                        onClick={handleInfoClick}
+                        className="w-4 h-4 rounded-full border border-gray-300 bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 text-xs"
+                        aria-label="Plus d'informations sur le business"
+                    >
+                        ?
+                    </button>
+                </div>
                 <table className="w-full text-sm border-collapse border border-[#cccccc] mb-4">
                     <tbody>
                         {businessItems.map((item, index) => (
@@ -55,16 +64,6 @@ const CoutLivraison = ({ numberOfPieces = 20, onStartClick, showStartButton = fa
                         ))}
                     </tbody>
                 </table>
-                
-                {showStartButton && (
-                    <button
-                        onClick={handleStartClick}
-                        className="text-md text-black underline hover:text-gray-700 cursor-pointer"
-                        aria-label="Démarrer mon business"
-                    >
-                        Je me lance
-                    </button>
-                )}
             </div>
 
             <BusinessInfoModal

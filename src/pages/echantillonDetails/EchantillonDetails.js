@@ -14,6 +14,7 @@ import DeliveryInfo from "../../components/Sections/DeliveryInfo";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 import DetailsEchantillon from "../../components/Sections/DetailsEchantillon";
 import TopNavigationBar from '../../components/navigation/TopNavigationBar';
+import ImageCounter from '../../components/UI/ImageCounter';
 
 const EchantillonDetails = () => {
   const navigate = useNavigate();
@@ -220,101 +221,20 @@ const PersonnalInfo = () => {
 
 const HeaderEchantillonDetails = ({ echantillon }) => {
   const [currentImage, setCurrentImage] = useState(1);
-  const [showAllImages, setShowAllImages] = useState(false);
-  const headerRef = useRef(null);
-
-  const handleScroll = useCallback(() => {
-    if (!headerRef.current) return;
-    
-    const rect = headerRef.current.getBoundingClientRect();
-    const scrollPosition = -rect.top;
-    const imageHeight = window.innerWidth;
-    const newImageIndex = Math.floor(scrollPosition / imageHeight) + 1;
-
-    const imagesArray = Array.isArray(echantillon.image) ? echantillon.image : [echantillon.image];
-
-    if (newImageIndex !== currentImage && newImageIndex <= imagesArray.length) {
-      setCurrentImage(newImageIndex);
-    }
-  }, [currentImage, echantillon.image]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
-
-  const imagesArray = Array.isArray(echantillon.image) ? echantillon.image : [echantillon.image];
-
-  const toggleShowAllImages = () => {
-    setShowAllImages(!showAllImages);
-  };
-
-  if (showAllImages) {
-    return (
-      <div className="fixed inset-0 bg-black z-[200] overflow-y-auto">
-        <button 
-          onClick={toggleShowAllImages}
-          className="absolute top-4 right-4 text-white z-10 bg-gray-800 rounded-full p-2"
-          aria-label="Fermer la galerie"
-        >
-          <i className="fi fi-br-cross text-lg"></i>
-        </button>
-        <div className="flex flex-col gap-[2px] pt-12 pb-20">
-          {imagesArray.map((img, i) => (
-            <div key={i} className="w-full">
-              <img 
-                src={img} 
-                alt={`${echantillon.name} vue ${i + 1}`} 
-                className="w-full h-auto"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   return (
-    <div ref={headerRef} className="w-full relative">
+    <div className="w-full relative">
       <SliderModel onSlideChange={(index) => setCurrentImage(index + 1)}>
-        {imagesArray.map((img, i) => (
-          <div 
-            key={i} 
-            className="w-full h-[100vw] bg-white flex justify-center items-center"
-            onClick={toggleShowAllImages}
-            role="button"
-            tabIndex={0}
-          >
-            <img 
-              src={img} 
-              alt={`${echantillon.name} vue ${i + 1}`} 
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+        {echantillon.image.map((img, i) => {
+          return (
+            <div key={i} className='w-full h-[100vw] bg-white flex justify-center items-center overflow-hidden'>
+              <img src={img} alt={echantillon.name} className="w-full h-full object-cover"/>
+            </div>
+          );
+        })}
       </SliderModel>
-      <ProductLevelIndicator 
-        currentImage={currentImage} 
-        totalImages={imagesArray.length} 
-        onClick={toggleShowAllImages}
-      />
+      <ImageCounter currentImage={currentImage} totalImages={echantillon.image.length} />
     </div>
-  );
-};
-
-const ProductLevelIndicator = ({ currentImage, totalImages, onClick }) => {
-  return (
-    <button
-      onClick={onClick}
-      className="absolute bottom-4 right-5 bg-white rounded-full px-3 py-1 z-50"
-      aria-label="Voir toutes les images"
-    >
-      <div className="text-sm font-semibold">
-        {currentImage} / {totalImages}
-      </div>
-    </button>
   );
 };
 

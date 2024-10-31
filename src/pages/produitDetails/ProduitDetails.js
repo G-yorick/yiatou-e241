@@ -15,6 +15,7 @@ import DeliveryInfo from "../../components/Sections/DeliveryInfo";
 import Echantillons from "../../components/Sections/Echantillons";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 import TopNavigationBar from '../../components/navigation/TopNavigationBar';
+import ImageCounter from '../../components/UI/ImageCounter';
 
 const ProduitDetails = () => {
   const navigate = useNavigate();
@@ -211,19 +212,9 @@ const HeaderProductDetails = ({product}) => {
           );
         })}
       </SliderModel>
-      <ProductLevelIndicator currentImage={currentImage} totalImages={product.image.length} />
+      <ImageCounter currentImage={currentImage} totalImages={product.image.length} />
     </div>
   );
 }
-
-const ProductLevelIndicator = ({ currentImage, totalImages }) => {
-  return (
-    <div className="absolute bottom-4 right-5  z-50">
-      <div className="bg-black/45 text-white rounded-full text-xs font-light px-2">
-        {currentImage} / {totalImages}
-      </div>
-    </div>
-  );
-};
 
 export default ProduitDetails;
