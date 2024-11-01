@@ -37,8 +37,8 @@ const DetailsEchantillon = ({echantillon}) => {
             <ShareProduct product={echantillon} toggleActiveShare={toggleModal} activeShare={activeModal}/>
             
             {/* Section livraison */}
-            <div className="px-3 py-2 flex items-center gap-2 bg-[#ffe5af] -translate-y-2">
-                <i className="fi fi-sr-check text-green-600 text-lg"></i>
+            <div className="px-3 flex items-center gap-2 bg-[#ffe5af] -translate-y-1">
+                <i className="fi fi-sr-check text-green-600 text-md"></i>
                 <span className="text-sm text-gray-700">Livraison de suite à LBV</span>
             </div>
 
