@@ -164,17 +164,17 @@ const CommandeInfo = ({ isEchantillon = false, onTotalChange }) => {
                         <div className="flex flex-col gap-1">
                             <div className="flex items-center justify-between py-0.5">
                                 <div className="flex flex-wrap items-center gap-x-1">
-                                    <span className="text-xs text-gray-600">Simples:</span>
-                                    <span className="text-xs font-medium text-gray-700">10500 FCFA/KG</span>
-                                    <span className="text-xs text-gray-500">(10-14 jours)</span>
+                                    <span className="text-sm text-gray-600">Simples:</span>
+                                    <span className="text-sm font-medium text-gray-700">10500 FCFA/KG</span>
+                                    <span className="text-sm text-gray-500">(10-14 jours)</span>
                                 </div>
                             </div>
                             
                             <div className="flex items-center justify-between py-0.5">
                                 <div className="flex flex-wrap items-center gap-x-1">
-                                    <span className="text-xs text-gray-600">Liquides:</span>
-                                    <span className="text-xs font-medium text-gray-700">10500 FCFA/KG</span>
-                                    <span className="text-xs text-gray-500">(14-21 jours)</span>
+                                    <span className="text-sm text-gray-600">Liquides:</span>
+                                    <span className="text-sm font-medium text-gray-700">10500 FCFA/KG</span>
+                                    <span className="text-sm text-gray-500">(14-21 jours)</span>
                                 </div>
                             </div>
                         </div>
@@ -188,25 +188,25 @@ const CommandeInfo = ({ isEchantillon = false, onTotalChange }) => {
 
                 <div className="px-3">
                     <div className="mt-3">
-                        <h3 className="ttext-base font-medium mb-2 text-black">Promesses de livraison</h3>
+                        <h3 className="font-medium text-md mb-2 text-black">Promesses de livraison</h3>
                         <div className="grid grid-cols-2 gap-3">
                             <div className="flex items-center gap-1.5">
                                 <Check className="w-4 h-4 text-green-500" />
-                                <p className="text-xs text-gray-600">Respect des délais</p>
+                                <p className="text-sm text-gray-600">Respect des délais</p>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <Check className="w-4 h-4 text-green-500" />
-                                <p className="text-xs text-gray-600">Retour produit</p>
+                                <p className="text-sm text-gray-600">Retour produit</p>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <Check className="w-4 h-4 text-green-500" />
-                                <p className="text-xs text-gray-600">
+                                <p className="text-sm text-gray-600">
                                     {isEchantillon ? "Qualité" : "2k de crédit de retard"}
                                 </p>
                             </div>
                             <div className="flex items-center gap-1.5">
                                 <Check className="w-4 h-4 text-green-500" />
-                                <p className="text-xs text-gray-600">Remboursement</p>
+                                <p className="text-sm text-gray-600">Remboursement</p>
                             </div>
                         </div>
                     </div>
