@@ -37,30 +37,30 @@ const DetailsEchantillon = ({echantillon}) => {
             <ShareProduct product={echantillon} toggleActiveShare={toggleModal} activeShare={activeModal}/>
             
             {/* Section livraison */}
-            <div className="px-4 py-3 flex items-center gap-2 border-b">
+            <div className="px-3 py-2 flex items-center gap-2 bg-[#ffe5af] -translate-y-2">
                 <i className="fi fi-sr-check text-green-600 text-lg"></i>
                 <span className="text-sm text-gray-700">Livraison de suite à LBV</span>
             </div>
 
             {/* Section prix */}
-            <div className="px-4 py-3 border-b">
+            <div className="px-3 py-1">
                 <div className="flex items-center gap-2">
                     <span className="text-xl font-bold">{echantillon.price?.toLocaleString()} FCFA</span>
                 </div>
             </div>
 
             {/* Section description */}
-            <div className="px-3 py-3">
+            <div className="px-3 py-1 mb-3">
                 <p className="text-gray-600 text-sm text-justify">
                     <Desciption texte={echantillon.description}/>
                 </p>
             </div>
 
             {/* Bouton de partage */}
-            <div className="px-3 py-1 mb-1">
+            <div className="px-3 py-1">
                 <button 
                     onClick={toggleModal} 
-                    className="w-full flex justify-center items-center gap-3 py-2 rounded bg-red-200 text-[#333333] border-dashed border-2 border-[#ef4444]"
+                    className="w-full flex justify-center items-center gap-5 py-3 rounded bg-red-200 text-[#333333] border-dashed border-2 border-[#ef4444]"
                     aria-label="Partager pour gagner des points"
                     tabIndex={0}
                 >

@@ -5,8 +5,6 @@ export default function CommandeToDay() {
     <div className="px-2 py-3">
     <HistoriqueItem/>
     <HistoriqueItem/>
-    <HistoriqueItem/>
-    <HistoriqueItem/>
     </div>
   )
 }

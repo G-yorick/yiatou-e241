@@ -71,7 +71,7 @@ const ProduitDetails = () => {
         </ModalModel>
         <HeaderProductDetails product={product}/>
         <DetailsProduct product={product}/>
-        <SelectProductColor/>
+        <SelectProductColor productType="shoes" />
         <DeliveryInfo
           initialCity="Libreville"
           initialPrice={2000}

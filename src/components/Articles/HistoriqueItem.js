@@ -7,7 +7,7 @@ export default function HistoriqueItem() {
         <span className="font-medium">Commande YT-251</span>
         <span className="font-medium text-[13px] text-gray-500">14:26</span>
       </p>
-      <div className="flex flex-col gap-4 mt-10">
+      <div className="flex flex-col gap-4 mt-6">
         {/*  */}
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
@@ -31,12 +31,24 @@ export default function HistoriqueItem() {
         </div>
         {/*  */}
         {/*  */}
-        <div className="flex justify-between items-center my-4">
+        <div className="flex justify-between items-center mt-2">
+            <p className="flex items-center gap-3">
+                <span>Assurance</span>
+            </p>
+            <p>500 FCFA</p>
+        </div>
+        <div className="flex justify-between items-center">
             <p className="flex items-center gap-3">
                 <span>Livraison</span>
-                <span className="text-gray-500 text-[14px]">(Akanda)</span>
+                <span className="text-gray-500 text-[14px]">(Libreville)</span>
             </p>
-            <p>2,500 FCFA</p>
+            <p>2,000 FCFA</p>
+        </div>
+        <div className="flex justify-between items-center">
+            <p className="flex items-center gap-3">
+                <span>Frais Airtel Money</span>
+            </p>
+            <p>435 FCFA</p>
         </div>
         {/*  */}
         <div className="flex justify-between items-center">

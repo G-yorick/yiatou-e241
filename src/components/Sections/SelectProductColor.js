@@ -17,7 +17,7 @@ const SelectProductColor = () => {
 
     return (
         <div className="py-0 bg-white">
-            <div className="flex items-center justify-between px-3 mb-2">
+            <div className="flex items-center justify-between px-3 py-4 mb-2">
                 <p className="font-medium text-md">Variation (5)</p>
                 <button
                     onClick={handleOpenModal}

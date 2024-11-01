@@ -3,14 +3,22 @@ import { CartProvider } from './context/CartContext';
 import AppRoutes from './routes/AppRoutes';
 import DetailsEchantillon from './components/Sections/DetailsEchantillon';
 import { UserProvider } from './context/UserContext';
+import { AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <UserProvider>
-      <CartProvider>
-        <AppRoutes />
-      </CartProvider>
-    </UserProvider>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <UserProvider>
+          <CartProvider>
+            <AppRoutes />
+          </CartProvider>
+        </UserProvider>
+      </Routes>
+    </AnimatePresence>
   );
 }
 

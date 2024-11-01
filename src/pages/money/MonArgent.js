@@ -15,7 +15,6 @@ export default function MonArgent() {
   return (
     <PageLayout
       bottomBar={<BottomBar />}
-     
     >
       <ModalModel
         onClose={toggleModalMoney}
@@ -24,20 +23,22 @@ export default function MonArgent() {
       >
         <PaiementInformations />
       </ModalModel>
-      <Header onGetMoney={toggleModalMoney} />
-      <p className="my-5 text-center font-medium text-gray-600">20/06/2024</p>
-      <div className="flex flex-col gap-5 px-3">
-        <MoneyItem />
-        <MoneyItem />
-        <MoneyItem />
-        <MoneyItem />
+      <div className="flex flex-col">
+        <Header onGetMoney={toggleModalMoney} />
+        <div className="flex flex-col gap-5 px-3">
+          <p className="my-5 text-center font-medium text-gray-600">20/06/2024</p>
+          <MoneyItem />
+          <MoneyItem />
+          <MoneyItem />
+          <MoneyItem />
+        </div>
       </div>
     </PageLayout>
   );
 }
 
 const Header = ({ onGetMoney }) => {
-  const clickBtn = () => {
+  const handleClick = () => {
     try {
       onGetMoney();
     } catch (error) {
@@ -45,14 +46,17 @@ const Header = ({ onGetMoney }) => {
     }
   };
   return (
-    <header className="w-full h-[200px] bg-green-200 rounded-b-[30px] px-3 flex flex-col justify-center items-start">
-      <p className="font-medium">Solde actuel</p>
+    <header className="sticky top-0 z-10 w-full h-[200px] bg-green-200 rounded-b-[30px] px-3 flex flex-col justify-center items-start">
+      <p className="font-medium -translate-y-2">Solde actuel</p>
       <p className="flex gap-3 items-end">
         <span className="font-bold text-3xl">6,500</span>
         <span className="font-medium">FCFA</span>
       </p>
       <button
-        onClick={clickBtn} className="bg-gray-300 my-3 font-medium px-5 py-2 rounded-full">
+        onClick={handleClick}
+        className="bg-gray-300 hover:bg-gray-400 transition-colors my-3 font-medium px-5 py-2 rounded-full"
+        aria-label="Retirer l'argent"
+      >
         Retirer
       </button>
     </header>
@@ -71,13 +75,14 @@ const MoneyItem = () => {
           </div>
           <p className="font-medium text-end text-gray-500">10h36</p>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           <p className="text-gray-600">
             Pour les messages de retrait, tu reproduits ce qui est là et tu
             changes juste les valeurs des retraits pour faire réel. Les liens de
             réclamation mènent sur WhatsApp avec le Message "Bonjour ! Je n'ai
             toujours reçu mon retrait de 5,000 FCFA."
           </p>
+          <p className="text-xs text-gray-400">ID: #RT45678</p>
           {/* <Link to="#" className="font-medium underline text-gray-800">
             Faire une reclamation
           </Link> */}

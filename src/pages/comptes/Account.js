@@ -13,8 +13,14 @@ export default function Account() {
         setShare(!share);
     }
   return (
-    <PageLayout bottomBar={<BottomBar/>} topBar={<ToBar onpenShare={toggleShare}/>}>
-        <ShareProduct isProduct={false} toggleActiveShare={toggleShare} activeShare={share}/>
+    <PageLayout bottomBar={<BottomBar/>} topBar={<TopBar onpenShare={toggleShare}/>}>
+        <div className="relative z-50">
+            <ShareProduct 
+                isProduct={false} 
+                toggleActiveShare={toggleShare} 
+                activeShare={share}
+            />
+        </div>
         <div className='py-4 bg-white min-h-[80vh] mt-6'>
             {/* ------------------------------ */}
             <div className='px-3 py-3 grid grid-cols-[60px_1fr_30px] gap-2 border-b'>
@@ -99,20 +105,24 @@ export default function Account() {
     </PageLayout>
   )
 }
-const ToBar = ({onpenShare}) =>{
-    const toggle = () =>{
-        try {
+const TopBar = ({onpenShare}) =>{
+    const handleShare = () => {
+        if (typeof onpenShare === 'function') {
             onpenShare();
-        } catch (error) {
-            console.log('onpenShare doit etre une fonction');
-            
+        } else {
+            console.warn('onpenShare doit être une fonction');
         }
     }
+    
     return (
         <div className='px-3 flex h-[40px] justify-between w-full items-center'>
             <h2 className='font-medium text-lg'>Mon compte</h2>
-            <button onClick={toggle}>
-                <i class="fi fi-sr-share text-xl"></i>
+            <button 
+                onClick={handleShare}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                aria-label="Partager"
+            >
+                <i className="fi fi-sr-share text-xl"></i>
             </button>
         </div>
     );

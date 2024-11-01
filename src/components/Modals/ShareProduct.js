@@ -120,7 +120,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
             Copier le lien
           </button>
         </div>
-        {!isLoggedIn && (
+        {!isLoggedIn && isProduct && (
           <ButtonCta onClick={toggleLoginModal}>
             Connexion
           </ButtonCta>
