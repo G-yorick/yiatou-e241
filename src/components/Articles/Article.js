@@ -91,7 +91,7 @@ const Article = ({ share = null, product }) => {
              {currentText}
            </p>
          ) : (
-           <p className="text-[12px] font-light leading-tight text-gray-600">
+           <p className="text-[12px] font-base leading-tight text-gray-600">
              Achat min: {product.minPurchase} 
            </p>
          )}
