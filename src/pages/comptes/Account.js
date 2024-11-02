@@ -119,7 +119,7 @@ const TopBar = ({onpenShare}) =>{
             <h2 className='font-medium text-lg'>Mon compte</h2>
             <button 
                 onClick={handleShare}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-2 rounded-full transition-colors"
                 aria-label="Partager"
             >
                 <i className="fi fi-sr-share text-xl"></i>
