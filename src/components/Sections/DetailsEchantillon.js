@@ -38,7 +38,7 @@ const DetailsEchantillon = ({echantillon}) => {
             
             {/* Section livraison */}
             <div className="px-3 flex items-center gap-2 bg-[#ffe5af] -translate-y-2">
-                <i className="fi fi-sr-check text-green-600 text-md"></i>
+                <i className="fi fi-sr-check text-green-600 text-md mt-1"></i>
                 <span className="text-sm text-gray-700">Livraison de suite à LBV</span>
             </div>
 
