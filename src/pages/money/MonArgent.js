@@ -222,7 +222,7 @@ const WithdrawInformation = () => {
       <div className="px-0">
         <div className="relative text-gray-600">
           <p className="text-sm text-center">
-            En continuant, vous reconnaissez avoir lu et approuvé notre politique et nos conditions de paiement
+            En continuant, vous reconnaissez avoir lu et approuvé notre politique de paiement
           </p>
           <button 
             onClick={handleInfoClick}

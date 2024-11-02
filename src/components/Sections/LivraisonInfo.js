@@ -17,7 +17,7 @@ const LivraisonInfo = ({onOpenLivraison}) => {
             <div className="grid grid-cols-[1fr_30px] w-full">
                 <div className="flex flex-col gap-0.5">
                     <p className="font-medium text-sm text-gray-700">Monsieur Dave</p>
-                    <p className="text-sm text-gray-500 font-medium">Beausejour - Libreville - 066612236</p>
+                    <p className="text-sm text-gray-700 font-medium">Beausejour - Libreville - 066612236</p>
                 </div>
                 <div className="flex justify-end items-center">
                     <Link to="/informations">
@@ -25,7 +25,7 @@ const LivraisonInfo = ({onOpenLivraison}) => {
                     </Link>
                 </div>
             </div>
-            <button onClick={openModalLivraison} className="font-medium text-xs underline text-blue-600">
+            <button onClick={openModalLivraison} className="font-medium text-xs underline text-gray-600 ">
                 Changer l'adresse de livraison
             </button>
         </div>

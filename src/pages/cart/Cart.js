@@ -183,18 +183,9 @@ const Cart = () => {
           
           {hasSelectedEchantillons && (
             <div className="fixed bottom-[110px] left-0 right-0 bg-gray-100 p-3 z-10">
-              <p className="text-xs text-gray-600 px-3 text-center">
+              <p className="bg-red-100 text-xs text-[#333333] px-3 text-center">
                 Les échantillons sont limités à 3 par commande et seront livrés séparément de vos autres articles
               </p>
-            </div>
-          )}
-          
-          {hasSelectedEchantillons && (
-            <div 
-              role="alert" 
-              className="bg-red-100 border border-red-300 text-[#333333] p-3 rounded-full text-sm mx-1 mb-24"
-            >
-              Votre panier contient des articles n'ayant pas les mêmes délais de livraison.
             </div>
           )}
 

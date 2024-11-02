@@ -59,7 +59,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
 
     const handleShare = (platform) => {
         if (!isLoggedIn) {
-            alert("Tu ne gagneras pas 1,000 FCFA de commission, car tu n'es pas connecté");
+            console.log("Tu ne gagneras pas 1,000 FCFA de commission, car tu n'es pas connecté");
         } else {
             // Implement sharing logic here
             console.log(`Sharing on ${platform}`);

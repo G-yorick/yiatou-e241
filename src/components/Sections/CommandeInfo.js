@@ -120,7 +120,7 @@ const CommandeInfo = ({ isEchantillon = false, onTotalChange }) => {
                                 <span className="font-medium text-sm">Assurance</span>
                                 <button
                                     onClick={() => handleInfoClick('assurance')}
-                                    className="text-red-600"
+                                    className="text-gray-500"
                                     aria-label="Information sur l'assurance"
                                 >
                                     <HelpCircle className="w-4 h-4" />
@@ -135,7 +135,7 @@ const CommandeInfo = ({ isEchantillon = false, onTotalChange }) => {
                             <span className="font-medium text-sm">Frais de Paiement (2.5%)</span>
                             <button
                                 onClick={() => handleInfoClick('fraisPaiement')}
-                                className="text-red-600"
+                                className="text-gray-500"
                                 aria-label="Information sur les frais de paiement"
                             >
                                 <HelpCircle className="w-4 h-4" />
