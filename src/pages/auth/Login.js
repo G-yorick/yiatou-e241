@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Auth from "./Auth";
 
 const Login = () => {
@@ -8,7 +9,7 @@ const Login = () => {
                 <form className="flex flex-col gap-3 my-4">
                     <input type="email" name="email" placeholder="Email" className="p-2 border rounded"/>
                     <input type="password" name="password" placeholder="Mot de passe" className="p-2 border rounded"/>
-                    <p className="text-blue-900 text-[13px]">Mot de passe oublie ?</p>
+                    <p className="text-blue-900 text-[13px]"><Link to="/restore">Mot de passe oublie ?</Link></p>
                     <button type="button" className="bg-blue-900 text-white rounded py-2">Je me connecte</button>
                 </form>
              </div>

@@ -5,7 +5,7 @@ import TopBarWithButtonBack from '../../components/topBar/TopBarWithButtonBack'
 export default function AddPassword() {
   return (
     <PageLayout topBar={<TopBarWithButtonBack title={<p className="pr-4 text-center font-bold text-red-600">YIATOU</p>}/>}>
-      <div className="px-4 py-7">
+      <div className="px-4 py-10">
         <div>
           <h1 className="text-2xl font-bold text-gray-700">
             Creation du nouveau mot de passe
@@ -15,7 +15,7 @@ export default function AddPassword() {
         <form className="flex flex-col gap-5">
             <input className="px-2 py-2 rounded border-2" type="password" name="password" placeholder="********"/>
             <button type="button" className="font-medium text-white bg-blue-800 rounded py-2">
-                Je cree mon mot de passe
+                Je crée mon mot de passe
             </button>
         </form>
       </div>
