@@ -1,16 +1,19 @@
-import { FaImage } from "react-icons/fa";
+import { FaImage, FaLock, FaCoins } from "react-icons/fa";
+import { HelpCircle } from "lucide-react";
 import BottomBar from "../../components/bottomBar/BottomBar";
-import TopBarTitle from "../../components/topBar/TopBarTitle";
 import PageLayout from "../layout/PageLayout";
 import { Link } from "react-router-dom";
 import ModalModel from "../../components/Modals/ModalModel";
 import { useState } from "react";
-import ButtonCta from "../../components/Buttons/ButtonCta";
 
 export default function MonArgent() {
   const [moneyModal, setMoneyModal] = useState(false);
+  const [withdrawModal, setWithdrawModal] = useState(false);
   const toggleModalMoney = () => {
     setMoneyModal(!moneyModal);
+  };
+  const toggleWithdrawModal = () => {
+    setWithdrawModal(!withdrawModal);
   };
   return (
     <PageLayout
@@ -21,10 +24,20 @@ export default function MonArgent() {
         active={moneyModal}
         title="Informations de paiement"
       >
-        <PaiementInformations />
+        <PaiementInformations 
+          setMoneyModal={setMoneyModal}
+          setWithdrawModal={setWithdrawModal}
+        />
+      </ModalModel>
+      <ModalModel
+        onClose={toggleWithdrawModal}
+        active={withdrawModal}
+        title="Retrait de commission"
+      >
+        <WithdrawInformation />
       </ModalModel>
       <div className="flex flex-col">
-        <Header onGetMoney={toggleModalMoney} />
+        <Header onGetMoney={toggleModalMoney} onWithdraw={toggleWithdrawModal} />
         <div className="flex flex-col gap-5 px-3">
           <p className="my-5 text-center font-medium text-gray-600">20/06/2024</p>
           <MoneyItem />
@@ -37,12 +50,19 @@ export default function MonArgent() {
   );
 }
 
-const Header = ({ onGetMoney }) => {
+const Header = ({ onGetMoney, onWithdraw }) => {
   const handleClick = () => {
     try {
       onGetMoney();
     } catch (error) {
       console.log("onGetMoney est une fonction");
+    }
+  };
+  const handleWithdrawClick = () => {
+    try {
+      onWithdraw();
+    } catch (error) {
+      console.log("onWithdraw est une fonction");
     }
   };
   return (
@@ -92,7 +112,13 @@ const MoneyItem = () => {
   );
 };
 
-const PaiementInformations = () => { 
+const PaiementInformations = ({ setMoneyModal, setWithdrawModal }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMoneyModal(false);
+    setWithdrawModal(true);
+  };
+
   return (
     <>
       <p className="text-sm text-gray-700 px-3 text-center -translate-y-7">
@@ -101,7 +127,7 @@ const PaiementInformations = () => {
         <br />
         Ces informations resteront privées.
       </p>
-      <form className="mt-[10px] mb-2 flex flex-col gap-3">
+      <form onSubmit={handleSubmit} className="mt-[10px] mb-2 flex flex-col gap-3">
         <div className="flex gap-4 items-center">
           <div className="flex gap-2 items-center">
             <input type="radio" name="sexe" id="m" />
@@ -162,5 +188,67 @@ const PaiementInformations = () => {
         </button>
       </form>
     </>
+  );
+};
+
+const WithdrawInformation = () => {
+  const [showInfoBubble, setShowInfoBubble] = useState(false);
+
+  const handleInfoClick = () => {
+    setShowInfoBubble(!showInfoBubble);
+  };
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="bg-gray-100 px-3 py-5 -mx-3">
+        <div className="flex justify-between items-center max-w-md mx-auto">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-xl">6,500 FCFA</span>
+            <FaLock className="text-gray-600" />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-xl">6,500 FCFA</span>
+            <FaCoins 
+              className="text-yellow-500 text-2xl animate-bounce" 
+              style={{ 
+                animation: 'bounce 1s infinite',
+                animationDuration: '2s'
+              }} 
+            />
+          </div>
+        </div>
+      </div>
+      
+      <div className="px-0">
+        <div className="relative text-gray-600">
+          <p className="text-sm text-center">
+            En continuant, vous reconnaissez avoir lu et approuvé notre politique et nos conditions de paiement
+          </p>
+          <button 
+            onClick={handleInfoClick}
+            className="inline-flex items-center text-gray-500 hover:text-gray-700 transition-colors absolute right-0 -translate-y-4 -translate-x-4"
+            aria-label="Plus d'informations"
+          >
+            <HelpCircle className="w-4 h-4" />
+            {showInfoBubble && (
+              <div className="absolute bottom-full right-0 mb-2 w-[280px] p-3 bg-gray-800 text-white text-xs rounded-lg shadow-lg">
+                <p>
+                  En effectuant un retrait, vous acceptez nos conditions générales de paiement. 
+                  Les retraits sont traités sous 24-48h ouvrables.
+                </p>
+                <div className="absolute bottom-[-6px] right-3 w-3 h-3 bg-gray-800 transform rotate-45"></div>
+              </div>
+            )}
+          </button>
+        </div>
+
+        <button
+          className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors mt-4"
+          aria-label="Retirer 6,500 FCFA"
+        >
+          Retirer 6,500 FCFA
+        </button>
+      </div>
+    </div>
   );
 };
