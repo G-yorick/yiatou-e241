@@ -145,7 +145,7 @@ const PersonnalInfo = () => {
     <>
       <div className="mb-1">
         <p className="text-center text-sm text-gray-700 -translate-y-7">
-          Ces informations permettent a Yiatou de traiter tes commandes et
+          Ces informations permettent à Yiatou de traiter tes commandes et
           restent privées.
         </p>
       </div>

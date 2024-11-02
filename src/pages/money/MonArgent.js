@@ -92,16 +92,16 @@ const MoneyItem = () => {
   );
 };
 
-const PaiementInformations = () => {
+const PaiementInformations = () => { 
   return (
     <>
-      <p className="px-3 text-center -translate-y-7">
-        Ces informations permettent a Yiatou de traiter tes paiements et de
+      <p className="text-sm text-gray-700 px-3 text-center -translate-y-7">
+        Ces informations permettent à Yiatou de traiter tes paiements et de
         verifier que tu n'est pas mineur.
         <br />
-        Ses information resteront privees.
+        Ces informations resteront privées.
       </p>
-      <form className="mt-[70px] mb-2 flex flex-col gap-3">
+      <form className="mt-[10px] mb-2 flex flex-col gap-3">
         <div className="flex gap-4 items-center">
           <div className="flex gap-2 items-center">
             <input type="radio" name="sexe" id="m" />
@@ -133,7 +133,7 @@ const PaiementInformations = () => {
         <input
           type="tel"
           name="phone"
-          placeholder="N de telephone appel"
+          placeholder="N˚ de téléphone appel"
           className="border px-2 py-2 rounded w-full outline-red-500"
         />
         <input
@@ -144,8 +144,8 @@ const PaiementInformations = () => {
         />
         <select className="border px-2 py-2 rounded w-full outline-red-500">
           <option>Quelle est ton statut ?</option>
-          <option value="Eleve">Eleve</option>
-          <option value="Eleve">Employe</option>
+          <option value="Eleve">Elève</option>
+          <option value="Eleve">Employé</option>
           <option value="Eleve">J'ai une bricole</option>
         </select>
         <Link to="#" className="text-[13px] text-gray-600 flex gap-2 items-center mb-2">
