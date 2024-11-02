@@ -307,7 +307,7 @@ const Item = ({title = "Civilité",children}) => {
     return (
         <div>
             <p className="font-medium text-gray-600 text-[13px]">{title}</p>
-            <p className="font-medium">{children}</p>
+            <p className="font-md">{children}</p>
         </div>
     );
 }
