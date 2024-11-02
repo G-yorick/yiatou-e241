@@ -3,17 +3,11 @@ import ButtonHome from "../../components/Buttons/ButtonHome";
 import HomeSlider from "../../components/Sliders/HomeSlider";
 import TopBar from "../../components/topBar/TopBar";
 import { FaWhatsapp } from "react-icons/fa6";
-import { MdDirectionsCar, MdHandshake } from "react-icons/md";
 import PageLayout from "../layout/PageLayout";
 import Article from "../../components/Articles/Article";
-import Testimonial from "../../components/Sections/Testimonial";
-import HomePubSection from "../../components/Sections/HomePubSection";
-import HomeWhatsappSection from "../../components/Sections/HomeWhatsappSection";
 import { useState } from "react";
 import ShareProduct from "../../components/Modals/ShareProduct";
-import { produits, samples } from "../../utils/utils"; // Import samples from utils
-import Promises from "../../components/Promesses/Promises";
-import SampleCard from "../../components/SampleCard";
+import { produits } from "../../utils/utils"; 
 import SampleSection from "../../components/SampleSection";
 import '@flaticon/flaticon-uicons/css/all/all.css';
 
