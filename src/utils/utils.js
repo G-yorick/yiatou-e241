@@ -174,7 +174,7 @@ export const fetchEchantillonDetails = (id) => {
             } else {
                 reject(new Error("Échantillon non trouvé"));
             }
-        }, 300);
+        }, 100);
     });
 };
 
