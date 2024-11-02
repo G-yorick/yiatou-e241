@@ -78,7 +78,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
     return (
       <div className="px-3 -my-8 mb-2">
         {!isProduct ? 
-        <p>Tu gagneras encore</p> : 
+        <p className="mt-4 text-md text-center">Faites découvrir Yiatou à vos amis et gagnez encore plus de commission !</p> : 
         <p className="text-center text-sm relative">
           Tu gagneras <strong>+1,500 FCFA</strong> à chaque fois qu'un de tes amis achetera cet article avec ton lien.
           <button 
