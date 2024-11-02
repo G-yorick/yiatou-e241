@@ -1,6 +1,11 @@
 import { IoImage } from "react-icons/io5";
 
 export default function HistoriqueItem() {
+  const handlePaymentComplete = () => {
+    // TODO: Implémenter la logique de paiement ici
+    console.log("Paiement en cours...");
+  };
+
   return (
     <div className="bg-white px-3 py-5 my-2 rounded">
       <p className="flex justify-between items-center">
@@ -58,6 +63,17 @@ export default function HistoriqueItem() {
                 <span className="font-bold">9,000 FCFA</span>
             </p>
         </div>
+        
+        {/* Ajout du bouton de paiement */}
+        <button
+          type="button"
+          aria-label="Terminer le paiement"
+          className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          onClick={handlePaymentComplete}
+          onKeyDown={(e) => e.key === 'Enter' && handlePaymentComplete()}
+        >
+          Terminer le paiement
+        </button>
       </div>
     </div>
   );
