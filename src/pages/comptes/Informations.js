@@ -268,7 +268,7 @@ const EditForm = ({ fields, initialData, onSave, onCancel }) => {
         </button>
         <button
           type="submit"
-          className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+          className="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
         >
           Enregistrer
         </button>
