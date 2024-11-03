@@ -85,7 +85,7 @@ const Article = ({ share = null, product }) => {
        <div className="flex justify-between items-center">
          {/* Sample/Delivery Info */}
          {product.sampleAvailable ? (
-           <p className={`text-[12px] font-medium leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${
+           <p className={`text-[12px] font-base leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${
              isTextVisible ? 'opacity-100' : 'opacity-0'
            }`}>
              {currentText}

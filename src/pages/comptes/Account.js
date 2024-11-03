@@ -53,7 +53,12 @@ const Account = () => {
       </div>
 
       <div className="mt-6 min-h-[80vh] bg-white py-4">
-        <div className="grid grid-cols-[60px_1fr_30px] gap-2 border-b px-3 py-3">
+        <Link 
+          to="/informations"
+          className="grid grid-cols-[60px_1fr_30px] gap-2 border-b px-3 py-3 items-center"
+          aria-label="Voir mon profil"
+          tabIndex={0}
+        >
           <div className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-orange-100">
             <FaImage className="text-gray-600" />
           </div>
@@ -68,15 +73,8 @@ const Account = () => {
               abcdef@gmail.com
             </p>
           </div>
-          <Link 
-            to="/informations"
-            className="flex items-center"
-            aria-label="Voir les informations"
-            tabIndex={0}
-          >
-            <i className="fi fi-rs-angle-small-right text-3xl" />
-          </Link>
-        </div>
+          <i className="fi fi-rs-angle-small-right text-3xl" />
+        </Link>
 
         <div className="border-b px-3 py-5">
           <p className="flex items-center gap-2 font-medium text-gray-600">
@@ -86,16 +84,16 @@ const Account = () => {
         </div>
 
         <div className="border-b px-3 py-5">
-          <div className="grid grid-cols-[25px_1fr_30px] items-center gap-2">
+          <Link 
+            to="/historique/historique"
+            className="grid grid-cols-[25px_1fr_30px] items-center gap-2 w-full"
+            aria-label="Voir mes commandes"
+            tabIndex={0}
+          >
             <i className="fi fi-rr-receipt text-2xl text-gray-600" />
             <span className="font-medium text-black">Mes commandes</span>
-            <NavItem 
-              to="/historique/historique"
-              aria-label="Voir l'historique des commandes"
-            >
-              <i className="fi fi-rs-angle-small-right text-3xl" />
-            </NavItem>
-          </div>
+            <i className="fi fi-rs-angle-small-right text-3xl" />
+          </Link>
         </div>
 
         <div className="border-b px-3 py-4">
@@ -103,7 +101,7 @@ const Account = () => {
           <ul className="my-3 flex flex-col gap-2">
             {[
               { to: "/about", icon: "fi-rr-info", label: "À propos" },
-              { to: "/affiliation", icon: "fi-rr-info", label: "Affiliation" },
+              { to: "/affiliation", icon: "fi-rr-share", label: "Affiliation" },
               { to: "/services", icon: "fi-rr-comment-question", label: "Centre d'aide" },
               { to: "/retour", icon: "fi-rr-info", label: "Politique de retour" },
               { to: "/business", icon: "fi-rr-info", label: "Lance ton business" },
@@ -135,7 +133,7 @@ const Account = () => {
             Abonne-toi pour ne rien rater
           </span>
           
-          <div className="flex justify-center gap-8 pb-6">
+          <div className="flex justify-center gap-4 pb-6">
             <a 
               href="https://wa.me/24177305184" 
               target="_blank" 

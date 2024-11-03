@@ -32,7 +32,7 @@ const TopBarWithButtonBack = ({title = null, link = -1}) => {
         >
           <i className="fi fi-br-angle-left w-6 h-6 mt-2"></i>
         </button>
-        <h2 className="text-lg font-medium w-full ml-10">{title}</h2>
+        <h2 className="text-lg font-medium w-full ml-3">{title}</h2>
       </div>
     </TopBarLayout>
   );
