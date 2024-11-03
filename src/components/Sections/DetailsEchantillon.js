@@ -64,8 +64,8 @@ const DetailsEchantillon = ({echantillon}) => {
                     aria-label="Partager pour gagner des points"
                     tabIndex={0}
                 >
-                    <span className="font-medium text-sm">Partages pour gagner <strong>+1500 FCFA</strong></span>
-                    <i className="fi fi-br-refer-arrow text-xs"></i> 
+                    <span className="font-medium">Partages pour gagner <strong>+1500 FCFA</strong></span>
+                    <i className="fi fi-br-refer-arrow"></i> 
                 </button>
             </div>
         </div>

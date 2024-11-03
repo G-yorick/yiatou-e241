@@ -59,8 +59,8 @@ const DetailsProduct = ({product}) => {
                     onClick={toggleModal} 
                     className="flex justify-center items-center gap-5 py-3 rounded bg-red-200 text-[#333333] border-dashed border-2  border-[#ef4444]"
                 >
-                    <span className="font-medium text-sm">Partages pour gagner <strong>1500 FCFA</strong></span>
-                    <i className="fi fi-br-refer-arrow text-xs"></i> 
+                    <span className="font-medium">Partages pour gagner <strong>1500 FCFA</strong></span>
+                    <i className="fi fi-br-refer-arrow"></i> 
                 </button>
             </div>
         </div>
