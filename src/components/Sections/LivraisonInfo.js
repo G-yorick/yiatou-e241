@@ -12,7 +12,7 @@ const LivraisonInfo = ({onOpenLivraison}) => {
         }
     }
     return (
-        <div className='bg-white px-4 py-4 flex flex-col gap-2 items-start translate-y-6 border-b-2 border-gray-100'>
+        <div className='bg-white px-4 py-4 flex flex-col gap-2 items-start translate-y-8 border-b-2 border-gray-100'>
             <h2 className='text-base font-medium'>Informations de livraison</h2>
             <div className="grid grid-cols-[1fr_30px] w-full">
                 <div className="flex flex-col gap-0.5">
