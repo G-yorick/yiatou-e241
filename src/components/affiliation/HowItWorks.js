@@ -8,7 +8,7 @@ const HowItWorks = () => {
             <div className="space-y-6">
                 {steps.map((step, index) => (
                     <div key={index} className="flex items-start gap-4">
-                        <span className="flex-shrink-0 text-blue-600 text-xl font-bold">{index + 1}.</span>
+                        <span className="flex-shrink-0 text-gray-600  text-xl font-bold">{index + 1}.</span>
                         <div>
                             <h3 className="text-lg font-semibold text-gray-800 mb-2">
                                 {step.title}
