@@ -22,6 +22,7 @@ import Conditions from "../pages/appPages/Conditions";
 import Promises from "../pages/appPages/Promises";
 import Cart from "../pages/cart/Cart";
 import EchantillonDetails from "../pages/echantillonDetails/EchantillonDetails";
+import PaymentConfirmation from "../pages/payment-confirmation/PaymentConfirmation";
 
 const AppRoutes = () => {
     return (
@@ -50,6 +51,7 @@ const AppRoutes = () => {
             <Route path="/promises" element={<Promises/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/echantillonDetails/:id" element={<EchantillonDetails />} />
+            <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
             </Routes>
         </Router>
     );

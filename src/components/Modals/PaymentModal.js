@@ -5,6 +5,7 @@ import WhatsAppModal from './WhatsAppModal';
 import { formatPrice } from '../../utils/utils';
 import { FaWhatsapp } from 'react-icons/fa';
 import { Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const PaymentModal = ({ 
   isOpen, 
@@ -17,6 +18,7 @@ const PaymentModal = ({
 }) => {
   const [selectedMethod, setSelectedMethod] = useState('Airtel');
   const [showWhatsAppModal, setShowWhatsAppModal] = useState(false);
+  const navigate = useNavigate();
 
 
   const handlePaymentMethodSelect = (method) => {
@@ -29,9 +31,18 @@ const PaymentModal = ({
     if (selectedMethod === 'WhatsApp') {
       setShowWhatsAppModal(true);
     } else if (selectedMethod === 'Airtel') {
-      // Logique pour Airtel Money
-      console.log('Redirection vers Airtel Money...');
       onClose();
+      setTimeout(() => {
+        navigate('/payment-confirmation', {
+          state: {
+            orderNumber,
+            amount: totalPrice,
+            paymentMethod: selectedMethod,
+            userInfo,
+            deliveryInfo
+          }
+        });
+      }, 300);
     }
   };
 
@@ -95,7 +106,7 @@ const PaymentModal = ({
         </>
       );
     }
-    return `Payer ${formatPrice(totalPrice)}`;
+    return `Payer (${formatPrice(totalPrice)})`;
   };
 
 const paymentMethods = [

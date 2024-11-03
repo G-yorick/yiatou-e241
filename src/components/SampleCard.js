@@ -12,7 +12,7 @@ const SampleCard = ({ image, price, id, name }) => {
     setTimeout(() => {
       setIsAnimating(false);
       navigate(`/echantillonDetails/${id}`);
-    }, 300);
+    }, 100);
   };
 
   const handleKeyDown = (event) => {
