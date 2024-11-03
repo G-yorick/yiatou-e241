@@ -23,6 +23,7 @@ import Promises from "../pages/appPages/Promises";
 import Cart from "../pages/cart/Cart";
 import EchantillonDetails from "../pages/echantillonDetails/EchantillonDetails";
 import PaymentConfirmation from "../pages/payment-confirmation/PaymentConfirmation";
+import Affiliation from "../pages/appPages/Affiliation";
 
 const AppRoutes = () => {
     return (
@@ -52,6 +53,7 @@ const AppRoutes = () => {
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/echantillonDetails/:id" element={<EchantillonDetails />} />
             <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
+            <Route path="/affiliation" element={<Affiliation/>}/>
             </Routes>
         </Router>
     );
