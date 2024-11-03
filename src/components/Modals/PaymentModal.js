@@ -110,7 +110,15 @@ const paymentMethods = [
 ];
 
   const getMethodColor = (methodId) => {
-    return methodId === 'WhatsApp' ? 'green' : 'red';
+    return methodId === 'WhatsApp' ? '#04c241' : 'red';
+  };
+
+  const getBorderClass = (method, isSelected) => {
+    if (!isSelected) return 'border-gray-200 hover:border-gray-300 hover:scale-105';
+    
+    return method === 'WhatsApp' 
+      ? 'border-[#04c241] shadow-lg scale-105'
+      : 'border-[#04c241] shadow-lg scale-105';
   };
 
   return (
@@ -133,17 +141,14 @@ const paymentMethods = [
                 flex flex-col items-center gap-4
                 overflow-hidden
                 focus:outline-none
-                ${selectedMethod === method.id 
-                  ? `border-${method.id === 'WhatsApp' ? 'green' : 'red'}-500 shadow-lg scale-105` 
-                  : 'border-gray-200 hover:border-gray-300 hover:scale-105'
-                }
+                ${getBorderClass(method.id, selectedMethod === method.id)}
               `}
             >
               {selectedMethod === method.id && (
                 <>
                   <div className={`
                     absolute -top-8 -right-8 w-16 h-16 
-                    ${method.id === 'WhatsApp' ? 'bg-green-500' : 'bg-red-500'} 
+                    ${method.id === 'WhatsApp' ? 'bg-[#04c241]' : 'bg-red-500'} 
                     rotate-45
                   `} />
                   <div className="absolute top-1 right-1">
@@ -178,7 +183,7 @@ const paymentMethods = [
             onClick={handlePayment}
             disabled={!selectedMethod}
             className={`
-              w-full h-12 text-lg rounded-lg font-medium
+              w-full h-12 text-md rounded-lg font-medium
               ${getButtonStyles()}
               disabled:cursor-not-allowed disabled:opacity-50
               transition-all duration-300 ease-in-out

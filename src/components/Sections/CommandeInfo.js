@@ -164,16 +164,16 @@ const CommandeInfo = ({ isEchantillon = false, onTotalChange }) => {
                         <div className="flex flex-col gap-1">
                             <div className="flex items-center justify-between py-0.5">
                                 <div className="flex flex-wrap items-center gap-x-1">
-                                    <span className="text-sm text-gray-600">Simples:</span>
-                                    <span className="text-sm font-medium text-gray-700">10500 FCFA/KG</span>
+                                    <span className="text-sm font-medium text-gray-700">Simples:</span>
+                                    <span className="text-sm text-gray-600">10500 FCFA/KG</span>
                                     <span className="text-sm text-gray-500">(10-14 jours)</span>
                                 </div>
                             </div>
                             
                             <div className="flex items-center justify-between py-0.5">
                                 <div className="flex flex-wrap items-center gap-x-1">
-                                    <span className="text-sm text-gray-600">Liquides:</span>
-                                    <span className="text-sm font-medium text-gray-700">10500 FCFA/KG</span>
+                                    <span className="text-sm font-medium text-gray-700">Liquides:</span>
+                                    <span className="text-sm text-gray-600">10500 FCFA/KG</span>
                                     <span className="text-sm text-gray-500">(14-21 jours)</span>
                                 </div>
                             </div>
