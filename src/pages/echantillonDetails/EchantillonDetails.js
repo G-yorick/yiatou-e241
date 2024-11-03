@@ -105,6 +105,7 @@ const EchantillonDetails = () => {
           endDate={new Date(new Date().setDate(new Date().getDate() + 14))}
           daysRange={14}
           cities={cities}
+          isSample={true}
           onModalOpen={() => setIsCityModalOpen(true)}
           onModalClose={() => setIsCityModalOpen(false)}
         />

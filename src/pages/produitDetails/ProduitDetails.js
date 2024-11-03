@@ -113,13 +113,13 @@ const BottomButton = ({toggleModal}) => {
         <ButtonCta 
           onClick={handleOrder}
           variant="green"
-          className="flex-1 text-lg font-bold"
+          className="flex-1 text-md font-bold"
         >
           Commander
         </ButtonCta>
         <ButtonCta 
           onClick={handleAddToCart}
-          className="flex-1 flex items-center justify-center text-lg font-bold"
+          className="flex-1 flex items-center justify-center text-md font-bold"
         >
           Ajoute au panier
         </ButtonCta>

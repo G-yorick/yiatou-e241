@@ -22,7 +22,17 @@ const CustomSelect = ({ value, onChange, options, currency }) => {
   );
 };
 
-const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, endDate, daysRange, cities }) => {
+const DeliveryInfo = ({ 
+  initialCity, 
+  initialPrice, 
+  currency, 
+  unit, 
+  startDate, 
+  endDate, 
+  daysRange, 
+  cities,
+  isSample = false
+}) => {
   const [selectedCity, setSelectedCity] = useState(initialCity);
   const [price, setPrice] = useState(initialPrice);
   const [deliveryDays, setDeliveryDays] = useState(daysRange);
@@ -32,10 +42,16 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
     const selectedCityObj = cities.find(city => city.name === cityName);
     setSelectedCity(cityName);
     setPrice(selectedCityObj.price);
-    setDeliveryDays(daysRange + 2);
+    setDeliveryDays(isSample ? 0 : daysRange + 2);
   };
 
-  const newEndDate = addDaysToDate(startDate, deliveryDays);
+  const getDeliveryTimeText = () => {
+    if (isSample) {
+      return "-2 heures";
+    }
+    const newEndDate = addDaysToDate(startDate, deliveryDays);
+    return `${formatDateRange(startDate, newEndDate)} (10 - ${deliveryDays} jours)`;
+  };
 
   return (
     <div className="p-4 bg-gray-50 rounded-lg">
@@ -51,14 +67,13 @@ const DeliveryInfo = ({ initialCity, initialPrice, currency, unit, startDate, en
             currency={currency}
           />
           <FiChevronDown className="h-4 w-4 text-blue-600 -ml-24" />
-          
         </div>
       </div>
       <p className="mt-2 text-gray-600 text-sm">
         Prix: <span className="font-base">{formatCurrency(price, currency)}/{unit}</span>
       </p>
       <p className="mt-1 text-gray-600 text-sm">
-        Délais: <span className="font-base">{formatDateRange(startDate, newEndDate)}</span> (10 - {deliveryDays} jours)
+        Délais: <span className="font-base">{getDeliveryTimeText()}</span>
       </p>
       <p className="mt-2 text-xs text-black font-medium">
         (Paiement du transport à la livraison)
