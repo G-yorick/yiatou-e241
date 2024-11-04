@@ -1,4 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+
 const EarningsSection = ({ onAffiliationClick }) => {
+    const navigate = useNavigate();
+
+    const handleAffiliationClick = () => {
+        if (onAffiliationClick) {
+            onAffiliationClick();
+        }
+        navigate('/');
+    };
+
     return (
         <div className="px-4 py-8 bg-white">
             <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
@@ -12,7 +23,7 @@ const EarningsSection = ({ onAffiliationClick }) => {
             </p>
 
             <button 
-                onClick={onAffiliationClick}
+                onClick={handleAffiliationClick}
                 className="w-full max-w-md mx-auto block relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
                 aria-label="Commencer l'affiliation"
                 tabIndex={0}

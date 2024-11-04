@@ -26,20 +26,16 @@ const HowItWorks = () => {
 
 const steps = [
     {
-        title: "Inscrivez-vous au programme",
-        description: "Créez votre compte d'affilié et obtenez votre code de parrainage unique"
+        title: "Choisis un produit",
+        description: "Choisis un produit qui te plaît et partage-le avec ton réseau en utilisant ton lien d’affiliation."
     },
     {
-        title: "Partagez votre code",
-        description: "Diffusez votre code sur vos réseaux sociaux ou partagez-le directement avec vos proches"
+        title: "Gagne une commission",
+        description: "Gagne une commission instantanément pour chaque vente réalisée via ton lien, ou reçois ta commission après la livraison."
     },
     {
-        title: "Suivez vos parrainages",
-        description: "Consultez en temps réel les inscriptions et achats effectués avec votre code"
-    },
-    {
-        title: "Recevez vos commissions",
-        description: "Gagnez automatiquement votre commission pour chaque achat effectué par vos filleuls"
+        title: "Retire ton argent ",
+        description: "Retire ton argent facilement par Airtel Money en un clic."
     }
 ];
 

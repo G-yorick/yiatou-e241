@@ -6,50 +6,61 @@ const Business = () => {
   return (
     <PageLayout topBar={<TopBarWithButtonBack link="/account" title="Lance ton business"/>}>
         <div className="px-4 py-8 text-justify bg-white">
-        <H2>Découverte !</H2>
+            <H2>Notre Vision</H2>
             <div className="flex flex-col gap-3 font-medium text-[#333333]">
                 <p>
-                Découvres Yiatou, ta nouvelle application de vente en ligne sociale révolutionnaire! 
-                Avec Yiatou, plonge dans un univers d'articles de qualités, rares et uniques qui ne manqueront pas de t’émerveiller. 
-                Nos produits sont à couper le souffle et à des prix incroyables.
+                    Chez Yiatou, nous croyons que chacun mérite la chance d'entreprendre et de créer sa propre activité, 
+                    peu importe où il se trouve en Afrique. Notre mission est de créer et de soutenir la prochaine génération 
+                    de commerçants, d'entrepreneurs et d'e-commerçants africains en leur offrant les outils, les connaissances 
+                    et les ressources pour réussir dans le commerce en important directement de Chine.
                 </p>
                 <p>
-                Mais Yiatou, ce n'est pas seulement l'achat de produits formidables qui t’apportent du bonheur. 
-                C'est aussi une communauté où tu peux partager tes trouvailles avec tes proches et gagner de l'argent à 
-                chaque fois que l’un d'entre eux effectue un achat via ton lien de recommandation. 
-                Profite d'une expérience d'achat enrichissante, engageante et unique.
-                </p>
-                <p>
-                Pour faciliter tes transactions, Yiatou te permet de payer à la livraison. De plus, nous nous engageons 
-                à livrer toutes tes commandes en moins de 2 heures maximum. Rejoins Yiatou pour construire ensemble un 
-                avenir commun et pour transformer ta vie à chaque interaction avec nous!
+                    Avec Yiatou, il n'est pas nécessaire d'avoir un gros capital pour commencer. Notre plateforme te permet 
+                    d'accéder à des opportunités uniques pour développer ton business.
                 </p>
             </div>
-            <H2>Principales fonctionnalités de Yiatou :</H2>
+
+            <H2>Nos avantages clés :</H2>
             <ol className="px-8 [&>*]:list-disc text-[#333333]">
-                <li className="font-medium">Articles de qualité, rares et uniques : <p className="font-normal">Découvrez des produits sélectionnés avec soin pour vous.</p></li>
-                <li className="font-medium">Prix incroyables : <p className="font-normal">Profites de tarifs justes et attractifs qui te permettent d'acheter plein de choses avec très peu d'argent.</p></li>
-                <li className="font-medium">Options de commande flexibles : <p className="font-normal">Tu peux valider ta commande sur WhatsApp ou directement en ligne.</p></li>
-                <li className="font-medium">Réservation : <p className="font-normal">En cas de rupture de stock, tu peux envoyer un message sur WhatsApp pour être informé lors du prochain réapprovisionnement.</p></li>
-                <li className="font-medium">Recommandations et gains : <p className="font-normal">Partage tes articles préférés et gagne de l'argent lorsque tes proches achètent via ton lien de recommandation.</p></li>
-                <li className="font-medium">Paiement facile : <p className="font-normal">Tu peux payer à la livraison en toute confiance.</p></li>
-                <li className="font-medium">Livraison rapide : <p className="font-normal">Reçois tes commandes en moins de 2 heures après achat.</p></li>
-                <li className="font-medium">Recevoir de l'argent : <p className="font-normal">Tu reçois sur ton Airtel Money l'argent que tu as gagné en partageant des articles.</p></li>
+                <li className="font-medium">Prix de gros compétitifs : 
+                    <p className="font-normal">Bénéficie de tarifs spécialement négociés pour l'Afrique.</p>
+                </li>
+                <li className="font-medium">Logistique simplifiée : 
+                    <p className="font-normal">Nous prenons en charge les démarches administratives et douanières pour faciliter tes importations.</p>
+                </li>
+                <li className="font-medium">Système de recommandation : 
+                    <p className="font-normal">Commence avec un petit investissement et développe tes revenus en partageant tes coups de cœur avec ton réseau.</p>
+                </li>
+                <li className="font-medium">Tests sans risque : 
+                    <p className="font-normal">Possibilité de commander des échantillons avant de prendre de gros volumes.</p>
+                </li>
             </ol>
+
+            <H2>Un rêve accessible pour tous</H2>
             <p className="py-3 font-medium text-[#333333]">
-            Rejoins Yiatou dès maintenant et fais partie de la communauté des gens les plus heureux de la toile !
+                Que tu souhaites ouvrir une boutique en ligne, commencer dans le commerce physique ou simplement explorer 
+                les opportunités du marché, Yiatou t'accompagne étape par étape pour transformer ton projet en réalité. 
+                Avec une petite somme de départ, des produits de qualité et un modèle simplifié, lance ton business, 
+                gagne en indépendance et construis un avenir prometteur avec Yiatou.
             </p>
-            <button className="border-2 w-full py-2 mt-4 border-purple-500 rounded text-purple-500 font-medium">
+
+            <button 
+                className="border-2 w-full py-2 mt-4 border-purple-500 rounded text-purple-500 font-medium"
+                aria-label="En savoir plus sur le lancement de business"
+                tabIndex={0}
+                onClick={() => {/* Action à définir */}}
+                onKeyDown={(e) => e.key === 'Enter' && e.target.click()}
+            >
                 Clique ici pour en savoir plus
             </button>
         </div>
         <div className="-translate-y-6">
-        <MoreProduct/>
+            <MoreProduct/>
         </div>
-
     </PageLayout>
   )
 }
+
 const H2 = ({children})=>{
     return (
         <h2 className="font-medium text-lg py-4 px-2 text-[#333333]">{children}</h2>
