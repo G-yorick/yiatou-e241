@@ -125,7 +125,7 @@ const paymentMethods = [
   };
 
   const getBorderClass = (method, isSelected) => {
-    if (!isSelected) return 'border-gray-200 hover:border-gray-300 hover:scale-105';
+    if (!isSelected) return 'border-red-600 hover:border-red-600 hover:scale-105';
     
     return method === 'WhatsApp' 
       ? 'border-[#04c241] shadow-lg scale-105'

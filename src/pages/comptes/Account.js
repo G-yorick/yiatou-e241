@@ -88,8 +88,8 @@ const Account = () => {
               { to: "/about", icon: "fi-rr-info", label: "À propos" },
               { to: "/affiliation", icon: "fi-rr-share", label: "Affiliation" },
               { to: "/services", icon: "fi-rr-comment-question", label: "Centre d'aide" },
-              { to: "/retour", icon: "fi-rr-info", label: "Politique de retour" },
-              { to: "/business", icon: "fi-rr-info", label: "Lance ton business" },
+              { to: "/retour", icon: "fi-rr-restock", label: "Politique de retour" },
+              { to: "/business", icon: "fi-rr-seller", label: "Lance ton business" },
               { to: "/politique", icon: "fi-rr-user-lock", label: "Politique de confidentialité" },
               { to: "/conditions", icon: "fi-rr-handshake", label: "Termes et Conditions d'utilisation" }
             ].map(({ to, icon, label }) => (

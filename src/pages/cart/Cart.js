@@ -112,7 +112,7 @@ const Cart = () => {
         />
       }
     >
-      <div className="w-full mt-20">
+      <div className="w-full mt-16">
         <div className="px-1 space-y-1">
           <div className="bg-white p-2 flex items-center space-x-2">
             <input 
