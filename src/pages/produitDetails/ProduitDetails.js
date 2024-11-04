@@ -190,7 +190,7 @@ const PersonnalInfo = () => {
         
         <button
           type="submit"
-          className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors mt-4"
+          className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold transition-colors mt-4"
         >
           Enregistrer
         </button>
