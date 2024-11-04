@@ -29,7 +29,7 @@ const Commandes = () => {
             bottomBar={<CommandeBottom totalAmount={totalAmount} />} 
             topBar={<TopBarWithButtonBack link='/cart' title="Commande"/>}
         >
-            <ModalModel onClose={onToggleModalLivraison} active={modalLivraison} title='Ou doit-on livrer ?'>
+            <ModalModel onClose={onToggleModalLivraison} active={modalLivraison} title='Où doit-on livrer ?'>
                 <AddLivraison onCreateLivraison={onToggleModalCreateLivraison}/>
             </ModalModel>
             <ModalModel onClose={onToggleModalCreateLivraison} active={modalCreateLivraison} title='Nouvelle Adresse'>
