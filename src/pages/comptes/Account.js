@@ -6,29 +6,6 @@ import { Link } from 'react-router-dom'
 import ShareProduct from '../../components/Modals/ShareProduct'
 import ButtonWhatsapp from '../../components/Buttons/ButtonWhatsapp'
 import NavItem from '../../components/bottomBar/NavItem'
-import TopBarWithButtonBack from '../../components/topBar/TopBarWithButtonBack'
-import { IoLogoWhatsapp } from 'react-icons/io'
-
-const TopBar = ({ onShare }) => {
-  const handleShare = () => {
-    if (typeof onShare === 'function') {
-      onShare()
-    }
-  }
-
-  return (
-    <div className="flex h-10 w-full items-center justify-between px-3">
-      <button
-        onClick={handleShare}
-        className="rounded-full p-2 transition-colors hover:bg-gray-100"
-        aria-label="Partager"
-        tabIndex={0}
-      >
-        <i className="fi fi-sr-share text-xl" />
-      </button>
-    </div>
-  )
-}
 
 const Account = () => {
   const [isShareOpen, setIsShareOpen] = useState(false)
@@ -39,9 +16,17 @@ const Account = () => {
     <PageLayout 
       bottomBar={<BottomBar />} 
       topBar={
-        <TopBarWithButtonBack title="Mon compte">
-          <TopBar onShare={handleToggleShare} />
-        </TopBarWithButtonBack>
+        <div className="flex w-full items-center justify-between px-4 h-[48px] bg-white">
+          <div className="text-lg font-medium">Mon compte</div>
+          <button
+            onClick={handleToggleShare}
+            className="rounded-full p-2 transition-colors hover:bg-gray-100"
+            aria-label="Partager"
+            tabIndex={0}
+          >
+            <i className="fi fi-sr-share text-xl" />
+          </button>
+        </div>
       }
     >
       <div className="relative z-50">
@@ -142,7 +127,7 @@ const Account = () => {
               aria-label="Suivez-nous sur WhatsApp"
               tabIndex={0}
             >
-              <IoLogoWhatsapp className="text-[#25D366] text-4xl" />
+              <i className="fi fi-brands-whatsapp text-[#25D366] text-4xl" />
             </a>
 
             <a 
