@@ -9,33 +9,42 @@ import AddLivraison from '../../components/Modals/AddLivraison';
 import CreateLivraison from '../../components/Modals/CreateLivraison';
 
 const Commandes = () => {
-    const [modalLivraison, setModalLivraison] = useState(false);
-    const [modalCreateLivraison, setModalCreateLivraison] = useState(false);
+    const [livraisonInfo, setLivraisonInfo] = useState({
+        quartier: "Beausejour",
+        ville: "Libreville",
+        telephone: "066612236"
+    });
+    const [showAddLivraison, setShowAddLivraison] = useState(false);
     const [totalAmount, setTotalAmount] = useState(0);
 
     const handleTotalChange = (newTotal) => {
         setTotalAmount(newTotal);
     };
 
-    const onToggleModalLivraison = () => {
-        setModalLivraison(!modalLivraison);
-    }
-    const onToggleModalCreateLivraison = () => {
-        setModalCreateLivraison(!modalCreateLivraison);
-    }
- 
+    const handleSaveLivraison = (selectedAddress) => {
+        setLivraisonInfo({
+            quartier: selectedAddress.details,
+            ville: "Libreville",
+            telephone: "066612236"
+        });
+        setShowAddLivraison(false);
+    };
+
     return (
         <PageLayout 
             bottomBar={<CommandeBottom totalAmount={totalAmount} />} 
             topBar={<TopBarWithButtonBack link='/cart' title="Commande"/>}
         >
-            <ModalModel onClose={onToggleModalLivraison} active={modalLivraison} title='Où doit-on livrer ?'>
-                <AddLivraison onCreateLivraison={onToggleModalCreateLivraison}/>
+            <ModalModel onClose={() => setShowAddLivraison(false)} active={showAddLivraison} title='Où doit-on livrer ?'>
+                <AddLivraison onSave={handleSaveLivraison} onCreateLivraison={() => {/* ... */}}/>
             </ModalModel>
-            <ModalModel onClose={onToggleModalCreateLivraison} active={modalCreateLivraison} title='Nouvelle Adresse'>
+            <ModalModel onClose={() => {/* ... */}} active={false} title='Nouvelle Adresse'>
                 <CreateLivraison/>
             </ModalModel>
-            <LivraisonInfo onOpenLivraison={onToggleModalLivraison}/>
+            <LivraisonInfo 
+                info={livraisonInfo}
+                onEditClick={() => setShowAddLivraison(true)}
+            />
             <CommandeInfo 
                 onTotalChange={handleTotalChange}
                 isEchantillon={false}
