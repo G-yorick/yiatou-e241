@@ -112,7 +112,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
             <p className="text-xs text-gray-500">WhatsApp</p>
           </div>
         </div>
-        <div className="mt-6">
+        <div className="mt-6 mb-14">
           <button 
             className="text-base rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-[#cccccc]"
             onClick={handleCopyLink}

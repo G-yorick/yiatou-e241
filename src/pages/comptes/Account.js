@@ -20,11 +20,11 @@ const Account = () => {
           <div className="text-lg font-medium">Mon compte</div>
           <button
             onClick={handleToggleShare}
-            className="rounded-full p-2 transition-colors hover:bg-gray-100"
+            className="rounded-full p-2 transition-colors"
             aria-label="Partager"
             tabIndex={0}
           >
-            <i className="fi fi-sr-share text-xl" />
+            <i className="fi fi-rr-refer-arrow text-[20px]"></i>
           </button>
         </div>
       }
