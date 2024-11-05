@@ -92,9 +92,9 @@ const PaymentModal = ({
 
   const getButtonStyles = () => {
     if (selectedMethod === 'WhatsApp') {
-      return 'bg-[#64ca5d] flex items-center justify-center gap-2 text-white';
+      return 'bg-[#05c341] flex items-center justify-center gap-2 text-white';
     }
-    return 'bg-red-500 hover:bg-red-600 text-white';
+    return 'bg-red-600  text-white';
   };
 
   const getButtonContent = () => {
@@ -121,15 +121,19 @@ const paymentMethods = [
 ];
 
   const getMethodColor = (methodId) => {
-    return methodId === 'WhatsApp' ? '#04c241' : 'red';
+    return methodId === 'WhatsApp' ? '#05c341' : 'red';
   };
 
   const getBorderClass = (method, isSelected) => {
-    if (!isSelected) return 'border-red-600 hover:border-red-600 hover:scale-105';
+    if (!isSelected) {
+      return method === 'WhatsApp' 
+        ? 'border-[#05c341] hover:border-[#05c341] hover:scale-105'
+        : 'border-red-600 hover:border-red-600 hover:scale-105';
+    }
     
     return method === 'WhatsApp' 
-      ? 'border-[#04c241] shadow-lg scale-105'
-      : 'border-[#04c241] shadow-lg scale-105';
+      ? 'border-[#05c341] shadow-lg scale-105'
+      : 'border-red-600 shadow-lg scale-105';
   };
 
   return (
