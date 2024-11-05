@@ -26,6 +26,10 @@ import PaymentConfirmation from "../pages/payment-confirmation/PaymentConfirmati
 import Affiliation from "../pages/appPages/Affiliation";
 import Retour from "../pages/appPages/Retour";
 import Business from "../pages/appPages/Business";
+import Electronique from "../pages/categories/Electronique";
+import Femme from "../pages/categories/Femme";
+import Beaute from "../pages/categories/Beaute";
+import Homme from "../pages/categories/Homme";
 
 
 const AppRoutes = () => {
@@ -59,6 +63,10 @@ const AppRoutes = () => {
             <Route path="/affiliation" element={<Affiliation/>}/>
             <Route path="/retour" element={<Retour/>}/>
             <Route path="/business" element={<Business/>}/>
+            <Route path="/electronique" element={<Electronique/>}/>
+            <Route path="/femme" element={<Femme/>}/>
+            <Route path="/beaute" element={<Beaute/>}/>
+            <Route path="/homme" element={<Homme/>}/>
             </Routes>
         </Router>
     );

@@ -1,41 +1,23 @@
 import { Link, useLocation } from 'react-router-dom';
 
-const NavLink = ({ to, label, className = '' }) => {
+const NavLink = ({ to, label, className }) => {
     const location = useLocation();
-    const isActive = location.pathname === to || (location.pathname === '/' && to === '/explorer');
+    const isActive = location.pathname === to;
 
     return (
-        <div className="flex flex-col items-center">
-            <Link 
-                to={to}
-                className={`
-                    relative 
-                    text-center 
-                    transition-all 
-                    hover:text-gray-800
-                    ${className}
-                    ${isActive ? 'font-semibold' : 'font-light'}
-                `}
-                aria-current={isActive ? 'page' : undefined}
-            >
-                {label}
-                {/* Indicateur de page active */}
-                <div 
-                    className={`
-                        absolute 
-                        -bottom-1
-                        left-1/2 
-                        w-14
-                        h-[2px]
-                        bg-black 
-                        transition-all
-                        duration-200
-                        ${isActive ? 'opacity-100 -translate-x-1/2' : 'opacity-0'}
-                    `}
-                    aria-hidden="true"
-                />
-            </Link>
-        </div>
+        <Link
+            to={to}
+            className={`
+                ${className}
+                ${isActive ? 'font-semibold text-blue-600' : 'text-gray-700'}
+                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+            `}
+            role="menuitem"
+            tabIndex={0}
+            aria-current={isActive ? 'page' : undefined}
+        >
+            {label}
+        </Link>
     );
 };
 
