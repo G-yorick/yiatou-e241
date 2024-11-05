@@ -18,7 +18,7 @@ const NavLink = ({ to, label, className }) => {
                 transform
                 active:scale-95
                 ${isActive 
-                    ? 'font-base text-black after:absolute after:bottom-[-4px] after:left-1/2 after:w-1/2 after:-translate-x-1/2 after:h-0.5 after:bg-black after:rounded-full' 
+                    ? 'font-bold text-black after:absolute after:bottom-[-4px] after:left-1/2 after:w-1/2 after:-translate-x-1/2 after:h-0.5 after:bg-black after:rounded-full' 
                     : 'text-gray-600 hover:text-black'
                 }
             `}

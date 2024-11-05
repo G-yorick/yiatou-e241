@@ -5,7 +5,6 @@ import BottomBar from '../../components/bottomBar/BottomBar'
 import { Link } from 'react-router-dom'
 import ShareProduct from '../../components/Modals/ShareProduct'
 import ButtonWhatsapp from '../../components/Buttons/ButtonWhatsapp'
-import NavItem from '../../components/bottomBar/NavItem'
 
 const Account = () => {
   const [isShareOpen, setIsShareOpen] = useState(false)
@@ -24,7 +23,7 @@ const Account = () => {
             aria-label="Partager"
             tabIndex={0}
           >
-            <i className="fi fi-rr-refer-arrow text-[20px]"></i>
+            <i class="fi fi-sr-share text-xl"></i>
           </button>
         </div>
       }

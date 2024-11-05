@@ -8,16 +8,37 @@ const products = [
   {
     id: 1,
     title: 'Robe d\'été fleurie',
-    image: '/images/products/femme/robe-ete.jpg',
+    image: '/img/produit/femme/robe-fleurie.jpeg',
     price: 2000,
     category: 'robes'
   },
   {
     id: 2,
     title: 'Top basique blanc',
-    image: '/images/products/femme/top-blanc.jpg',
-    price: 19.99,
+    image: '/img/produit/femme/tops.webp',
+    price: 200,
     category: 'tops'
+  },
+  {
+    id: 3,
+    title: 'Pantalon',
+    image: '/img/produit/femme/pantalon.jpeg',
+    price: 200,
+    category: 'pantalons'
+  },
+  {
+    id: 4,
+    title: 'Jupe',
+    image: '/img/produit/femme/jupe.jpeg',
+    price: 200,
+    category: 'jupes'
+  },
+  {
+    id: 5,
+    title: 'Accessoires',
+    image: '/img/produit/femme/accessoires.jpeg',
+    price: 200,
+    category: 'accessoires'
   },
   // Ajoutez d'autres produits...
 ];
@@ -26,41 +47,41 @@ const categoryItems = [
   {
     id: 'all',
     title: 'Tout',
-    image: '/images/categories/femme/all.jpg',
+    image: '/images/categories/all/',
     link: '/femme/all'
   },
   {
     id: 1,
     title: 'Robes',
-    image: '/images/categories/femme/robes.jpg',
+    image: '/img/produit/femme/robe-fleurie.jpeg',
     link: '/femme/robes',
     category: 'robes'
   },
   {
     id: 2,
     title: 'Tops',
-    image: '/images/categories/femme/tops.jpg',
+    image: '/img/produit/femme/tops.webp',
     link: '/femme/tops',
     category: 'tops'
   },
   {
     id: 3,
     title: 'Pantalons',
-    image: '/images/categories/femme/pantalons.jpg',
+    image: '/img/produit/femme/pantalon.jpeg',
     link: '/femme/pantalons',
     category: 'pantalons'
   },
   {
     id: 4,
     title: 'Jupes',
-    image: '/images/categories/femme/jupes.jpg',
+    image: '/img/produit/femme/jupe.jpeg',
     link: '/femme/jupes',
     category: 'jupes'
   },
   {
     id: 5,
     title: 'Accessoires',
-    image: '/images/categories/femme/accessoires.jpg',
+    image: '/img/produit/femme/accessoires.jpeg',
     link: '/femme/accessoires',
     category: 'accessoires'
   }
