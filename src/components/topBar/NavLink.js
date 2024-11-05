@@ -9,8 +9,18 @@ const NavLink = ({ to, label, className }) => {
             to={to}
             className={`
                 ${className}
-                ${isActive ? 'font-semibold text-blue-600' : 'text-gray-700'}
-                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                relative
+                inline-flex
+                items-center
+                justify-center
+                transition-all
+                duration-200
+                transform
+                active:scale-95
+                ${isActive 
+                    ? 'font-base text-black after:absolute after:bottom-[-4px] after:left-1/2 after:w-1/2 after:-translate-x-1/2 after:h-0.5 after:bg-black after:rounded-full' 
+                    : 'text-gray-600 hover:text-black'
+                }
             `}
             role="menuitem"
             tabIndex={0}

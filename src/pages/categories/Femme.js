@@ -1,16 +1,148 @@
-import React from 'react';
-import TopBarLayout from '../layout/TopBarLayout';
+import React, { useState } from 'react';
+import TopBar from "../../components/topBar/TopBar";
+import PageLayout from "../layout/PageLayout";
+import BottomBar from "../../components/bottomBar/BottomBar";
+
+// Données des produits (à déplacer vers un fichier séparé plus tard)
+const products = [
+  {
+    id: 1,
+    title: 'Robe d\'été fleurie',
+    image: '/images/products/femme/robe-ete.jpg',
+    price: 2000,
+    category: 'robes'
+  },
+  {
+    id: 2,
+    title: 'Top basique blanc',
+    image: '/images/products/femme/top-blanc.jpg',
+    price: 19.99,
+    category: 'tops'
+  },
+  // Ajoutez d'autres produits...
+];
+
+const categoryItems = [
+  {
+    id: 'all',
+    title: 'Tout',
+    image: '/images/categories/femme/all.jpg',
+    link: '/femme/all'
+  },
+  {
+    id: 1,
+    title: 'Robes',
+    image: '/images/categories/femme/robes.jpg',
+    link: '/femme/robes',
+    category: 'robes'
+  },
+  {
+    id: 2,
+    title: 'Tops',
+    image: '/images/categories/femme/tops.jpg',
+    link: '/femme/tops',
+    category: 'tops'
+  },
+  {
+    id: 3,
+    title: 'Pantalons',
+    image: '/images/categories/femme/pantalons.jpg',
+    link: '/femme/pantalons',
+    category: 'pantalons'
+  },
+  {
+    id: 4,
+    title: 'Jupes',
+    image: '/images/categories/femme/jupes.jpg',
+    link: '/femme/jupes',
+    category: 'jupes'
+  },
+  {
+    id: 5,
+    title: 'Accessoires',
+    image: '/images/categories/femme/accessoires.jpg',
+    link: '/femme/accessoires',
+    category: 'accessoires'
+  }
+];
 
 const Femme = () => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const handleCategoryClick = (link, category) => {
+    setSelectedCategory(category || 'all');
+  };
+
+  const filteredProducts = selectedCategory === 'all' 
+    ? products 
+    : products.filter(product => product.category === selectedCategory);
+
   return (
-    <TopBarLayout>
-      <div className="max-w-screen-xl mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-6">Mode Femme</h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {/* Ici nous ajouterons les produits */}
+    <PageLayout bottomBar={<BottomBar />} topBar={<TopBar />}>
+      <div className="flex flex-col h-full bg-gray-50 translate-y-32">
+        {/* Catégories rondes avec défilement horizontal */}
+        <div className="flex gap-4 px-4 py-6 overflow-x-auto bg-white mb-2">
+          {categoryItems.map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-col items-center gap-1 cursor-pointer min-w-[4rem]"
+              onClick={() => handleCategoryClick(item.link, item.category)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Catégorie ${item.title}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleCategoryClick(item.link, item.category);
+                }
+              }}
+            >
+              <div className={`w-16 h-16 rounded-full overflow-hidden shadow-sm ${
+                selectedCategory === (item.category || 'all') ? 'ring-2 ring-black' : ''
+              }`}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className={`text-xs whitespace-nowrap ${
+                selectedCategory === (item.category || 'all') 
+                  ? 'p-0.4 px-3 bg-black text-white text-sm rounded-full' 
+                  : 'text-gray-800'
+              }`}>
+                {item.title}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Grille de produits filtrés */}
+        <div className="grid grid-cols-2 gap-4 p-4">
+          {filteredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="flex flex-col bg-white rounded-lg shadow-sm overflow-hidden"
+            >
+              <div className="relative w-full pt-[100%]">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-2">
+                <h3 className="text-sm font-medium text-gray-800 line-clamp-2">
+                  {product.title}
+                </h3>
+                <p className="text-sm font-bold text-gray-900 mt-1">
+                  {product.price.toFixed(2)} FCFA
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </TopBarLayout>
+    </PageLayout>
   );
 };
 
