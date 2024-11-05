@@ -16,6 +16,8 @@ import Echantillons from "../../components/Sections/Echantillons";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 import TopNavigationBar from '../../components/navigation/TopNavigationBar';
 import ImageCounter from '../../components/UI/ImageCounter';
+import { useCart } from '../../context/CartContext';
+import Toast from '../../components/UI/Toast';
 
 const ProduitDetails = () => {
   const navigate = useNavigate();
@@ -25,6 +27,7 @@ const ProduitDetails = () => {
   const [isCityModalOpen, setIsCityModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const product = produits.find((p) => p.id === parseFloat(id));
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     const handleNavScroll = () => {
@@ -59,7 +62,13 @@ const ProduitDetails = () => {
   return (
     <div className="bg-gray-100 min-h-screen relative overflow-x-hidden">
       <PageLayout bottomBar={
-        !isCityModalOpen && <BottomButton toggleModal={toggleModal} />
+        !isCityModalOpen && (
+          <BottomButton 
+            toggleModal={toggleModal} 
+            product={product} 
+            onAddToCart={() => setShowToast(true)}
+          />
+        )
       }>
         <TopNavigationBar 
           isScrolled={isScrolled}
@@ -88,12 +97,19 @@ const ProduitDetails = () => {
         <DeliveryPromises />
         <CoutLivraison/>
         <MoreProduct/>
+        <Toast 
+          message="Produit ajouté au panier avec succès !"
+          isVisible={showToast}
+          onClose={() => setShowToast(false)}
+        />
       </PageLayout>
     </div>
   );
 }
 
-const BottomButton = ({toggleModal}) => {
+const BottomButton = ({toggleModal, product, onAddToCart}) => {
+  const { addToCart } = useCart();
+  
   const handleOrder = () => {
     try {
       toggleModal();
@@ -103,8 +119,8 @@ const BottomButton = ({toggleModal}) => {
   }
 
   const handleAddToCart = () => {
-    // Implement add to cart functionality here
-    console.log('Produit ajouté au panier');
+    addToCart(product);
+    onAddToCart();
   }
 
   return (

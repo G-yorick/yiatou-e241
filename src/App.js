@@ -10,15 +10,15 @@ function App() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <UserProvider>
-          <CartProvider>
+    <CartProvider>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <UserProvider>
             <AppRoutes />
-          </CartProvider>
-        </UserProvider>
-      </Routes>
-    </AnimatePresence>
+          </UserProvider>
+        </Routes>
+      </AnimatePresence>
+    </CartProvider>
   );
 }
 
