@@ -47,7 +47,7 @@ const categoryItems = [
   {
     id: 'all',
     title: 'Tout',
-    image: '/images/categories/all/',
+    image: '/img/produit/femme/accessoires.jpeg',
     link: '/femme/all'
   },
   {
