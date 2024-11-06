@@ -100,7 +100,7 @@ const Femme = () => {
 
   return (
     <PageLayout bottomBar={<BottomBar />} topBar={<TopBar />}>
-      <div className="flex flex-col h-full bg-gray-50 translate-y-32">
+      <div className="flex flex-col h-full bg-gray-50 translate-y-24">
         {/* Catégories rondes avec défilement horizontal */}
         <div className="flex gap-4 px-4 py-6 overflow-x-auto bg-white mb-2">
           {categoryItems.map((item) => (
