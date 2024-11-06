@@ -34,11 +34,6 @@ const NavLinks = () => {
                     label="Homme" 
                     className="w-auto px-2" 
                 />
-                <NavLink 
-                    to="/enfants" 
-                    label="Enfants" 
-                    className="w-auto px-2" 
-                />
             </nav>
             <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none" />
         </div>
