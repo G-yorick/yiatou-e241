@@ -18,8 +18,8 @@ const HomeSlider = () => {
     return (
         <Slider arrows={false} {...settings} className="w-full h-auto">
             {sliders.map((img, i) => (
-                <div key={i} className='w-full h-auto flex justify-center items-center mt-32'>
-                    <img src={img} alt={`slider-${i}`} className='w-full h-32 object-cover'/>
+                <div key={i} className='w-full h-64 flex justify-center items-center mt-40 bg-gray-200 transition ease-in-out duration-500 hover:scale-110'>
+                    <img src={img} alt={`slider-${i}`} className='w-full h-110s object-cover'/>
                 </div>
             ))}
         </Slider>
