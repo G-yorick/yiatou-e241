@@ -8,13 +8,21 @@ const SearchBar = () => {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [searchHistory, setSearchHistory] = useState([]);
+    const [placeholderText, setPlaceholderText] = useState('Rechercher ici');
+
+    const placeholderTexts = [
+        'Robes femme',
+        'Pantalons homme',
+        'Chemises homme',
+        'Electro ménager',
+        'Mécanique ...'
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
             setHasScrolled(window.scrollY > 0);
         };
 
-        // Charger l'historique de recherche
         const loadSearchHistory = () => {
             const history = localStorage.getItem('searchHistory');
             if (history) {
@@ -28,8 +36,17 @@ const SearchBar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        let index = 0;
+        const interval = setInterval(() => {
+            setPlaceholderText(placeholderTexts[index]);
+            index = (index + 1) % placeholderTexts.length;
+        }, 3000); // Change every 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     const handleSearchFocus = () => {
-        // Activer d'abord le fond sombre
         setIsSearchActive(true);
         document.body.style.overflow = 'hidden';
     };
@@ -51,7 +68,6 @@ const SearchBar = () => {
 
     const handleSuggestionClick = (suggestion) => {
         setSearchValue(suggestion);
-        // Implémenter la logique de recherche ici
     };
 
     const borderClass = (hasScrolled || isSearchActive) ? 'border-black' : 'border-[#cccccc]';
@@ -63,7 +79,7 @@ const SearchBar = () => {
         <>
             <div className={`${isSearchActive ? 'fixed inset-0 bg-white z-50' : 'contents'}`}>
                 <form onSubmit={handleSubmit} className={`transition-all duration-300 ${containerClass}`}>
-                    <div className="relative w-full flex items-center gap-2 mt-1">
+                    <div className="relative w-full flex items-center gap-10 mt-1">
                         {isSearchActive && (
                             <button
                                 type="button"
@@ -71,7 +87,7 @@ const SearchBar = () => {
                                 className="p-2 focus:outline-none"
                                 aria-label="Retour"
                             >
-                                <i className="fi fi-br-angle-left w-6 h-6"></i>
+                                <i className="fi fi-br-angle-left w-6 h-6 hover:bg-gray-300 rounded-xl transition ease-in-out duration-500 flex items-center"></i>
                             </button>
                         )}
                         <div className={`relative w-full ${!isSearchActive ? '-translate-y-3.5' : ''}`}>
@@ -80,8 +96,8 @@ const SearchBar = () => {
                                 value={searchValue}
                                 onChange={(e) => setSearchValue(e.target.value)}
                                 onFocus={handleSearchFocus}
-                                placeholder="Rechercher"
-                                className={`w-full h-10 pl-4 border ${borderClass} ${inputClass} border-1 rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-colors duration-300`}
+                                placeholder={placeholderText}  // Texte modifié ici
+                                className={`w-full h-10 pl-10 border shadow-xl shadow-black-500/90 pl- ${borderClass} ${inputClass} border-1 rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-colors duration-300`}
                                 aria-label="Rechercher"
                             />
                             <button
