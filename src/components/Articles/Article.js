@@ -51,7 +51,7 @@ const Article = ({ share = null, product }) => {
 
  return (
    <div 
-     className="w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col"
+     className="w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col ICI JE DOIS BOSSER bg-red-700"
    >
      {/* Image */}
      <Link to={`/produit-details/${product.id}`} className="block relative">

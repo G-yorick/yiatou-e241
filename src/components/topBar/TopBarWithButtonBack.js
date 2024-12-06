@@ -22,15 +22,15 @@ const TopBarWithButtonBack = ({title = null, link = -1}) => {
 
   return (
     <TopBarLayout>
-      <div className="w-full flex items-center justify-between h-[48px] px-3 relative">
+      <div className="w-full flex items-center justify-between h-[48px] px-3 relative space-x-10">
         <button 
           onClick={handleBack}
           onKeyDown={handleKeyDown}
-          className="absolute left-1 top-1/2 -translate-y-1/2 flex items-center"
+          className="absolute left-1 top-1/2 -translate-y-1/2 "
           aria-label="Retour"
           tabIndex={0}
         >
-          <i className="fi fi-br-angle-left w-6 h-6 mt-2"></i>
+          <i className="fi fi-br-angle-left w-6 h-6 flex items-center transition ease-in-out duration-300 hover:bg-gray-400 rounded-xl"></i>
         </button>
         <h2 className="text-lg font-medium w-full ml-3">{title}</h2>
       </div>
