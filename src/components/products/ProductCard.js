@@ -2,12 +2,12 @@ import React from 'react';
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="flex flex-col bg-white rounded-lg shadow-sm overflow-hidden">
+    <div className="flex flex-col bg-white rounded-lg shadow-sm overflow-hidden bg-green-700">
       <div className="relative w-full pt-[100%]">
         <img
           src={product.image}
           alt={product.title}
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 w-full h-full object-cover md:hover:scale-110 transition ease-in-out duration-500"
         />
       </div>
       <div className="p-2">

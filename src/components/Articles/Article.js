@@ -51,7 +51,7 @@ const Article = ({ share = null, product }) => {
 
  return (
    <div 
-     className="w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col ICI JE DOIS BOSSER bg-red-700"
+     className="w-full bg-white rounded-lg shadow-sm relative overflow-hidden flex flex-col"
    >
      {/* Image */}
      <Link to={`/produit-details/${product.id}`} className="block relative">
@@ -70,7 +70,7 @@ const Article = ({ share = null, product }) => {
        {/* Description */}
        <Link
          to={`/produit-details/${product.id}`}
-         className="text-[#333333] text-xs leading-tight block mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis"
+         className="text-[#333333] text-xs leading-tight block mb-0.5 whitespace-nowrap overflow-hidden text-white bg-green-700 rounded px-2"
        >
          {truncatedDescription}
        </Link>
@@ -99,7 +99,7 @@ const Article = ({ share = null, product }) => {
 
          {/* Share Button */}
          <button
-           className="bg-gray-100 p-1.5 rounded-full transition-transform duration-300 ease-in-out hover:rotate-180 focus:rotate-180"
+           className="bg-gray-100 p-1.5 rounded-full transition-transform duration-300 ease-in-out hover:rotate-180 focus:rotate-180 bg-blue-500"
            onClick={handleShare}
            aria-label="Partager"
          >

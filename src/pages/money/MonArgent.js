@@ -66,7 +66,7 @@ const Header = ({ onGetMoney, onWithdraw }) => {
     }
   };
   return (
-    <header className="sticky top-0 z-10 w-full h-[150px] bg-green-200 rounded-b-[30px] px-3 flex flex-col justify-center items-start">
+    <header className="sticky top-0 z-10 w-full h-[200px] bg-green-200 rounded-b-[30px] px-3 flex flex-col justify-center items-start">
       <p className="font-medium -translate-y-2">Solde actuel</p>
       <p className="flex gap-3 items-end">
         <span className="font-bold text-3xl">6,500</span>
@@ -79,6 +79,10 @@ const Header = ({ onGetMoney, onWithdraw }) => {
       >
         Retirer
       </button>
+      <div className="flex items-center space-x-4 border-2 py-4 px-2 rounded shadow hover:shadow-gray-500/70 transition ease-in-out duration-300 ">
+          <span className="font-bold uppercase">NB:</span>
+          <span className="">Ici nous vous expliquons que...</span>
+      </div>
     </header>
   );
 };

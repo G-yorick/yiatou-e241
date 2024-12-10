@@ -6,7 +6,7 @@ import { sliders } from '../../utils/utils';
 
 const HomeSlider = () => {
     let settings = {
-        dots: true,
+        // dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -18,8 +18,8 @@ const HomeSlider = () => {
     return (
         <Slider arrows={false} {...settings} className="w-full h-auto">
             {sliders.map((img, i) => (
-                <div key={i} className='w-full h-64 flex justify-center items-center mt-40 bg-gray-200 transition ease-in-out duration-500 hover:scale-110'>
-                    <img src={img} alt={`slider-${i}`} className='w-full h-110s object-cover'/>
+                <div key={i} className='w-full h-32 md:h-64 flex justify-center items-center mt-40 bg-white transition ease-in-out duration-500 hover:scale-110'>
+                    <img src={img} alt={`slider-${i}`} className='w-full h-110 object-cover'/>
                 </div>
             ))}
         </Slider>
