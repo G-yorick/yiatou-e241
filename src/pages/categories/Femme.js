@@ -5,14 +5,28 @@ import BottomBar from "../../components/bottomBar/BottomBar";
 import CategoryItem from '../../components/categories/CategoryItem';
 import SubCategoryItem from '../../components/categories/SubCategoryItem';
 import ProductCard from '../../components/products/ProductCard';
+import ShareProduct from '../../components/Modals/ShareProduct';
 import { products, categoryItems, subCategories } from '../../data/categoryData';
 
 const Femme = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+  const [activeShare, setActiveShare] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleCategoryClick = (link, category) => {
     setSelectedCategory(category || 'all');
+  };
+
+  const toggleActiveShare = (product) => {
+    setActiveShare(!activeShare);
+    setSelectedProduct(product);
+    // Empêcher le défilement quand le modal est ouvert
+    if (!activeShare) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   };
 
   const filteredProducts = selectedCategory === 'all' 
@@ -21,6 +35,11 @@ const Femme = () => {
 
   return (
     <PageLayout bottomBar={<BottomBar />} topBar={<TopBar />}>
+      <ShareProduct 
+        product={selectedProduct} 
+        toggleActiveShare={toggleActiveShare} 
+        activeShare={activeShare}
+      />
       <div className="flex flex-col h-full bg-gray-50 translate-y-24 mb-16">
         <div className="flex gap-4 px-4 py-4 overflow-x-auto bg-white scrollbar-hide border-b border-gray-300">
           {categoryItems.map((item) => (
@@ -46,7 +65,11 @@ const Femme = () => {
 
         <div className="grid grid-cols-2 gap-2 px-3 mb-16 mt-2">
           {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              onShare={() => toggleActiveShare(product)}
+            />
           ))}
         </div>
       </div>
@@ -54,4 +77,4 @@ const Femme = () => {
   );
 };
 
-export default Femme; 
+export default Femme;

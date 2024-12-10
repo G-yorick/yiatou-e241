@@ -139,7 +139,9 @@ function LoginModal({ onClose, onLogin }) {
 
     return (
         <ModalModel onClose={onClose} icon={<IconUser />} title="Connexion" active={true}>
-            <Login/>
+            <Login>
+              <button type="submit" onClick={handleSubmit}>Se connecter</button>
+            </Login>
         </ModalModel>
     );
 }
