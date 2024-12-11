@@ -60,11 +60,41 @@ const ProductCard = ({ product, onShare }) => {
         {/* Conteneur pour le texte animé et le bouton de partage */}
         <div className="flex justify-between items-center mt-2">
           {/* Texte animé */}
-          <p className={`text-sm font-base leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${
-            isTextVisible ? 'opacity-100' : 'opacity-0'
-          }`}>
-            {currentText}
-          </p>
+          {product.title === 'Top basique blanc' ? (
+            <p className="text-sm font-base leading-tight text-gray-600">
+              Achat min: 5
+            </p>
+          ) : product.title === 'Jupe' ? (
+            <p className="text-sm font-base leading-tight text-gray-600">
+              Achat min: 10
+            </p>
+          ) : product.title === 'Maquillage' ? (
+            <p className="text-sm font-base leading-tight text-gray-600">
+              Achat min: 5
+            </p>
+          ) : product.title === 'Laptop' ? (
+            <p className="text-sm font-base leading-tight text-gray-600">
+              Achat min: 5
+            </p>
+          ) : product.title === 'Smart TV' ? (
+            <p className="text-sm font-base leading-tight text-gray-600">
+              Achat min: 10
+            </p>
+          ) : product.title === 'Jean Coupe' ? (
+            <p className="text-sm font-base leading-tight text-gray-600">
+              Achat min: 5
+            </p>
+          ) : product.title === 'Accessoires' ? (
+            <p className="text-sm font-base leading-tight text-gray-600">
+              Achat min: 10
+            </p>
+          ) : (
+            <p className={`text-sm font-base leading-tight text-green-600 transition-opacity duration-300 ease-in-out ${
+              isTextVisible ? 'opacity-100' : 'opacity-0'
+            }`}>
+              {currentText}
+            </p>
+          )}
           {/* Bouton de partage */}
           <button
             className="bg-gray-100 p-1.5 rounded-full transition-transform duration-300 ease-in-out hover:rotate-180 focus:rotate-180"
