@@ -6,8 +6,8 @@ const Retour = () => {
   return (
     <PageLayout topBar={<TopBarWithButtonBack link="/account" title="Politique de retour"/>}>
         <div className="px-4 py-12 text-justify bg-white">
-            <div className="flex flex-col gap-3 font-medium text-[#333333]">
-                <p>
+            <div className="flex flex-col gap-3 text-[#333333]">
+                <p className="font-light">
                     Chez Yiatou, la satisfaction de nos clients est une priorité. Nous faisons tout pour garantir 
                     des produits de qualité à des prix compétitifs. Cependant, si un produit ne répond pas aux attentes, 
                     nous avons mis en place une politique de retour pour simplifier le processus.
@@ -46,21 +46,11 @@ const Retour = () => {
             </ol>
 
             <H2>Questions et Assistance</H2>
-            <p className="font-medium text-[#333333]">
+            <p className="font-light text-[#333333]">
                 Pour toute question supplémentaire concernant les retours, notre service client est à ta disposition 
                 pour t'accompagner dans chaque étape.
             </p>
 
-            <button 
-                className="w-full py-2 mt-6 border-2 border-purple-500 rounded text-purple-500 font-medium hover:bg-purple-50 transition-colors"
-                onClick={() => window.location.href = '/contact'}
-                aria-label="Contacter le service client"
-            >
-                Contacter le service client
-            </button>
-        </div>
-        <div className="-translate-y-6">
-            <MoreProduct/>
         </div>
     </PageLayout>
   )

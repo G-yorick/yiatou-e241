@@ -7,7 +7,7 @@ export default function About() {
     <PageLayout topBar={<TopBarWithButtonBack link="/account" title="A propos"/>}>
         <div className="px-4 py-12 text-justify bg-white">
         <H2>Découverte !</H2>
-            <div className="flex flex-col gap-3 font-medium text-[#333333]">
+            <div className="flex flex-col gap-3 font-light text-[#333333]">
                 <p>
                 Découvres Yiatou, ta nouvelle application de vente en ligne sociale révolutionnaire! 
                 Avec Yiatou, plonge dans un univers d'articles de qualités, rares et uniques qui ne manqueront pas de t’émerveiller. 
@@ -39,14 +39,7 @@ export default function About() {
             <p className="py-3 font-medium text-[#333333]">
             Rejoins Yiatou dès maintenant et fais partie de la communauté des gens les plus heureux de la toile !
             </p>
-            <button className="border-2 w-full py-2 mt-4 border-purple-500 rounded text-purple-500 font-medium">
-                Clique ici pour en savoir plus
-            </button>
         </div>
-        <div className="-translate-y-6">
-        <MoreProduct/>
-        </div>
-
     </PageLayout>
   )
 }

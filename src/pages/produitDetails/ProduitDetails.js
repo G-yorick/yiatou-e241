@@ -16,8 +16,13 @@ import Echantillons from "../../components/Sections/Echantillons";
 import DeliveryPromises from "../../components/Sections/DeliveryPromises";
 import TopNavigationBar from '../../components/navigation/TopNavigationBar';
 import ImageCounter from '../../components/UI/ImageCounter';
-import { useCart } from '../../context/CartContext';
 import Toast from '../../components/UI/Toast';
+import { useCart } from '../../context/CartContext';  
+import anime from 'animejs/lib/anime.es.js';
+import Animation from '../../components/annim.js';
+import { motion, AnimatePresence } from "framer-motion";
+
+
 
 const ProduitDetails = () => {
   const navigate = useNavigate();
@@ -47,6 +52,7 @@ const ProduitDetails = () => {
     { name: 'Akanda', price: 2500 },
     { name: 'Owendo', price: 2500 },
     // Ajoutez d'autres villes selon vos besoins
+
   ];
 
   const handleCartClick = () => {
@@ -97,6 +103,7 @@ const ProduitDetails = () => {
         <DeliveryPromises />
         <CoutLivraison/>
         <MoreProduct/>
+        <Animation />
         <Toast 
           message="Produit ajouté au panier avec succès !"
           isVisible={showToast}
@@ -104,36 +111,67 @@ const ProduitDetails = () => {
         />
       </PageLayout>
     </div>
+    
   );
 }
 
-const BottomButton = ({toggleModal, product, onAddToCart}) => {
+const BottomButton = ({ toggleModal, product, onAddToCart }) => {
   const { addToCart } = useCart();
-  
+
   const handleOrder = () => {
     try {
       toggleModal();
     } catch (error) {
       console.log('ToggleModal doit être une fonction');
     }
-  }
+  };
 
   const handleAddToCart = () => {
     addToCart(product);
     onAddToCart();
-  }
+
+    // Animation pour ajouter au panier
+    anime({
+      targets: '.cart-counter',
+      opacity: [0, 1],
+      duration: 200,
+      easing: 'easeInOutQuad',
+    });
+   /* animation && (
+      <motion.div
+        style={{
+          position: "absolute",
+          top: animation.position.y,
+          left: animation.position.x,
+          width: "100px",
+          height: "100px",
+          background: "lightblue",
+        }}
+        initial={{ scale: 1 }}
+        animate={{
+          x: window.innerWidth - 70, // Ajustez la destination (ex. position du panier)
+          y: window.innerHeight - 70,
+          scale: 0.3,
+        }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 5 }}
+      />
+    )*/
+      
+  };
 
   return (
     <BottomBarLayout>
       <div className="shadow-lg w-full mt-1 py-2 px-3 flex justify-between gap-2">
-        <ButtonCta 
+        <ButtonCta
           onClick={handleOrder}
           variant="green"
           className="flex-1 text-md font-bold"
         >
           Commander
         </ButtonCta>
-        <ButtonCta 
+
+        <ButtonCta
           onClick={handleAddToCart}
           className="flex-1 flex items-center justify-center text-md font-bold"
         >
@@ -142,14 +180,13 @@ const BottomButton = ({toggleModal, product, onAddToCart}) => {
       </div>
     </BottomBarLayout>
   );
-}
-
+};
 const PersonnalInfo = () => {
   const navigate = useNavigate();
 
   const handleFocus = useCallback((e) => {
     e.preventDefault();
-    window.scrollTo(0, 0);
+    window.scrollTo(2, 5);
   }, []);
 
   const handleSubmit = (e) => {
