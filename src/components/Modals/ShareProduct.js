@@ -114,7 +114,7 @@ function ModalImageContent({isProduct = true, isLoggedIn, toggleLoginModal}) {
         </div>
         <div className="mt-6">
           <button 
-            className="text-base rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-[#cccccc]"
+            className="text-base rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-solid border-[#cccccc]"
             onClick={handleCopyLink}
           >
             Copier le lien
@@ -139,7 +139,9 @@ function LoginModal({ onClose, onLogin }) {
 
     return (
         <ModalModel onClose={onClose} icon={<IconUser />} title="Connexion" active={true}>
-            <Login/>
+            <Login>
+              <button type="submit" onClick={handleSubmit}>Se connecter</button>
+            </Login>
         </ModalModel>
     );
 }

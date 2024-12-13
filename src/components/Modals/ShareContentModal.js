@@ -87,7 +87,7 @@ function ShareContent({ shareUrl }) {
       </div>
       <div className="mt-10">
         <button
-          className="text-lg rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-dashed border-[#cccccc] hover:bg-gray-300 transition-colors"
+          className="text-lg rounded-md font-medium text-gray-700 w-full py-2 px-2 bg-gray-200 mb-3 border-2 border-solid border-[#cccccc] hover:bg-gray-300 transition-colors"
           onClick={handleCopyLink}
           onKeyDown={(e) => handleKeyDown(e, handleCopyLink)}
           aria-label="Copier le lien de partage"
