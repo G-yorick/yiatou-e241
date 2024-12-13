@@ -5,7 +5,6 @@ import ProgramDescription from "../../components/affiliation/ProgramDescription"
 import ShareSection from "../../components/affiliation/ShareSection";
 import EarningsSection from "../../components/affiliation/EarningsSection";
 import HowItWorks from "../../components/affiliation/HowItWorks";
-import FooterCTA from "../../components/affiliation/FooterCTA";
 
 const Affiliation = () => {
     const handleAffiliationClick = () => {
@@ -19,7 +18,6 @@ const Affiliation = () => {
             <ShareSection />
             <EarningsSection onAffiliationClick={handleAffiliationClick} />
             <HowItWorks />
-            <FooterCTA onAffiliationClick={handleAffiliationClick} />
         </PageLayout>
     );
 };

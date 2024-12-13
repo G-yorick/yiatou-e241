@@ -47,7 +47,7 @@ const ProductCard = ({ product, onShare }) => {
         <img
           src={product.image}
           alt={product.title}
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 w-full h-full object-cover md:hover:scale-110 transition ease-in-out duration-500"
         />
       </div>
       <div className="p-2">

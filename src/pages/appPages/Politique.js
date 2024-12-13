@@ -8,7 +8,7 @@ export default function Politique() {
         <div className="px-3 py-12 bg-white text-justify">
             <p className="text-gray-600 text-sm">Dernière mise à jour : 01/12/2024</p>
             <div className="text-gray-600 mt-2">
-                <p className="font-medium mb-4">
+                <p className="font-light mb-4">
                     Chez Yiatou, nous prenons la vie privée au sérieux. Cette politique de confidentialité décrit les types d'informations personnelles que nous collectons, comment nous les utilisons, les partageons et les protégeons.
                 </p>
 

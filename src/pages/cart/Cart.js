@@ -37,21 +37,41 @@ const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
 const Cart = () => {
   const navigate = useNavigate()
   const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Clé USB 128 GB', price: 15000, quantity: 0, image: '/img/pro/p7.png', selected: false, isEchantillon: true },
-    { id: 2, name: 'Clé USB 14 GB', price: 7000, quantity: 0, image: '/img/pro/p8.png', selected: false, isEchantillon: false },
-    { id: 3, name: 'Clé USB 4 GB', price: 2500, quantity: 0, image: '/img/pro/p9.png', selected: false, isEchantillon: true },
-    { id: 4, name: 'Bouteille de Champagne', price: 2500, quantity: 0, image: '/img/pro/champagne.jpg', selected: false, isEchantillon: true },
+    { id: 1, name: 'Clé USB 128 GB', price: 15000, quantity: '0', image: '/img/pro/p7.png', selected: false, isEchantillon: true },
+    { id: 2, name: 'Clé USB 14 GB', price: 7000, quantity: '0', image: '/img/pro/p8.png', selected: false, isEchantillon: false },
+    { id: 3, name: 'Clé USB 4 GB', price: 2500, quantity: '0', image: '/img/pro/p9.png', selected: false, isEchantillon: true },
+    { id: 4, name: 'Bouteille de Champagne', price: 2500, quantity: '0', image: '/img/pro/champagne.jpg', selected: false, isEchantillon: true },
   ])
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [itemToDelete, setItemToDelete] = useState(null)
 
-  const handleUpdateQuantity = (id, newQuantity) => {
+  const handleUpdateQuantity = (id, action) => {
     setCartItems(items =>
-      items.map(item =>
-        item.id === id ? { ...item, quantity: Math.max(0, newQuantity) } : item
-      )
-    )
-  }
+      items.map(item => {
+        if (item.id === id) {
+          // Pour la saisie manuelle
+          if (typeof action === 'string') {
+            // Si le champ est vide, retourner '0'
+            if (action === '') {
+              return { ...item, quantity: '0' };
+            }
+            // Pour toute autre saisie valide
+            const numValue = parseInt(action);
+            if (!isNaN(numValue) && numValue >= 0) {
+              return { ...item, quantity: numValue.toString() };
+            }
+            return item;
+          }
+          
+          // Pour l'incrémentation/décrémentation
+          const currentQuantity = parseInt(item.quantity || '0');
+          const newQuantity = Math.max(0, currentQuantity + action);
+          return { ...item, quantity: newQuantity.toString() };
+        }
+        return item;
+      })
+    );
+  };
 
   const handleToggleSelect = (id) => {
     setCartItems(items =>
@@ -68,9 +88,9 @@ const Cart = () => {
     )
   }
 
-  // Calcul du total uniquement pour les articles sélectionnés
+  // Calcul du total uniquement pour les articles sélectionnés avec quantité > 0
   const total = cartItems.reduce((sum, item) => 
-    item.selected ? sum + item.price * item.quantity : sum, 0
+    item.selected && parseInt(item.quantity) > 0 ? sum + item.price * parseInt(item.quantity) : sum, 0
   )
 
   // Vérifie si tous les articles sont sélectionnés
@@ -158,15 +178,27 @@ const Cart = () => {
                     </button>
                     <div className="flex items-center space-x-1 border border-[#cccccc] rounded-full">
                       <button 
-                        onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
+                        onClick={() => handleUpdateQuantity(item.id, -1)}
                         className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center focus:outline-none"
                         aria-label="Diminuer la quantité"
                       >
                         -
                       </button>
-                      <span className="w-6 text-center text-sm">{item.quantity}</span>
+                      <input
+                        type="number"
+                        min="0"
+                        value={item.quantity}
+                        onChange={(e) => handleUpdateQuantity(item.id, e.target.value)}
+                        onBlur={(e) => {
+                          if (e.target.value === '') {
+                            handleUpdateQuantity(item.id, '');
+                          }
+                        }}
+                        className="w-8 text-center outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        aria-label="Quantité"
+                      />
                       <button 
-                        onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
+                        onClick={() => handleUpdateQuantity(item.id, 1)}
                         className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center focus:outline-none"
                         aria-label="Augmenter la quantité"
                       >
