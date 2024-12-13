@@ -7,6 +7,6 @@ export default function ButtonCta({children, variant, ...props}) {
   return (
     <button {...props} className={`${baseClasses} ${variantClasses} ${props.className || ''}`}>
       {children}
-    </button>
+    </button> 
   )
 }
